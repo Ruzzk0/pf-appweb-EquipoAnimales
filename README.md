@@ -8,3 +8,11 @@ pero también podrán hacer publicaciones ancladas (que aparecerán en la parted
 a las cuales no se les puede hacer comentarios.
 Estos usuarios administradores pueden ver y borrar todas las publicaciones y sus comentarios, pero no editarlos.
 Los detalles de funcionalidad se irán dando a medida que se avance en el curso. 
+
+
+Los integrantes del equipo son
+
+Gamaliel Armenta Perez
+Fedra Valeria cervantes Mellado - 244780
+Astorga
+Diana
