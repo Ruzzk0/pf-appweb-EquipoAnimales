@@ -1,28 +1,29 @@
-body {
+#register-section {
+    margin-top: 150px; 
+  }
+
+  body {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-    background-color: #D5F3EC;
+    background-color: #f8f9fa;
     margin: 0;
     padding: 20px;
-    background-image: url(https://cdn.pixabay.com/animation/2023/02/28/14/20/14-20-09-131_512.gif);
-    background-repeat: no-repeat;
-    background-position: 120px 470px;
   }
   
   .section {
     width: 100%;
     max-width: 400px;
     background-color: #fff;
-    padding: 20px;
+    padding: 35px;
     margin: 20px 0;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   }
   
-  #login-section {
-    margin-top: 30px;
+  #register-section {
+    margin-top: 35px; 
   }
   
   .form-group {
@@ -44,7 +45,6 @@ body {
   }
   
   .btn {
-    width: 100%;
     padding: 10px;
     background-color: #007bff;
     color: white;
@@ -66,6 +66,10 @@ body {
     color: #333;
   }
   
+  h4[title='texto-Registro']{
+    text-align: center;
+  }
+
   h6 {
     margin-bottom: 20px;
     color: #333;
@@ -73,6 +77,11 @@ body {
   
   p {
     margin-top: 15px;
+  }
+
+  a[id='btnRegistro']{
+    display: block;
+    text-align: center;
   }
 
   header{
@@ -84,7 +93,7 @@ h1[title='bienvenida']{
     color: #19816e;
 }
 
-div[id='texto-bienvenida']{
+div[id='texto-Registro']{
     background-color: #b3ff02a0;
     padding: 10px 20px;
     border-radius: 25px;
