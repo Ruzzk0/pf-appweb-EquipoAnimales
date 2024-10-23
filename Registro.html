@@ -58,3 +58,72 @@
       </section>
 </body>
 </html>
+
+<script>
+    $(document).ready(function() {
+        // Cargar países desde una API, esta estuvo facil de encontrar
+        $.getJSON('https://restcountries.com/v3.1/all', function(data) {
+            data.forEach(country => {
+                $('#pais').append(`<option value="${country.cca2}">${country.name.common}</option>`);
+            });
+        });
+
+        // solo para que este de relleno, en lo que busco como traermelo 
+        const estadosCiudades = {
+            "US": {
+                "CA": ["Los Angeles", "San Francisco"],
+                "NY": ["New York City", "Buffalo"]
+            },
+            "MX": {
+                "CMX": ["México City", "Ecatepec"],
+                "JAL": ["Guadalajara", "Tlaquepaque"]
+            }
+        };
+
+        // PENDIENTE
+        $('#pais').change(function() {
+            const countryCode = $(this).val();
+            const states = getStates(countryCode);
+            $('#estado').empty().append('<option value="">Selecciona tu estado</option>');
+            states.forEach(state => {
+                $('#estado').append(`<option value="${state.codigo}">${state.nombre}</option>`);
+            });
+            $('#ciudad').empty().append('<option value="">Selecciona tu ciudad</option>');
+        });
+
+        // aun no se como traerme ciertas cosas
+        $('#estado').change(function() {
+            const stateCode = $(this).val();
+            const countryCode = $('#pais').val();
+            const cities = estadosCiudades[countryCode][stateCode] || [];
+            $('#ciudad').empty().append('<option value="">Selecciona tu ciudad</option>');
+            cities.forEach(city => {
+                $('#ciudad').append(`<option value="${city}">${city}</option>`);
+            });
+        });
+
+        // a mano, por que aun no se como traerme los estados y ciudades
+        function getStates(countryCode) {
+            if (countryCode === "US") {
+                return [
+                    { codigo: "CA", nombre: "California" },
+                    { codigo: "NY", nombre: "New York" }
+                ];
+            } else if (countryCode === "MX") {
+                return [
+                    { codigo: "CMX", nombre: "Ciudad de México" },
+                    { codigo: "JAL", nombre: "Jalisco" }
+                ];
+            }
+            return [];
+        }
+
+        // Validación del formulario al enviar
+        $('#btnRegistro').click(function(e) {
+            e.preventDefault();
+            // Aquí va la lógica de validación
+            alert('Formulario enviado correctamente!');
+            // Aquí iría el código para enviar los datos al servidor
+        });
+    });
+  </script>
