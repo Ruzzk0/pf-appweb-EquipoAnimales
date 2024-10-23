@@ -3,7 +3,7 @@ body {
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  background-color: #f0f8f6;
+  background-color: #f2f2f2;
   margin: 0;
   padding: 20px;
   background-image: url(https://cdn.pixabay.com/animation/2023/02/28/14/20/14-20-09-131_512.gif);
@@ -19,29 +19,29 @@ body {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background: linear-gradient(135deg, rgba(255, 210, 200, 0.8), rgba(180, 235, 240, 0.7));
-  background-blend-mode: overlay;
   backdrop-filter: blur(5px);
   margin-top: 30px;
 }
 
-
-
 .form-group {
   margin-bottom: 15px;
+  position: relative;
 }
 
-input, select {
+.form-group i {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  color: #aaa;
+}
+
+input {
   width: 100%;
-  padding: 10px;
+  padding: 10px 10px 10px 35px; 
   margin: 5px 0;
   border: 1px solid rgba(246, 226, 221, 0.8);
   border-radius: 4px;
-}
-
-.checkbox-group {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
 }
 
 .btn {
@@ -55,20 +55,22 @@ input, select {
 }
 
 .btn-success {
-  background-color: #28a745;
+  background-color: #0a7b67;
 }
 
 .btn:hover {
   opacity: 0.9;
 }
 
-h4, h6 {
+h4 {
   margin-bottom: 20px;
-  color: #333;
+  color: #0a7b67;
+  text-align: center;
 }
 
 p {
-  margin-top: 15px;
+  margin-top: 10px;
+  text-align: center;
 }
 
 header {
@@ -81,7 +83,7 @@ h1[title='bienvenida'] {
 }
 
 div[id='texto-bienvenida'] {
-  background-color: #f0f8f6;
+  background-color: #f2f2f2;
   padding: 10px 20px;
   border-radius: 25px;
   cursor: pointer;

@@ -1,102 +1,102 @@
+body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 20px;
+}
+
+
 #register-section {
-    margin-top: 150px; 
-  }
-
-  body {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f8f9fa;
-    margin: 0;
-    padding: 20px;
-  }
-  
-  .section {
-    width: 100%;
-    max-width: 400px;
-    background-color: #fff;
-    padding: 35px;
-    margin: 20px 0;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  }
-  
-  #register-section {
-    margin-top: 35px; 
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  input, select {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .checkbox-group {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-  }
-  
-  .btn {
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    margin-top: 20px;
-  }
-  
-  .btn-success {
-    background-color: #28a745;
-  }
-  
-  .btn:hover {
-    opacity: 0.9;
-  }
-  
-  h4 {
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  h4[title='texto-Registro']{
-    text-align: center;
-  }
-
-  h6 {
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  p {
-    margin-top: 15px;
-  }
-
-  a[id='btnRegistro']{
-    display: block;
-    text-align: center;
-  }
-
-  header{
-    text-align: center;
-    font-family:'Arial';
+  width: 100%;
+  max-width: 400px;
+  padding: 35px;
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, rgba(255, 210, 200, 0.8), rgba(180, 235, 240, 0.7));
+  background-blend-mode: overlay;
+  backdrop-filter: blur(5px);
+  margin-top: 150px;
 }
 
-h1[title='bienvenida']{
-    color: #19816e;
+.section {
+  background-color: #fff;
 }
 
-div[id='texto-Registro']{
-    background-color: #b3ff02a0;
-    padding: 10px 20px;
-    border-radius: 25px;
-    cursor: pointer;
+.form-group {
+  margin-bottom: 15px;
 }
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.checkbox-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.btn {
+  padding: 10px;
+  background-color: #0a7b67;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+
+.btn-success {
+  background-color: #0a7b67;
+}
+
+.btn:hover {
+  opacity: 0.9;
+}
+
+h4 {
+  margin-bottom: 20px;
+  color: #0a7b67;
+}
+
+h4[title='texto-Registro'] {
+  text-align: center;
   
+}
+
+h6 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+p {
+  margin-top: 15px;
+}
+
+a[id='btnRegistro'] {
+  display: block;
+  text-align: center;
+}
+
+header {
+  text-align: center;
+  font-family: 'Arial';
+}
+
+h1[title='bienvenida'] {
+  color: #19816e;
+}
+
+div[id='texto-Registro'] {
+  background-color: #f2f2f2;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+}
