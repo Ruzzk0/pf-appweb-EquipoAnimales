@@ -1,0 +1,69 @@
+section[id='perfil'] {
+    background-color: #3572EF;
+    position: sticky;
+    width: 100%;
+    height: 100%;
+}
+
+div[class="perfil"] {
+    width: 100%;
+    height: 100%;
+}
+
+div[class="cuerpo"] {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+div[id="logo"] {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+img[id="menuOpciones"] {
+    width: 100px;
+    margin-left: 10px;
+    margin-top: 5px;
+}
+
+h1[id="textoPerfil"] {
+    display: inline;
+}
+
+label[id="textoPerfil"] {
+    margin-left: 100px;
+}
+
+label[id="nombre"] {
+    margin-left: 150px;
+}
+
+label[id="representa"] {
+    margin-left: 150px;
+    margin-top: 10px;
+    display: block;
+
+}
+
+img[id="logo"] {
+    display: flex;
+    margin-left: 15px;
+}
+
+button[id="cambioBando"]{
+    margin-top: 20px;
+    margin-left: 140px;
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #AA4465; /* color del botón */
+    color: white;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+body{
+    background-color: #93E1D8;
+}
