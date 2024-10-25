@@ -93,3 +93,45 @@ h1 {
 	0%, 40%, 80% { box-shadow: none; }
 	60% { box-shadow: 0 0 10px 10px rgba(255,255,255,.3); }
 }
+
+
+.punto-interes {
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	border: 2px solid;
+	cursor: pointer;
+	opacity: 0;
+	transition: opacity 0.5s, transform 0.3s;
+	z-index: 30;
+}
+
+.punto-verde {
+	top: 30%;
+	left: 45%;
+	border-color: #4CAF50;
+}
+
+.punto-azul {
+	bottom: 25%;
+	left: 45%;
+	border-color: #2196F3;
+}
+
+.punto-gris {
+	top: 25%;
+	left: 65%;
+	border-color: #424242;
+}
+
+.punto-interes:hover {
+	transform: scale(1.2);
+	opacity: 1 !important;
+}
+
+@-webkit-keyframes parpadeo {
+	0% { opacity: 0; }
+	50% { opacity: 0.7; }
+	100% { opacity: 0; }
+}
