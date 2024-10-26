@@ -1,9 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>AnimalSocial</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimalSocial - Inicio de Sesión</title>
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
@@ -11,7 +11,7 @@
 <body>
     <header>
         <div class="bienvenida" id="texto-bienvenida">
-            <h1 title="bienvenida">BIENVENIDO A ANIMALSOCIAL</h1>
+            <h1 title="bienvenida">BIENVENIDO A AnimalSocial</h1>
         </div>
     </header>
 
@@ -61,7 +61,8 @@
             if (usuario) {
                 // Guardar información de sesión y redirigir
                 localStorage.setItem('usuarioActual', JSON.stringify(usuario));
-                window.location.href = 'principal.html';
+                alert('Inicio de sesión exitoso');
+                window.location.href = 'principal.html'; // Redirigir a la página principal
             } else {
                 // Mostrar mensaje de error si no coinciden
                 document.getElementById('loginEmailError').textContent = 'Correo o contraseña incorrectos';
