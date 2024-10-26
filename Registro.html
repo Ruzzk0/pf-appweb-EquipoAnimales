@@ -9,121 +9,245 @@
 <body>   
     <section class="section" id="register-section">
         <h4 title="texto-Registro">Registrarse</h4>
-        <div class="form-group">
-          <input type="text" placeholder="Nombre Completo" id="nombre" required>
-          <i class="uil uil-user"></i>
-        </div>
-        <div class="form-group">
-          <input type="email" placeholder="Correo Electrónico" id="email" required>
-          <i class="uil uil-at"></i>
-        </div>
-        <div class="form-group">
-          <input type="password" placeholder="Contraseña (mín. 8 caracteres, mayúscula, minúscula)" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
-          <i class="uil uil-lock-alt"></i>
-        </div>
-        <div class="form-group">
-          <select id="pais" required>
-            <option value="">Selecciona tu país</option>
-          </select>
-          <i class="uil uil-globe"></i>
-        </div>
-        <div class="form-group">
-          <select id="estado" required>
-            <option value="">Selecciona tu estado</option>
-          </select>
-          <i class="uil uil-map-pin"></i>
-        </div>
-        <div class="form-group">
-          <select id="ciudad" required>
-            <option value="">Selecciona tu ciudad</option>
-          </select>
-          <i class="uil uil-city"></i>
-        </div>
-        <div class="form-group">
-          <input type="tel" placeholder="Teléfono" id="telefono" required>
-          <i class="uil uil-phone"></i>
-        </div>
-        <div class="form-group">
-          <input type="date" placeholder="Fecha de Nacimiento" id="fechaNacimiento" required>
-          <i class="uil uil-calendar-alt"></i>
-        </div>
-        <div class="checkbox-group">
-          <label><input type="checkbox" name="genero" value="hombre"> Hombre</label>
-          <label><input type="checkbox" name="genero" value="mujer"> Mujer</label>
-          <label><input type="checkbox" name="genero" value="no-binario"> No binario</label>
-        </div>
+        <form id="registroForm">
+            <div class="form-group">
+                <input type="text" placeholder="Nombre Completo" id="nombre" required>
+                <i class="uil uil-user"></i>
+                <span class="error-message" id="nombreError"></span>
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="Correo Electrónico" id="email" required>
+                <i class="uil uil-at"></i>
+                <span class="error-message" id="emailError"></span>
+            </div>
+            <div class="form-group">
+                <input type="password" placeholder="Contraseña (mín. 8 caracteres, mayúscula, minúscula)" id="password" required>
+                <i class="uil uil-lock-alt"></i>
+                <span class="error-message" id="passwordError"></span>
+            </div>
+            <div class="form-group">
+                <select id="pais" required>
+                    <option value="">Selecciona tu país</option>
+                </select>
+                <i class="uil uil-globe"></i>
+                <span class="error-message" id="paisError"></span>
+            </div>
+            <div class="form-group">
+                <select id="estado" required>
+                    <option value="">Selecciona tu estado</option>
+                </select>
+                <i class="uil uil-map-pin"></i>
+                <span class="error-message" id="estadoError"></span>
+            </div>
+            <div class="form-group">
+                <select id="ciudad" required>
+                    <option value="">Selecciona tu ciudad</option>
+                </select>
+                <i class="uil uil-city"></i>
+                <span class="error-message" id="ciudadError"></span>
+            </div>
+            <div class="form-group">
+                <input type="tel" placeholder="Teléfono" id="telefono" required>
+                <i class="uil uil-phone"></i>
+                <span class="error-message" id="telefonoError"></span>
+            </div>
+            <div class="form-group">
+                <input type="date" placeholder="Fecha de Nacimiento" id="fechaNacimiento" required>
+                <i class="uil uil-calendar-alt"></i>
+                <span class="error-message" id="fechaNacimientoError"></span>
+            </div>
+            <div class="radio-group">
+                <label><input type="radio" name="genero" value="hombre" required> Hombre</label>
+                <label><input type="radio" name="genero" value="mujer" required> Mujer</label>
+                <label><input type="radio" name="genero" value="no-binario" required> No binario</label>
+                <span class="error-message" id="generoError"></span>
+            </div>
+            <div class="form-group">
+                <select id="bando" required>
+                    <option value="">Selecciona tu bando</option>
+                    <option value="terrestre">Animales Terrestres</option>
+                    <option value="marino">Animales Marinos</option>
+                    <option value="aereo">Animales Aéreos</option>
+                </select>
+                <i class="uil uil-users-alt"></i>
+                <span class="error-message" id="bandoError"></span>
+            </div>
+        
+            <button type="submit" class="btn btn-success" id="btnRegistro">Registrarse</button>
+        </form>
+    </section>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const datosPaises = {
+              "MX": {
+                  nombre: "México",
+                  estados: {
+                      "JAL": { nombre: "Jalisco", ciudades: ["Guadalajara", "Puerto Vallarta", "Tlaquepaque", "Zapopan"] },
+                      "NL": { nombre: "Nuevo León", ciudades: ["Monterrey", "San Pedro", "San Nicolás", "Guadalupe"] },
+                      "BC": { nombre: "Baja California", ciudades: ["Tijuana", "Mexicali", "Ensenada", "Rosarito"] }
+                  }
+              },
+              "ES": {
+                  nombre: "España",
+                  estados: {
+                      "MAD": { nombre: "Madrid", ciudades: ["Madrid", "Alcalá", "Móstoles", "Getafe"] },
+                      "CAT": { nombre: "Cataluña", ciudades: ["Barcelona", "Girona", "Tarragona", "Lleida"] },
+                      "AND": { nombre: "Andalucía", ciudades: ["Sevilla", "Málaga", "Granada", "Córdoba"] }
+                  }
+              },
+              "AR": {
+                  nombre: "Argentina",
+                  estados: {
+                      "BUE": { nombre: "Buenos Aires", ciudades: ["La Plata", "Mar del Plata", "Quilmes", "Lanús"] },
+                      "COR": { nombre: "Córdoba", ciudades: ["Córdoba", "Villa María", "Río Cuarto", "Carlos Paz"] },
+                      "MEN": { nombre: "Mendoza", ciudades: ["Mendoza", "Godoy Cruz", "San Rafael", "Luján de Cuyo"] }
+                  }
+              },
+              "BR": {
+                  nombre: "Brasil",
+                  estados: {
+                      "SP": { nombre: "São Paulo", ciudades: ["São Paulo", "Campinas", "Santos", "Guarulhos"] },
+                      "RJ": { nombre: "Río de Janeiro", ciudades: ["Río de Janeiro", "Niterói", "Duque de Caxias", "Nova Iguaçu"] },
+                      "BA": { nombre: "Bahía", ciudades: ["Salvador", "Feira de Santana", "Vitória da Conquista", "Camaçari"] }
+                  }
+              }
+          };
     
-        <!--boton de registro lleva a inicio de sesion -->
-        <a href="index.html" class="btn btn-success" id="btnRegistro">Registrarse</a>
-      </section>
+          const selectPais = document.getElementById('pais');
+          const selectEstado = document.getElementById('estado');
+          const selectCiudad = document.getElementById('ciudad');
+    
+          // Cargar países en el select de país
+          Object.keys(datosPaises).forEach(codigoPais => {
+              const pais = datosPaises[codigoPais];
+              const option = document.createElement('option');
+              option.value = codigoPais;
+              option.textContent = pais.nombre;
+              selectPais.appendChild(option);
+          });
+    
+          // Cargar estados cuando se selecciona un país
+          selectPais.addEventListener('change', function() {
+              selectEstado.innerHTML = '<option value="">Selecciona tu estado</option>';
+              selectCiudad.innerHTML = '<option value="">Selecciona tu ciudad</option>';
+    
+              const paisSeleccionado = datosPaises[selectPais.value];
+              if (paisSeleccionado) {
+                  Object.keys(paisSeleccionado.estados).forEach(codigoEstado => {
+                      const estado = paisSeleccionado.estados[codigoEstado];
+                      const option = document.createElement('option');
+                      option.value = codigoEstado;
+                      option.textContent = estado.nombre;
+                      selectEstado.appendChild(option);
+                  });
+              }
+          });
+    
+          // Cargar ciudades cuando se selecciona un estado
+          selectEstado.addEventListener('change', function() {
+              selectCiudad.innerHTML = '<option value="">Selecciona tu ciudad</option>';
+              
+              const estadoSeleccionado = datosPaises[selectPais.value]?.estados[selectEstado.value];
+              if (estadoSeleccionado) {
+                  estadoSeleccionado.ciudades.forEach(ciudad => {
+                      const option = document.createElement('option');
+                      option.value = ciudad;
+                      option.textContent = ciudad;
+                      selectCiudad.appendChild(option);
+                  });
+              }
+          });
+    
+          // Función para mostrar errores
+          function mostrarError(elementId, mensaje) {
+              const errorElement = document.getElementById(elementId + 'Error');
+              if (errorElement) {
+                  errorElement.textContent = mensaje;
+                  errorElement.style.color = 'red';
+              }
+          }
+    
+          // Función para limpiar errores
+          function limpiarError(elementId) {
+              const errorElement = document.getElementById(elementId + 'Error');
+              if (errorElement) {
+                  errorElement.textContent = '';
+              }
+          }
+    
+          // Función para validar email
+          function validarEmail(email) {
+              const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              return regex.test(email);
+          }
+    
+          // Función para validar contraseña
+          function validarPassword(password) {
+              const regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+              return regex.test(password);
+          }
+    
+          // Función para validar fecha de nacimiento
+          function validarFechaNacimiento(fecha) {
+              const hoy = new Date();
+              const fechaNacimiento = new Date(fecha);
+              const edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+              return edad >= 10;
+          }
+    
+          // Función para validar teléfono
+          function validarTelefono(telefono) {
+              const regex = /^[0-9]{10}$/;
+              return regex.test(telefono);
+          }
+    
+          // Manejador de envío del formulario
+          document.getElementById('registroForm').addEventListener('submit', function(event) {
+              event.preventDefault();
+              
+              let errores = false;
+    
+              const nombre = document.getElementById('nombre').value;
+              const email = document.getElementById('email').value;
+              const password = document.getElementById('password').value;
+              const fechaNacimiento = document.getElementById('fechaNacimiento').value;
+              const telefono = document.getElementById('telefono').value;
+    
+              limpiarError('nombre');
+              limpiarError('email');
+              limpiarError('password');
+              limpiarError('fechaNacimiento');
+              limpiarError('telefono');
+    
+              if (nombre.trim() === '') {
+                  mostrarError('nombre', 'El nombre es obligatorio');
+                  errores = true;
+              }
+              if (!validarEmail(email)) {
+                  mostrarError('email', 'Correo electrónico no válido');
+                  errores = true;
+              }
+              if (!validarPassword(password)) {
+                  mostrarError('password', 'La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula y un número');
+                  errores = true;
+              }
+              if (!validarFechaNacimiento(fechaNacimiento)) {
+                  mostrarError('fechaNacimiento', 'Debes ser mayor de 10 años');
+                  errores = true;
+              }
+              if (!validarTelefono(telefono)) {
+                  mostrarError('telefono', 'El teléfono debe tener 10 dígitos numéricos');
+                  errores = true;
+              }
+    
+              if (!errores) {
+                  alert('Registro exitoso');
+                  document.getElementById('registroForm').reset(); // Limpiar el formulario
+                  window.location.href = 'index.html'; // Redirigir a index.html
+              }
+          });
+      });
+    </script>
+    
 </body>
 </html>
-
-<script>
-    $(document).ready(function() {
-        // Cargar países desde una API, esta estuvo facil de encontrar
-        $.getJSON('https://restcountries.com/v3.1/all', function(data) {
-            data.forEach(country => {
-                $('#pais').append(`<option value="${country.cca2}">${country.name.common}</option>`);
-            });
-        });
-
-        // solo para que este de relleno, en lo que busco como traermelo 
-        const estadosCiudades = {
-            "US": {
-                "CA": ["Los Angeles", "San Francisco"],
-                "NY": ["New York City", "Buffalo"]
-            },
-            "MX": {
-                "CMX": ["México City", "Ecatepec"],
-                "JAL": ["Guadalajara", "Tlaquepaque"]
-            }
-        };
-
-        // PENDIENTE
-        $('#pais').change(function() {
-            const countryCode = $(this).val();
-            const states = getStates(countryCode);
-            $('#estado').empty().append('<option value="">Selecciona tu estado</option>');
-            states.forEach(state => {
-                $('#estado').append(`<option value="${state.codigo}">${state.nombre}</option>`);
-            });
-            $('#ciudad').empty().append('<option value="">Selecciona tu ciudad</option>');
-        });
-
-        // aun no se como traerme ciertas cosas
-        $('#estado').change(function() {
-            const stateCode = $(this).val();
-            const countryCode = $('#pais').val();
-            const cities = estadosCiudades[countryCode][stateCode] || [];
-            $('#ciudad').empty().append('<option value="">Selecciona tu ciudad</option>');
-            cities.forEach(city => {
-                $('#ciudad').append(`<option value="${city}">${city}</option>`);
-            });
-        });
-
-        // a mano, por que aun no se como traerme los estados y ciudades
-        function getStates(countryCode) {
-            if (countryCode === "US") {
-                return [
-                    { codigo: "CA", nombre: "California" },
-                    { codigo: "NY", nombre: "New York" }
-                ];
-            } else if (countryCode === "MX") {
-                return [
-                    { codigo: "CMX", nombre: "Ciudad de México" },
-                    { codigo: "JAL", nombre: "Jalisco" }
-                ];
-            }
-            return [];
-        }
-
-        // Validación del formulario al enviar
-        $('#btnRegistro').click(function(e) {
-            e.preventDefault();
-            // Aquí va la lógica de validación
-            alert('Formulario enviado correctamente!');
-            // Aquí iría el código para enviar los datos al servidor
-        });
-    });
-  </script>
