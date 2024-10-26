@@ -1,8 +1,46 @@
-section[id='perfil'] {
-    background-color: #3572EF;
-    position: sticky;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #93E1D8;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #3572EF, #5A98F2); /* Degradado azul */
+    padding: 20px 0;
+}
+
+section#perfil {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
-    height: 100%;
+    max-width: 1200px;
+    gap: 150px;
+}
+
+i.fi {
+    margin-top: 5px;
+    font-size: 32px;
+    color: white;
+}
+
+div#logo i.fi.fi-ss-head-side {
+    margin-left: 60px;
+    font-size: 250px; /* Tamaño del segundo ícono */
+    color: #3572EF; /* Color opcional para el segundo ícono */
+}
+
+h1#textoPerfil {
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
 }
 
 div[class="perfil"] {
@@ -28,20 +66,15 @@ img[id="menuOpciones"] {
     margin-top: 5px;
 }
 
-h1[id="textoPerfil"] {
-    display: inline;
-}
-
 label[id="textoPerfil"] {
-    margin-left: 100px;
+    margin-left: 160px;
 }
 
-label[id="nombre"] {
+label[id="nombre"], label[id="representa"] {
     margin-left: 150px;
 }
 
 label[id="representa"] {
-    margin-left: 150px;
     margin-top: 10px;
     display: block;
 
@@ -64,6 +97,5 @@ button[id="cambioBando"]{
     cursor: pointer;
 }
 
-body{
-    background-color: #93E1D8;
-}
+
+
