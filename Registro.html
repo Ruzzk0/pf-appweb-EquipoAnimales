@@ -77,41 +77,361 @@
         </form>
     </section>
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-          const datosPaises = {
-              "MX": {
-                  nombre: "México",
-                  estados: {
-                      "JAL": { nombre: "Jalisco", ciudades: ["Guadalajara", "Puerto Vallarta", "Tlaquepaque", "Zapopan"] },
-                      "NL": { nombre: "Nuevo León", ciudades: ["Monterrey", "San Pedro", "San Nicolás", "Guadalupe"] },
-                      "BC": { nombre: "Baja California", ciudades: ["Tijuana", "Mexicali", "Ensenada", "Rosarito"] }
-                  }
-              },
-              "ES": {
-                  nombre: "España",
-                  estados: {
-                      "MAD": { nombre: "Madrid", ciudades: ["Madrid", "Alcalá", "Móstoles", "Getafe"] },
-                      "CAT": { nombre: "Cataluña", ciudades: ["Barcelona", "Girona", "Tarragona", "Lleida"] },
-                      "AND": { nombre: "Andalucía", ciudades: ["Sevilla", "Málaga", "Granada", "Córdoba"] }
-                  }
-              },
-              "AR": {
-                  nombre: "Argentina",
-                  estados: {
-                      "BUE": { nombre: "Buenos Aires", ciudades: ["La Plata", "Mar del Plata", "Quilmes", "Lanús"] },
-                      "COR": { nombre: "Córdoba", ciudades: ["Córdoba", "Villa María", "Río Cuarto", "Carlos Paz"] },
-                      "MEN": { nombre: "Mendoza", ciudades: ["Mendoza", "Godoy Cruz", "San Rafael", "Luján de Cuyo"] }
-                  }
-              },
-              "BR": {
-                  nombre: "Brasil",
-                  estados: {
-                      "SP": { nombre: "São Paulo", ciudades: ["São Paulo", "Campinas", "Santos", "Guarulhos"] },
-                      "RJ": { nombre: "Río de Janeiro", ciudades: ["Río de Janeiro", "Niterói", "Duque de Caxias", "Nova Iguaçu"] },
-                      "BA": { nombre: "Bahía", ciudades: ["Salvador", "Feira de Santana", "Vitória da Conquista", "Camaçari"] }
-                  }
-              }
-          };
+      
+document.addEventListener('DOMContentLoaded', function() {
+    const datosPaises = {
+        "MX": {
+            nombre: "México",
+            estados: {
+                "JAL": { nombre: "Jalisco", ciudades: ["Guadalajara", "Puerto Vallarta", "Tlaquepaque", "Zapopan"] },
+                "NL": { nombre: "Nuevo León", ciudades: ["Monterrey", "San Pedro", "San Nicolás", "Guadalupe"] },
+                "BC": { nombre: "Baja California", ciudades: ["Tijuana", "Mexicali", "Ensenada", "Rosarito"] },
+                "CMX": { nombre: "Ciudad de México", ciudades: ["México City", "Iztapalapa", "Gustavo A. Madero", "Álvaro Obregón"] }
+            }
+        },
+        "ES": {
+            nombre: "España",
+            estados: {
+                "MAD": { nombre: "Madrid", ciudades: ["Madrid", "Alcalá", "Móstoles", "Getafe"] },
+                "CAT": { nombre: "Cataluña", ciudades: ["Barcelona", "Girona", "Tarragona", "Lleida"] },
+                "AND": { nombre: "Andalucía", ciudades: ["Sevilla", "Málaga", "Granada", "Córdoba"] },
+                "VAL": { nombre: "Comunidad Valenciana", ciudades: ["Valencia", "Alicante", "Castellón", "Elche"] }
+            }
+        },
+        "AR": {
+            nombre: "Argentina",
+            estados: {
+                "BUE": { nombre: "Buenos Aires", ciudades: ["La Plata", "Mar del Plata", "Quilmes", "Lanús"] },
+                "COR": { nombre: "Córdoba", ciudades: ["Córdoba", "Villa María", "Río Cuarto", "Carlos Paz"] },
+                "MEN": { nombre: "Mendoza", ciudades: ["Mendoza", "Godoy Cruz", "San Rafael", "Luján de Cuyo"] },
+                "SFE": { nombre: "Santa Fe", ciudades: ["Santa Fe", "Rosario", "Venado Tuerto", "Rafaela"] }
+            }
+        },
+        "BR": {
+            nombre: "Brasil",
+            estados: {
+                "SP": { nombre: "São Paulo", ciudades: ["São Paulo", "Campinas", "Santos", "Guarulhos"] },
+                "RJ": { nombre: "Río de Janeiro", ciudades: ["Río de Janeiro", "Niterói", "Duque de Caxias", "Nova Iguaçu"] },
+                "BA": { nombre: "Bahía", ciudades: ["Salvador", "Feira de Santana", "Vitória da Conquista", "Camaçari"] },
+                "MG": { nombre: "Minas Gerais", ciudades: ["Belo Horizonte", "Uberlândia", "Juiz de Fora", "Betim"] }
+            }
+        },
+        "CL": {
+            nombre: "Chile",
+            estados: {
+                "RM": { nombre: "Región Metropolitana", ciudades: ["Santiago", "Puente Alto", "Maipú", "Las Condes"] },
+                "BI": { nombre: "Biobío", ciudades: ["Concepción", "Talcahuano", "Chiguayante", "Los Ángeles"] },
+                "MV": { nombre: "Maule", ciudades: ["Talca", "Curicó", "Linares", "Cauquenes"] }
+            }
+        },
+        "CO": {
+            nombre: "Colombia",
+            estados: {
+                "BO": { nombre: "Bogotá", ciudades: ["Bogotá", "Soacha", "Chía", "Cajicá"] },
+                "ANT": { nombre: "Antioquia", ciudades: ["Medellín", "Bello", "Itagüí", "Envigado"] },
+                "VAL": { nombre: "Valle del Cauca", ciudades: ["Cali", "Palmira", "Tuluá", "Buga"] }
+            }
+        },
+        "PE": {
+            nombre: "Perú",
+            estados: {
+                "LIM": { nombre: "Lima", ciudades: ["Lima", "Callao", "Los Olivos", "San Juan de Lurigancho"] },
+                "ARE": { nombre: "Arequipa", ciudades: ["Arequipa", "Camaná", "Caylloma", "Islay"] },
+                "CUS": { nombre: "Cusco", ciudades: ["Cusco", "Abancay", "Sicuani", "Quillabamba"] }
+            }
+        },
+        "US": {
+            nombre: "Estados Unidos",
+            estados: {
+                "CA": { nombre: "California", ciudades: ["Los Ángeles", "San Francisco", "San Diego", "Sacramento"] },
+                "TX": { nombre: "Texas", ciudades: ["Houston", "Austin", "Dallas", "San Antonio"] },
+                "NY": { nombre: "Nueva York", ciudades: ["Nueva York", "Buffalo", "Rochester", "Syracuse"] },
+                "FL": { nombre: "Florida", ciudades: ["Miami", "Orlando", "Tampa", "Jacksonville"] }
+            }
+        },
+        "CA": {
+            nombre: "Canadá",
+            estados: {
+                "ON": { nombre: "Ontario", ciudades: ["Toronto", "Ottawa", "Mississauga", "Brampton"] },
+                "QC": { nombre: "Quebec", ciudades: ["Montreal", "Quebec City", "Gatineau", "Laval"] },
+                "BC": { nombre: "Columbia Británica", ciudades: ["Vancouver", "Victoria", "Burnaby", "Richmond"] }
+            }
+        },
+        "HT": {
+            nombre: "Haití",
+            estados: {
+                "OU": { nombre: "Ouest", ciudades: ["Puerto Príncipe", "Delmas", "Carrefour", "Petion-Ville"] },
+                "ND": { nombre: "Nord", ciudades: ["Cap-Haïtien", "Limonade", "Milot", "Acul-du-Nord"] }
+            }
+        },
+        "DO": {
+            nombre: "República Dominicana",
+            estados: {
+                "SD": { nombre: "Santo Domingo", ciudades: ["Santo Domingo", "Boca Chica", "Los Alcarrizos", "San Cristóbal"] },
+                "PN": { nombre: "Punta Cana", ciudades: ["Punta Cana", "Bávaro", "Verón", "Higüey"] }
+            }
+        },
+        "SV": {
+            nombre: "El Salvador",
+            estados: {
+                "SS": { nombre: "San Salvador", ciudades: ["San Salvador", "Santa Tecla", "Soyapango", "Apopa"] },
+                "LA": { nombre: "La Libertad", ciudades: ["La Libertad", "El Tunco", "Antiguo Cuscatlán", "Santa Tecla"] }
+            }
+        },
+        "NI": {
+            nombre: "Nicaragua",
+            estados: {
+                "SG": { nombre: "Managua", ciudades: ["Managua", "Masaya", "Tipitapa", "Diriamba"] },
+                "LE": { nombre: "León", ciudades: ["León", "Chinandega", "El Viejo", "La Paz Centro"] }
+            }
+        },
+        "GY": {
+            nombre: "Guyana",
+            estados: {
+                "DE": { nombre: "Demerara-Mahaica", ciudades: ["Georgetown", "Vreed-en-Hoop", "Diamond", "Beterverwagting"] },
+                "ES": { nombre: "Essequibo Islands-West Demerara", ciudades: ["Vreed-en-Hoop", "Bibiana", "Parika", "Good Hope"] }
+            }
+        },
+        "SR": {
+            nombre: "Surinam",
+            estados: {
+                "PM": { nombre: "Paramaribo", ciudades: ["Paramaribo", "Commewijne", "Saramacca", "Marowijne"] },
+                "BR": { nombre: "Brokopondo", ciudades: ["Brokopondo", "Kopoldrie", "Apoera", "Nieuw Amsterdam"] }
+            }
+        },
+        "BB": {
+            nombre: "Barbados",
+            estados: {
+                "CH": { nombre: "Christ Church", ciudades: ["Bridgetown", "Oistins", "Dover", "Drax Hall"] },
+                "ST": { nombre: "Saint Thomas", ciudades: ["Saint Thomas", "Speightstown", "Holetown", "Welches"] }
+            }
+        },
+        "JM": {
+            nombre: "Jamaica",
+            estados: {
+                "KG": { nombre: "Kingston", ciudades: ["Kingston", "Spanish Town", "Montego Bay", "Mandeville"] },
+                "ST": { nombre: "Saint Andrew", ciudades: ["Half Way Tree", "Papine", "Liguanea", "New Kingston"] }
+            }
+        },
+        "AG": {
+            nombre: "Antigua y Barbuda",
+            estados: {
+                "AN": { nombre: "Antigua", ciudades: ["Saint John's", "All Saints", "Liberta", "English Harbour"] },
+                "BAR": { nombre: "Barbuda", ciudades: ["Codrington"] }
+            }
+        },
+        "AW": {
+            nombre: "Aruba",
+            estados: {
+                "AR": { nombre: "Aruba", ciudades: ["Oranjestad", "San Nicolaas", "Noord", "Paradera"] }
+            }
+        },
+        "BS": {
+            nombre: "Bahamas",
+            estados: {
+                "Nassau": { nombre: "Nassau", ciudades: ["Nassau", "Freeport", "Marsh Harbour", "Andros Town"] }
+            }
+        },
+        "CU": {
+            nombre: "Cuba",
+            estados: {
+                "HA": { nombre: "La Habana", ciudades: ["La Habana", "Mariel", "Guanabo", "Santa María del Mar"] },
+                "PI": { nombre: "Pinar del Río", ciudades: ["Pinar del Río", "Viñales", "San Luis", "La Palma"] }
+            }
+        },
+        "DM": {
+            nombre: "Dominica",
+            estados: {
+                "ST": { nombre: "Saint George", ciudades: ["Roseau", "Portsmouth", "Berekua", "Salisbury"] }
+            }
+        },
+        "GD": {
+            nombre: "Grenada",
+            estados: {
+                "ST": { nombre: "Saint George", ciudades: ["St. George's", "Grenville", "Carriacou", "Lance aux Epines"] }
+            }
+        },
+        "GP": {
+            nombre: "Guadalupe",
+            estados: {
+                "BA": { nombre: "Basse-Terre", ciudades: ["Basse-Terre", "Les Abymes", "Baie-Mahault", "Petit-Bourg"] }
+            }
+        },
+        "KY": {
+            nombre: "Islas Caimán",
+            estados: {
+                "GR": { nombre: "Gran Caimán", ciudades: ["George Town", "West Bay", "Bodden Town", "Little Cayman"] }
+            }
+        },
+        "TC": {
+            nombre: "Islas Turcas y Caicos",
+            estados: {
+                "GR": { nombre: "Grand Turk", ciudades: ["Cockburn Town", "Pine Cay", "North Caicos", "South Caicos"] }
+            }
+        },
+        "VI": {
+            nombre: "Islas Vírgenes",
+            estados: {
+                "VG": { nombre: "Islas Vírgenes Británicas", ciudades: ["Road Town", "Tortola", "Virgin Gorda", "Anegada"] },
+                "US": { nombre: "Islas Vírgenes de los Estados Unidos", ciudades: ["Charlotte Amalie", "Tortola", "Cruz Bay", "Frederiksted"] }
+            }
+        },
+        "LC": {
+            nombre: "Santa Lucía",
+            estados: {
+                "CA": { nombre: "Castries", ciudades: ["Castries", "Vieux Fort", "Gros Islet", "Soufrière"] }
+            }
+        },
+        "TT": {
+            nombre: "Trinidad y Tobago",
+            estados: {
+                "PD": { nombre: "Puerto España", ciudades: ["Puerto España", "San Fernando", "Chaguanas", "Point Fortin"] }
+            }
+        },
+        "BZ": {
+            nombre: "Belice",
+            estados: {
+                "BZ": { nombre: "Belice", ciudades: ["Belmopan", "Ciudad de Belice", "San Ignacio", "Corozal"] }
+            }
+        },
+        "GT": {
+            nombre: "Guatemala",
+            estados: {
+                "GU": { nombre: "Guatemala", ciudades: ["Ciudad de Guatemala", "Mixco", "Villa Nueva", "Quetzaltenango"] }
+            }
+        },
+        "HN": {
+            nombre: "Honduras",
+            estados: {
+                "FM": { nombre: "Francisco Morazán", ciudades: ["Tegucigalpa", "Comayagua", "Valle de Ángeles", "La Paz"] },
+                "CC": { nombre: "Cortés", ciudades: ["San Pedro Sula", "Choloma", "Puerto Cortés", "La Lima"] }
+            }
+        },
+        "RU": {
+            nombre: "Rusia",
+            estados: {
+                "MOW": { nombre: "Moscú", ciudades: ["Moscú", "Khimki", "Balashikha", "Podolsk"] },
+                "LEN": { nombre: "San Petersburgo", ciudades: ["San Petersburgo", "Svetogorsk", "Gatchina", "Pushkin"] }
+            }
+        },
+        "DE": {
+            nombre: "Alemania",
+            estados: {
+                "BE": { nombre: "Berlín", ciudades: ["Berlín", "Potsdam", "Brandenburgo"] },
+                "BY": { nombre: "Baviera", ciudades: ["Múnich", "Núremberg", "Augsburgo", "Regensburg"] }
+            }
+        },
+        "GB": {
+            nombre: "Reino Unido",
+            estados: {
+                "ENG": { nombre: "Inglaterra", ciudades: ["Londres", "Birmingham", "Mánchester", "Liverpool"] },
+                "SCT": { nombre: "Escocia", ciudades: ["Edimburgo", "Glasgow", "Aberdeen", "Dundee"] }
+            }
+        },
+        "FR": {
+            nombre: "Francia",
+            estados: {
+                "IDF": { nombre: "Île-de-France", ciudades: ["París", "Versalles", "Saint-Denis", "Créteil"] },
+                "PAC": { nombre: "Provenza-Alpes-Costa Azul", ciudades: ["Niza", "Marsella", "Aix-en-Provence", "Toulon"] }
+            }
+        },
+        "IT": {
+            nombre: "Italia",
+            estados: {
+                "LAZ": { nombre: "Lacio", ciudades: ["Roma", "Fiumicino", "Civitavecchia", "Tivoli"] },
+                "LIG": { nombre: "Liguria", ciudades: ["Génova", "La Spezia", "San Remo", "Savona"] }
+            }
+        },
+        "UA": {
+            nombre: "Ucrania",
+            estados: {
+                "KY": { nombre: "Kiev", ciudades: ["Kiev", "Brovary", "Irpín", "Vasilkiv"] },
+                "OD": { nombre: "Odesa", ciudades: ["Odesa", "Izmaíl", "Bilhorod-Dnistrovskyi", "Biliaivka"] }
+            }
+        },
+        "PL": {
+            nombre: "Polonia",
+            estados: {
+                "MA": { nombre: "Małopolskie", ciudades: ["Cracovia", "Tarnów", "Nowy Sącz", "Wadowice"] },
+                "SL": { nombre: "Silesia", ciudades: ["Katowice", "Gliwice", "Zabrze", "Bytom"] }
+            }
+        },
+        "RO": {
+            nombre: "Rumania",
+            estados: {
+                "BU": { nombre: "Bucarest", ciudades: ["Bucarest", "Ploiești", "Bucureștii Noi", "Berceni"] },
+                "TM": { nombre: "Timiș", ciudades: ["Timișoara", "Reșița", "Lugoj", "Sânnicolau Mare"] }
+            }
+        },
+        "NL": {
+            nombre: "Países Bajos",
+            estados: {
+                "NH": { nombre: "Holanda del Norte", ciudades: ["Ámsterdam", "Haarlem", "Zaanstad", "Almere"] },
+                "ZH": { nombre: "Holanda del Sur", ciudades: ["Róterdam", "La Haya", "Delft", "Leiden"] }
+            }
+        },
+        "BE": {
+            nombre: "Bélgica",
+            estados: {
+                "BRU": { nombre: "Bruselas", ciudades: ["Bruselas", "Ixelles", "Saint-Gilles", "Anderlecht"] },
+                "VLA": { nombre: "Flandes", ciudades: ["Gante", "Brujas", "Amberes", "Ostende"] }
+            }
+        },
+        "CZ": {
+            nombre: "República Checa",
+            estados: {
+                "PR": { nombre: "Praga", ciudades: ["Praga", "České Budějovice", "Plzeň", "Ústí nad Labem"] }
+            }
+        },
+        "SE": {
+            nombre: "Suecia",
+            estados: {
+                "ST": { nombre: "Estocolmo", ciudades: ["Estocolmo", "Sundbyberg", "Solna", "Nacka"] },
+                "VG": { nombre: "Västra Götaland", ciudades: ["Gotenburgo", "Borås", "Alingsås", "Kungälv"] }
+            }
+        },
+        "GR": {
+            nombre: "Grecia",
+            estados: {
+                "AT": { nombre: "Ática", ciudades: ["Atenas", "Pireo", "Maratón", "Kifisia"] },
+                "MA": { nombre: "Macedonia", ciudades: ["Salónica", "Katerini", "Edessa", "Kozani"] }
+            }
+        },
+        "PT": {
+            nombre: "Portugal",
+            estados: {
+                "LP": { nombre: "Lisboa", ciudades: ["Lisboa", "Sintra", "Cascais", "Setúbal"] },
+                "PR": { nombre: "Oporto", ciudades: ["Oporto", "Vila Nova de Gaia", "Maia", "Matosinhos"] }
+            }
+        },
+        "HU": {
+            nombre: "Hungría",
+            estados: {
+                "BU": { nombre: "Budapest", ciudades: ["Budapest", "Szentendre", "Érd", "Budaörs"] }
+            }
+        },
+        "BY": {
+            nombre: "Bielorrusia",
+            estados: {
+                "MI": { nombre: "Minsk", ciudades: ["Minsk", "Zhodino", "Lida", "Salihorsk"] }
+            }
+        },
+        "AT": {
+            nombre: "Austria",
+            estados: {
+                "WI": { nombre: "Viena", ciudades: ["Viena", "Graz", "Linz", "Salzburgo"] }
+            }
+        },
+        "CH": {
+            nombre: "Suiza",
+            estados: {
+                "GE": { nombre: "Ginebra", ciudades: ["Ginebra", "Carouge", "Lancy", "Meyrin"] },
+                "ZH": { nombre: "Zúrich", ciudades: ["Zúrich", "Winterthur", "Uster", "Dübendorf"] }
+            }
+        }
+    };
+});
+
   
           const selectPais = document.getElementById('pais');
           const selectEstado = document.getElementById('estado');
