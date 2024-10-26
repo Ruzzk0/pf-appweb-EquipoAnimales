@@ -48,13 +48,13 @@ h1 {
 
 .transparent-box {
     position: fixed;
-    top: 50%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 70%;
-    height: 80vh;
-    background-color: rgba(255, 255, 255, 0.5);
-    border: 2px solid rgb(255, 255, 255, 0.5);
+    width: 85%;
+    height: 90vh;
+    background-color: rgba(2, 29, 79, 0.5);
+    border: 2px solid rgb(2, 29, 79, 0.5);
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     z-index: 0;
 }
@@ -183,7 +183,7 @@ h1 {
 }
 
 .add-post-btn {
-    background-color: #4CAF50;
+    background-color: #021d4f;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -345,5 +345,5 @@ h1 {
 
 /* Ajuste del contenido principal para el header fijo */
 .postAnimales {
-    margin-top: 100px; /* Ajustar según la altura del header */
+    margin-top: 100px; 
 }
