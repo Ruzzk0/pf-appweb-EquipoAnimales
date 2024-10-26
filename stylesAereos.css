@@ -1,12 +1,21 @@
+/* Estilos base */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Estilos del header y body */
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #FFFFFF;
+    overflow-x: hidden;
 }
 
 h1 {
@@ -15,38 +24,42 @@ h1 {
     padding: 30px;
     text-align: center;
     font-size: 2.5em;
-    width: 100vw;  
-    margin-bottom: 20px;
+    width: 100%;  
+    margin: 0;
+    position: relative;
+    z-index: 2;
 }
 
+/* Estilos del contenedor de imagen */
 .image-container {
-    position: relative;
-    width: 100vw; 
-    height: auto;
-    display: flex;
-    justify-content: center; 
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
 .image-container img {
-    width: 100vw; 
-    height: 100vh; 
-    object-fit: cover; 
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); 
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
 }
-
-
 
 .transparent-box {
-    position: absolute;
-    top: 30%;
+    position: fixed;
+    top: 60%;
     left: 50%;
-    transform: translate(-50%, -30%);
-    width: 70%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.5); 
-    border: 2px solid rgb(255, 255, 255, 0.5);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); 
+    transform: translate(-50%, -50%);
+    width: 85%;
+    height: 90vh;
+    background-color: rgba(18, 79, 19, 0.5);  
+    border: 2px solid rgba(18, 79, 19, 0.5);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    z-index: 0;
 }
+
+/* Estilos del botón de retroceso */
 .back-button {
     position: fixed;
     top: 20px;
@@ -56,10 +69,281 @@ h1 {
     color: white;
     text-decoration: none;
     border-radius: 5px;
-    z-index: 1000;
-    transition: background-color 0.3s;
+    z-index: 9999;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
 }
 
 .back-button:hover {
     background-color: #124f13;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+/* Estilos de la sección de publicaciones */
+.postAnimales {
+    position: relative;
+    padding: 150px 20px 50px;
+    z-index: 1;
+}
+
+#postAnimales {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* Estilos de las tarjetas */
+.card {
+    perspective: 1000px;
+    height: 450px;
+    background: transparent;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card-front {
+    background-color: #124f13;
+    color: white;
+}
+
+.card-back {
+    background-color: #124f13;
+    color: white;
+    transform: rotateY(180deg);
+    padding: 20px;
+}
+
+.card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+}
+
+.card-title {
+    padding: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.info-title {
+    color: #428640;
+    font-weight: bold;
+    margin-top: 15px;
+    font-size: 1.1em;
+}
+
+.info-text {
+    margin: 5px 0 15px;
+    line-height: 1.4;
+}
+/* Header fijo */
+.sticky-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #124f13;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.add-post-btn {
+    background-color: #124f13;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Estilos para los botones de acción en las cards */
+.card-actions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+    display: flex;
+    gap: 10px;
+}
+
+.edit-btn, .delete-btn {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.edit-btn:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Estilos para la sección de comentarios */
+.card-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.comment-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.comments-section {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 0 0 15px 15px;
+}
+
+.comments-section.hidden {
+    display: none;
+}
+
+.comments-list {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.comment {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-comment {
+    margin-top: 15px;
+}
+
+.add-comment textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    resize: vertical;
+}
+
+.submit-comment-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Modal para nueva publicación */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    margin: 50px auto;
+    border-radius: 10px;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#newPostForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#newPostForm input,
+#newPostForm textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#newPostForm button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Ajuste del contenido principal para el header fijo */
+.postAnimales {
+    margin-top: 100px; 
 }
