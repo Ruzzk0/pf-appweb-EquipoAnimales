@@ -1,57 +1,103 @@
 <!DOCTYPE html>
 <html lang="es">
-	<head>
-		<title>Bienvenido AnimalSocial</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-		<link rel="stylesheet" href="stylesPrincipal.css">
-	</head>
-	<body>
-		<div class="estrella impar primera"></div>
-		<div class="estrella par segunda"></div>
-		<div class="estrella impar tercera"></div>
-		<div class="estrella par cuarta"></div>
-		<div class="estrella impar quinta"></div>
-		<div class="estrella par sexta"></div>
-		<div class="estrella impar septima"></div>
-		<div class="estrella par octava"></div>
+    <head>
+        <title>Bienvenido AnimalSocial</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <link rel="stylesheet" href="stylesPrincipal.css">
+    </head>
 
-		<div class="nubes">
-			<a href="AnimalesTerrestres.html" class="punto-interes punto-verde"></a>
-			<a href="AnimalesMar.html" class="punto-interes punto-azul"></a>
-			<a href="AnimalesAereos.html" class="punto-interes punto-gris"></a>
-			<img src="img/nubes.png" alt="nubes">
-			<div class="tierra"></div>
-		</div>
+    <body>
+        <a href="index.html" class="back-button">←</a>
+        <a href="perfil.html" class="profile-button">👤</a>
+        <h1>AnimalSocial</h1>
+        
+        <div class="estrella impar primera"></div>
+        <div class="estrella par segunda"></div>
+        <div class="estrella impar tercera"></div>
+        <div class="estrella par cuarta"></div>
+        <div class="estrella impar quinta"></div>
+        <div class="estrella par sexta"></div>
+        <div class="estrella impar septima"></div>
+        <div class="estrella par octava"></div>
 
-		<script>
-			document.addEventListener('DOMContentLoaded', function() {
-				const puntos = document.querySelectorAll('.punto-interes');
-				
-				// Función para hacer parpadear los puntos
-				function parpadearPuntos() {
-					puntos.forEach(punto => {
-						if (!punto.matches(':hover')) {
-							punto.style.animation = 'parpadeo 3s infinite';
-						}
-					});
-				}
-				
-				// Iniciar el parpadeo
-				parpadearPuntos();
-				
-				// Eventos para cada punto
-				puntos.forEach(punto => {
-					punto.addEventListener('mouseenter', function() {
-						this.style.animation = 'none';
-						this.style.opacity = '1';
-					});
-					
-					punto.addEventListener('mouseleave', function() {
-						this.style.animation = 'parpadeo 3s infinite';
-					});
-				});
-			});
-		</script>
-	</body>
+        <div class="nubes">
+            <a href="AnimalesTerrestres.html" class="punto-interes punto-verde"></a>
+            <a href="AnimalesMar.html" class="punto-interes punto-azul"></a>
+            <a href="AnimalesAereos.html" class="punto-interes punto-gris"></a>
+            <img src="img/nubes.png" alt="nubes">
+            <div class="tierra"></div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Verificar si el usuario está logueado
+                function checkLoginStatus() {
+                    const isLoggedIn = sessionStorage.getItem('isLoggedIn');
+                    if (!isLoggedIn) {
+                        window.location.href = 'index.html';
+                    }
+                }
+
+                // Verificar login al cargar la página
+                checkLoginStatus();
+
+                // Configurar el botón de regresar para cerrar sesión
+                const backButton = document.querySelector('.back-button');
+                if (backButton) {
+                    backButton.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        // Limpiar la sesión
+                        sessionStorage.clear();
+                        // Redirigir al login
+                        window.location.href = 'index.html';
+                    });
+                }
+
+                // Protección contra manipulación del sessionStorage
+                window.addEventListener('storage', function(e) {
+                    if (e.key === 'isLoggedIn') {
+                        checkLoginStatus();
+                    }
+                });
+
+                // Configuración del botón de perfil
+                const profileButton = document.querySelector('.profile-button');
+                if (profileButton) {
+                    profileButton.addEventListener('click', function(e) {
+                        const userEmail = sessionStorage.getItem('userEmail');
+                        if (!userEmail) {
+                            e.preventDefault();
+                            sessionStorage.clear();
+                            window.location.href = 'index.html';
+                        }
+                    });
+                }
+
+                // Animación de los puntos de interés
+                const puntos = document.querySelectorAll('.punto-interes');
+                
+                function parpadearPuntos() {
+                    puntos.forEach(punto => {
+                        if (!punto.matches(':hover')) {
+                            punto.style.animation = 'parpadeo 3s infinite';
+                        }
+                    });
+                }
+                
+                parpadearPuntos();
+                
+                puntos.forEach(punto => {
+                    punto.addEventListener('mouseenter', function() {
+                        this.style.animation = 'none';
+                        this.style.opacity = '1';
+                    });
+                    
+                    punto.addEventListener('mouseleave', function() {
+                        this.style.animation = 'parpadeo 3s infinite';
+                    });
+                });
+            });
+        </script>
+    </body>
 </html>

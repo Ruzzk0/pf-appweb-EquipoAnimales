@@ -41,8 +41,6 @@
         </form>
     </section>
 
-    <script src="login.js"></script>
-
     <style>
         .error-message {
             color: red;
@@ -59,5 +57,56 @@
             margin-right: 15px;
         }
     </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Si ya está logueado, redirigir a principal.html
+            if (sessionStorage.getItem('isLoggedIn')) {
+                window.location.href = 'principal.html';
+            }
+
+            // Manejar el formulario de login
+            const loginForm = document.getElementById('loginForm');
+            if (loginForm) {
+                loginForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const email = document.getElementById('loginEmail').value;
+                    const password = document.getElementById('loginPassword').value;
+                    
+                    // Validaciones
+                    if (email && password) {
+                        // Guardar estado de login
+                        sessionStorage.setItem('isLoggedIn', 'true');
+                        sessionStorage.setItem('userEmail', email);
+                        
+                        // Redirigir a la página principal
+                        window.location.href = 'principal.html';
+                    } else {
+                        // Mostrar errores si los campos están vacíos
+                        if (!email) {
+                            document.getElementById('loginEmailError').textContent = 
+                                'El correo es requerido';
+                        }
+                        if (!password) {
+                            document.getElementById('loginPasswordError').textContent = 
+                                'La contraseña es requerida';
+                        }
+                    }
+                });
+            }
+
+            // Limpiar mensajes de error cuando el usuario escriba
+            const inputs = document.querySelectorAll('input');
+            inputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    const errorElement = document.getElementById(this.id + 'Error');
+                    if (errorElement) {
+                        errorElement.textContent = '';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
