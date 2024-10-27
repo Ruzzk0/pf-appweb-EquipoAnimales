@@ -11,7 +11,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(45deg, #3572EF, #5A98F2); /* Degradado azul */
+    background: linear-gradient(45deg, #3572EF, #5A98F2);
     padding: 20px 0;
 }
 
@@ -30,11 +30,28 @@ i.fi {
     color: white;
 }
 
-div#logo i.fi.fi-ss-head-side {
-    margin-left: 60px;
-    font-size: 250px; /* Tamaño del segundo ícono */
-    color: #3572EF; /* Color opcional para el segundo ícono */
+.imagen-perfil {
+    width: 25%;
+    height: 25%;
+    border-radius: 100%;
+    border: 8px solid; /* Color de borde por defecto */
+    box-sizing: border-box;
+    transition: border-color 0.5s; /* Efecto suave al cambiar el borde */
 }
+
+.borde-terrestre {
+    border-color: #88B04B; /* Color verde para terrestre */
+}
+
+.borde-acuatico {
+    border-color: #3498db; /* Color azul para acuático */
+}
+
+.borde-aereo {
+    border-color: #f39c12; /* Color naranja para aéreo */
+}
+
+
 
 h1#textoPerfil {
     color: white;

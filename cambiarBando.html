@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil</title>
+    <title>Cambiar Bando</title>
     <link rel="stylesheet" href="stylesPerfil.css">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css'>
 </head>
 <body>
-    <header>
+    <header class="header">
         <div class="perfil">
             <section id="perfil">
                 <i class="fi fi-br-settings-sliders"></i>
@@ -22,17 +22,21 @@
         <div id="logo">
             <img src="imagenesPerfil/dog.jpg" alt="Perfil" class="imagen-perfil" id="imagenPerfil">
             <div>
-                <label id="nombre" for="cuerpo">Nombre del usuario</label>
-                <label id="representa" for="cuerpo">Me representa.....</label>
-                <!-- El botón para cambiar bando puede redirigir a la otra página -->
-                <button id="cambioBando" onclick="window.location.href='cambiarBando.html'">Cambiar de bando</button> 
+                <h2>Seleccione su bando</h2>
+                <label id="nombre" for="bando">Bando</label>
+                <select id="bando" name="bando" onchange="cambiarBandoColor()">
+                    <option value="" disabled selected>Selecciona evolución</option>
+                    <option value="terrestre">Terrestre</option>
+                    <option value="acuatico">Acuático</option>
+                    <option value="aereo">Aéreo</option>
+                </select>                
+                <br>
+
+                <button id="cambioBando" onclick="verPerfil()">Cambiar de bando</button>
+                <button id="cancelar" onclick="verPerfil()">Cancelar</button>
             </div>
         </div>
     </div>
-
-    <!-- Script para recuperar el color del borde -->
-    <script src="cambiarVentanas.js"></script>
-    <script src="perfil.js"></script>
-
+    <script src="cambiarBando.js"></script>
 </body>
 </html>
