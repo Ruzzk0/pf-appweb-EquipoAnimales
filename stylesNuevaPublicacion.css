@@ -17,6 +17,12 @@ header {
     align-items: center;
     background: linear-gradient(45deg, #4b505a, #5A98F2);
     padding: 20px 0;
+    text-align: center;
+}
+
+h1{
+    color: aliceblue;
+    text-align: center;
 }
 
 .material-symbols-outlined {
@@ -27,9 +33,22 @@ header {
   'opsz' 24
 }
 
+/* Header fijo */
+.sticky-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+
 .back-button {
     position: absolute;
-    left: 20px;
+    left: 100px;
     top: 50%;
     transform: translateY(-50%);
     color: white;
@@ -40,7 +59,9 @@ header {
 
 .title {
     text-align: center; /* Centra el título */
-    margin: 20px 0;
+    margin: 90px 0 0px 0; /* Aumenta el margen superior para dar espacio al encabezado fijo */
+    font-size: 24px; /* Tamaño de fuente más grande */
+    color: #333; /* Color del texto */
 }
 
 .form-container {

@@ -36,9 +36,106 @@ a i.fi-br-arrow-left {
     font-size: 24px;
 }
 
+/* Estilos generales para los botones */
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Estilos para el botón de Editar Perfil */
+#editProfileButton {
+    background-color: #4CAF50; /* Verde */
+    color: #ffffff;
+    margin-right: 10px;
+}
+
+#editProfileButton:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* Estilos para el botón de Guardar Cambios */
+#saveChangesButton {
+    background-color: #2196F3; /* Azul */
+    color: #ffffff;
+    display: none; /* Oculto por defecto */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#saveChangesButton:hover {
+    background-color: #1e87e5;
+    transform: scale(1.05);
+}
+
+
+
+/* Estilos para los botones de los bandos */
+#colorOptions #bando {
+    background-color: #f39c12; /* Naranja */
+    color: #ffffff;
+    margin: 5px 5px 0 0;
+    border-radius: 5px;
+    padding: 8px 15px;
+    display: inline-block;
+    font-weight: bold;
+}
+
+#colorOptions #bando:hover {
+    background-color: #e67e22;
+    transform: scale(1.05);
+}
+
+#colorOptions {
+    margin-top: 10px;
+}
+
+/* Espaciado y alineación */
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
 .perfil {
     width: 100%;
 }
+
+/* stylesPerfil.css */
+.hidden {
+    display: none; /* Oculta el elemento */
+}
+
+.visible {
+    display: inline-block; /* O 'flex' si necesitas */
+}
+
+/* Estilo para los botones */
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50; /* Color de fondo */
+    color: white; /* Color del texto */
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049; /* Color de fondo al pasar el mouse */
+}
+
+
 
 section#perfil {
     display: flex;
@@ -153,9 +250,6 @@ button#cambioBando:hover {
     border-color: #124f13;
 }
 
-.hidden {
-    display: none;
-}
 
 
 @media (max-width: 480px) {

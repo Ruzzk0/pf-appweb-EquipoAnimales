@@ -12,11 +12,13 @@
     <body>
         <header class="sticky-header">
             <a href="principal.html" class="back-button">
-                <span class="material-icons">arrow_back</span>
-
+                <span class="material-icons">arrow_back_ios</span>
             </a>
             <h1>ANIMALES TERRESTRES</h1>
-            <a class="add-post-btn" href="NuevaPublicacion.html"><i class="fas fa-plus"></i> Nueva Publicación</a>
+            <a class="add-post-btn" href="NuevaPublicacion.html">
+                <i class="fas fa-plus"></i> 
+                Nueva Publicación
+            </a>
         </header>
 
         <div class="image-container">
@@ -60,14 +62,14 @@
                         </div>
 
                                             <!-- Modal de Comentarios -->
-                    <div id="commentModal" class="modal">
-                        <div class="modal-content">
-                            <span class="close">&times;</span>
-                            <h2>Agregar Comentario</h2>
-                            <textarea id="commentText" placeholder="Escribe tu comentario aquí..."></textarea>
-                            <button id="submitComment">Enviar Comentario</button>
-                        </div>
-                    </div>        
+                        <div id="commentModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <h2>Agregar Comentario</h2>
+                                <textarea id="commentText" placeholder="Escribe tu comentario aquí..."></textarea>
+                                <button id="submitComment">Enviar Comentario</button>
+                            </div>
+                        </div>        
                     </div>
                 </div>
 
@@ -76,6 +78,9 @@
                 <div class="card">
                     <div class="card-actions">
                         <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                        <button class="add-comment-btn" id="addCommentBtn">
+                            <span class="material-icons">comment</span>
+                        </button>
                         <button class="delete-btn"><i class="fas fa-trash"></i></button>
                     </div>
                     <div class="card-inner">
@@ -85,6 +90,9 @@
                             <div class="card-controls">
                                 <button class="comment-btn"><i class="fas fa-comment"></i> Comentarios</button>
                                 <span class="comment-count">0 comentarios</span>
+                            </div>
+                            <div class="comments-section">
+                                <div class="comments-list"></div>
                             </div>
                         </div>
                         <div class="card-back">
@@ -99,19 +107,23 @@
                             <p class="info-text">Bosques tropicales, manglares y praderas de India, Bangladesh y Nepal.</p>
                         </div>
                     </div>
-                    <div class="comments-section hidden">
-                        <div class="comments-list"></div>
-                        <div class="add-comment">
-                            <textarea placeholder="Escribe un comentario..."></textarea>
-                            <button class="submit-comment-btn">Enviar</button>
+                    <div id="commentModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <h2>Agregar Comentario</h2>
+                            <textarea id="commentText" placeholder="Escribe tu comentario aquí..."></textarea>
+                            <button id="submitComment">Enviar Comentario</button>
                         </div>
-                    </div>
+                    </div>  
                 </div>
 
                 <!-- Oso Pardo -->
                 <div class="card">
                     <div class="card-actions">
                         <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                        <button class="add-comment-btn" id="addCommentBtn">
+                            <span class="material-icons">comment</span>
+                        </button>
                         <button class="delete-btn"><i class="fas fa-trash"></i></button>
                     </div>
                     <div class="card-inner">
@@ -121,6 +133,9 @@
                             <div class="card-controls">
                                 <button class="comment-btn"><i class="fas fa-comment"></i> Comentarios</button>
                                 <span class="comment-count">0 comentarios</span>
+                            </div>
+                            <div class="comments-section hidden">
+                                <div class="comments-list"></div>
                             </div>
                         </div>
                         <div class="card-back">
@@ -135,13 +150,14 @@
                             <p class="info-text">Bosques y montañas de América del Norte, Europa y Asia.</p>
                         </div>
                     </div>
-                    <div class="comments-section hidden">
-                        <div class="comments-list"></div>
-                        <div class="add-comment">
-                            <textarea placeholder="Escribe un comentario..."></textarea>
-                            <button class="submit-comment-btn">Enviar</button>
+                    <div id="commentModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <h2>Agregar Comentario</h2>
+                            <textarea id="commentText" placeholder="Escribe tu comentario aquí..."></textarea>
+                            <button id="submitComment">Enviar Comentario</button>
                         </div>
-                    </div>
+                    </div>  
                 </div>
 
                 <!--Canguro Rojo-->
@@ -256,55 +272,6 @@
                 </div>   
             </section>
         </div>
-        <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const modal = document.getElementById('commentModal');
-    const commentBtn = document.getElementById('addCommentBtn');
-    const commentText = document.getElementById('commentText');
-    const commentsList = document.querySelector('.comments-list');
-    const commentCount = document.querySelector('.comment-count');
-
-    // Mostrar el modal al hacer clic en el botón de agregar comentario
-    commentBtn.addEventListener('click', () => {
-        modal.style.display = "block"; // Muestra el modal
-    });
-
-    // Cerrar el modal al hacer clic en la "X"
-    document.querySelector('.close').addEventListener('click', () => {
-        modal.style.display = "none";
-    });
-
-    // Cerrar el modal si se hace clic fuera de él
-    window.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            modal.style.display = "none";
-        }
-    });
-
-    // Manejar el evento de envío de comentario
-    document.getElementById('submitComment').addEventListener('click', (e) => {
-        e.preventDefault();
-        const comment = commentText.value.trim();
-
-        if (comment !== '') {
-            const commentItem = document.createElement('div');
-            commentItem.classList.add('comment-item');
-            commentItem.textContent = comment;
-
-            // Agregar nuevo comentario a la lista
-            commentsList.appendChild(commentItem);
-            const currentCount = parseInt(commentCount.textContent) || 0;
-            commentCount.textContent = `${currentCount + 1} comentarios`;
-            commentText.value = '';
-            modal.style.display = "none"; // Cierra el modal
-        } else {
-            alert('Por favor, escribe un comentario antes de enviar.');
-        }
-    });
-});
-
-        </script>
-        
-
+        <script src="registrarComentarios.js"></script>
     </body>
 </html>

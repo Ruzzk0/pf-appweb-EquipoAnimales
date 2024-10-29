@@ -4,12 +4,33 @@ let isEditMode = false;
 
 // Activar/desactivar el modo de edición
 function toggleEditMode() {
-    isEditMode = !isEditMode;
-    document.getElementById('fileInput').classList.toggle('hidden', !isEditMode);
-    document.getElementById('colorOptions').classList.toggle('hidden', !isEditMode);
-    document.getElementById('editProfileButton').classList.toggle('hidden', isEditMode);
-    document.getElementById('saveChangesButton').classList.toggle('hidden', !isEditMode);
+    const colorOptions = document.getElementById('colorOptions');
+    const saveButton = document.getElementById('saveChangesButton');
+    const editButton = document.getElementById('editProfileButton');
+
+    if (colorOptions.classList.contains('hidden')) {
+        colorOptions.classList.remove('hidden');
+        saveButton.classList.remove('hidden');
+        editButton.classList.add('hidden');
+    } else {
+        colorOptions.classList.add('hidden');
+        saveButton.classList.add('hidden');
+        editButton.classList.remove('hidden');
+    }
 }
+
+function saveChanges() {
+    // Aquí podrías agregar lógica para guardar los cambios
+    alert('Cambios guardados.');
+}
+
+function handleTeamChange(team) {
+    // Lógica para manejar el cambio de equipo
+    alert(`Has cambiado a: ${team}`);
+}
+
+
+
 
 // Cambiar imagen de perfil
 document.getElementById('fileInput').addEventListener('change', function(e) {
