@@ -22,41 +22,19 @@ a i.fi-br-arrow-left {
     text-decoration: none;
 }
 
-/* Estilos del botón de retroceso */
 .back-button {
-    position: fixed;
-    top: 25px;
-    left: 25px;
-    padding: 10px 20px;
-    background-color: #002b7c;
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
     color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    z-index: 9999;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 40px;
-    font-size: 1.2em;
+    z-index: 2;
 }
 
-.back-button:hover {
-    background-color: #042d77;
-    transform: scale(1.05);
-    transition: all 0.3s ease;
+.back-button i {
+    font-size: 24px;
 }
-
-.material-symbols-outlined {
-    font-variation-settings:
-    'FILL' 0,
-    'wght' 600,
-    'GRAD' 0,
-    'opsz' 24
-  }
 
 .perfil {
     width: 100%;
@@ -189,4 +167,32 @@ button#cambioBando:hover {
     .cuerpo {
         padding: 0 15px;
     }
+}
+
+#colorOptions {
+    display: flex;
+    justify-content: center; /* Centra los botones horizontalmente */
+    margin-top: 20px; /* Espacio arriba del contenedor */
+}
+
+#colorOptions button {
+    padding: 12px 20px; /* Espaciado interno para el botón */
+    margin: 0 10px; /* Espaciado entre botones */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    color: #fff; /* Color de texto */
+    background-color: #007bff; /* Color de fondo */
+    font-size: 16px; /* Tamaño de fuente */
+    font-weight: bold; /* Negrita */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Efectos de transición */
+}
+
+#colorOptions button:hover {
+    background-color: #0056b3; /* Color al pasar el cursor */
+    transform: translateY(-2px); /* Ligera elevación al hacer hover */
+}
+
+#colorOptions button:active {
+    transform: translateY(1px); /* Efecto de pulsación al hacer clic */
 }

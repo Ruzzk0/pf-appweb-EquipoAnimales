@@ -62,8 +62,8 @@ h1 {
 /* Estilos del botón de retroceso */
 .back-button {
     position: fixed;
-    top: 20px;
-    left: 20px;
+    top: 40px;
+    left: 40px;
     padding: 10px 20px;
     background-color: #124f13;
     color: white;
@@ -76,8 +76,8 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
 }
 
 .back-button:hover {
@@ -85,6 +85,14 @@ h1 {
     transform: scale(1.05);
     transition: all 0.3s ease;
 }
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 600,
+    'GRAD' 0,
+    'opsz' 24
+  }
 
 /* Estilos de la sección de publicaciones */
 .postAnimales {
