@@ -6,6 +6,10 @@ body {
     background-color: #e7f0ef;
 }
 
+h1{
+    color: aliceblue;
+}
+
 header {
     position: relative;
     display: flex;
@@ -13,13 +17,6 @@ header {
     align-items: center;
     background: linear-gradient(45deg, #4b505a, #5A98F2);
     padding: 20px 0;
-}
-
-
-a i.fi-br-arrow-left {
-    color: white;
-    font-size: 24px; /* Ajusta el tamaño según tus preferencias */
-    text-decoration: none;
 }
 
 .back-button {
@@ -36,106 +33,9 @@ a i.fi-br-arrow-left {
     font-size: 24px;
 }
 
-/* Estilos generales para los botones */
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-/* Estilos para el botón de Editar Perfil */
-#editProfileButton {
-    background-color: #4CAF50; /* Verde */
-    color: #ffffff;
-    margin-right: 10px;
-}
-
-#editProfileButton:hover {
-    background-color: #45a049;
-    transform: scale(1.05);
-}
-
-/* Estilos para el botón de Guardar Cambios */
-#saveChangesButton {
-    background-color: #2196F3; /* Azul */
-    color: #ffffff;
-    display: none; /* Oculto por defecto */
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-#saveChangesButton:hover {
-    background-color: #1e87e5;
-    transform: scale(1.05);
-}
-
-
-
-/* Estilos para los botones de los bandos */
-#colorOptions #bando {
-    background-color: #f39c12; /* Naranja */
-    color: #ffffff;
-    margin: 5px 5px 0 0;
-    border-radius: 5px;
-    padding: 8px 15px;
-    display: inline-block;
-    font-weight: bold;
-}
-
-#colorOptions #bando:hover {
-    background-color: #e67e22;
-    transform: scale(1.05);
-}
-
-#colorOptions {
-    margin-top: 10px;
-}
-
-/* Espaciado y alineación */
-.profile-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-
-
-
 .perfil {
     width: 100%;
 }
-
-/* stylesPerfil.css */
-.hidden {
-    display: none; /* Oculta el elemento */
-}
-
-.visible {
-    display: inline-block; /* O 'flex' si necesitas */
-}
-
-/* Estilo para los botones */
-button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    background-color: #4CAF50; /* Color de fondo */
-    color: white; /* Color del texto */
-    cursor: pointer;
-    font-size: 16px;
-}
-
-button:hover {
-    background-color: #45a049; /* Color de fondo al pasar el mouse */
-}
-
-
 
 section#perfil {
     display: flex;
@@ -186,7 +86,6 @@ label#textoPerfil {
     border: 8px solid;
     box-sizing: border-box;
     object-fit: cover;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
     transition: border-color 0.5s;
 }
 
@@ -222,21 +121,82 @@ label#nombre, label#representa {
     font-size: 16px;
 }
 
+/* Botón de cambio de bando común */
 button#cambioBando {
     margin-top: 20px;
     padding: 8px 24px;
     font-size: 14px;
-    background: linear-gradient(45deg, #4b505a, #5A98F2);
     color: white;
     border: none;
-    border-radius: 40px;
+    border-radius: 30px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s; /* Transición suave */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
 }
 
-button#cambioBando:hover {
-    background: linear-gradient(45deg, #5a6070, #6BA3F3);
+/* Colores específicos para cada bando */
+button.bando-terrestre {
+    background: linear-gradient(45deg, #673232, #9e5c5c);
 }
+
+button.bando-acuatico {
+    background: linear-gradient(45deg, #042d77, #4f79b3);
+}
+
+button.bando-aereo {
+    background: linear-gradient(45deg, #124f13, #4caf50);
+}
+
+/* Efecto al pasar el mouse */
+button:hover {
+    transform: translateY(-2px); /* Levantar el botón al pasar el mouse */
+}
+
+/* Efecto al hacer clic */
+button:active {
+    transform: translateY(0); /* Restablecer la posición al hacer clic */
+}
+
+/* Transiciones específicas al pasar el mouse sobre los botones de cada bando */
+button.bando-terrestre:hover {
+    background: linear-gradient(45deg, #9e5c5c, #673232);
+}
+
+button.bando-acuatico:hover {
+    background: linear-gradient(45deg, #4f79b3, #042d77);
+}
+
+button.bando-aereo:hover {
+    background: linear-gradient(45deg, #4caf50, #124f13);
+}
+
+
+button {
+    padding: 0.75em 1.5em; /* Espaciado más amplio para una mejor apariencia */
+    border: none;
+    border-radius: 30px; /* Bordes redondeados más pronunciados */
+    background: linear-gradient(45deg, #4b505a, #5A98F2); /* Fondo con degradado */
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s; /* Añadir transición para suavidad */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+}
+
+button:hover {
+    background: linear-gradient(45deg, #5A98F2, #4b505a); /* Cambiar el orden del degradado al pasar el mouse */
+    transform: translateY(-2px); /* Levantar el botón al pasar el mouse */
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:active {
+    transform: translateY(0); /* Restablecer la posición al hacer clic */
+}
+
+.hidden {
+    display: none; /* Para ocultar elementos cuando sea necesario */
+}
+
 
 .borde-terrestre {
     border-color: #673232;
@@ -250,6 +210,9 @@ button#cambioBando:hover {
     border-color: #124f13;
 }
 
+.hidden {
+    display: none;
+}
 
 
 @media (max-width: 480px) {
@@ -261,32 +224,4 @@ button#cambioBando:hover {
     .cuerpo {
         padding: 0 15px;
     }
-}
-
-#colorOptions {
-    display: flex;
-    justify-content: center; /* Centra los botones horizontalmente */
-    margin-top: 20px; /* Espacio arriba del contenedor */
-}
-
-#colorOptions button {
-    padding: 12px 20px; /* Espaciado interno para el botón */
-    margin: 0 10px; /* Espaciado entre botones */
-    border: none; /* Sin borde */
-    border-radius: 5px; /* Bordes redondeados */
-    color: #fff; /* Color de texto */
-    background-color: #007bff; /* Color de fondo */
-    font-size: 16px; /* Tamaño de fuente */
-    font-weight: bold; /* Negrita */
-    cursor: pointer; /* Cambia el cursor al pasar por encima */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Efectos de transición */
-}
-
-#colorOptions button:hover {
-    background-color: #0056b3; /* Color al pasar el cursor */
-    transform: translateY(-2px); /* Ligera elevación al hacer hover */
-}
-
-#colorOptions button:active {
-    transform: translateY(1px); /* Efecto de pulsación al hacer clic */
 }

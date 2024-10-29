@@ -13,12 +13,35 @@ body {
   background-position: 120px 470px;
 }
 
+.sticky-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+
+.back-button {
+  position: absolute;
+  left: 100px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  cursor: pointer;
+  z-index: 2;
+  font-size: 24px;
+}
+
 header {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(45deg, #4b505a, #5A98F2);
+  background: linear-gradient(45deg, #31ad42, #33e668);
   padding: 20px 0;
   text-align: center;
 }
@@ -67,7 +90,7 @@ button:hover {
 
 .title {
   text-align: center; /* Centra el título */
-  margin: 90px 0 0px 0; /* Aumenta el margen superior para dar espacio al encabezado fijo */
+  margin: 110px 0 -20px 40px; /* Aumenta el margen superior para dar espacio al encabezado fijo */
   font-size: 24px; /* Tamaño de fuente más grande */
   color: #333; /* Color del texto */
 }
@@ -88,10 +111,6 @@ header {
   font-family: 'Arial';
 }
 
-h1{
-  color: #0a7b67;
-}
-
 div[id='texto-bienvenida'] {
   background-color: #f2f2f2;
   padding: 10px 20px;
@@ -107,9 +126,7 @@ section {
   max-width: 400px;
   width: 100%;
 }
-h1, h2 {
-  margin: 0 0 1em;
-}
+
 form {
   display: flex;
   flex-direction: column;
