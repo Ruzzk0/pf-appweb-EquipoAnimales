@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Publicación</title>
+    <link rel="stylesheet" href="stylesPublicar.css">
+</head>
+
+<body>
+
+    <header class="sticky-header">
+        <a href="principal.html" class="back-button">←</a>
+        <h1>¿Qué quieres publicar?</h1>
+    </header>
+
+    <div>
+        <form action="#" class="formularioPublicacion">
+            <div>
+                <p>Nombre del animal: </p>
+                <input id="nombreAnimalPost" type="text" placeholder="Ingresa el nombre del animal" required>
+            </div>
+            <div>
+                <p>Tamaño del animal: </p>
+                <textarea name="tamañoAnimalPost" id="tamañoAnimalPost" placeholder="Ingresa el tamaño del animal" required></textarea>
+            </div>
+            <div>
+                <p>Características del animal: </p>
+                <textarea name="caracteristicasAnimalPost" id="caracteristicasAnimalPost" placeholder="Ingresa las características del animal" required></textarea>
+            </div>
+            <div>
+                <p>Dieta del animal: </p>
+                <textarea name="dietaAnimalPost" id="dietaAnimalPost" placeholder="Ingresa la dieta del animal" required></textarea>
+            </div>
+            <div>
+                <p>Habitad del animal: </p>
+                <textarea name="habitadAnimalPost" id="habitadAnimalPost" placeholder="Ingresa el habitad del animal" required></textarea>
+            </div>
+            <div>
+                <p>Imagen del animal:</p>
+                <input type="image" name="imagenPost" id="imagenPost" placeholder="Subir imagen aqui" >
+            </div>
+
+        </form>
+        <button form="formularioPublicacion" id="btnPublicar">Publicar</button>
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    document.getElementById("btnPublicar").addEventListener("click", function(event) {
+        event.preventDefault(); // Evita el envío del formulario para procesarlo en el frontend
+
+        // Captura los valores de cada campo
+        const nombre = document.getElementById("nombreAnimalPost").value;
+        const tamaño = document.getElementById("tamañoAnimalPost").value;
+        const caracteristicas = document.getElementById("caracteristicasAnimalPost").value;
+        const dieta = document.getElementById("dietaAnimalPost").value;
+        const habitad = document.getElementById("habitadAnimalPost").value;
+        const imagen = document.getElementById("imagenPost").files[0]; // Captura el archivo de imagen
+
+        // Guarda los datos en un objeto
+        const animalData = {
+            nombre: nombre,
+            tamaño: tamaño,
+            caracteristicas: caracteristicas,
+            dieta: dieta,
+            habitad: habitad,
+            imagen: imagen
+        };
+
+        // Aquí puedes hacer lo que necesites con los datos, como enviarlos a un servidor
+    });
+</script>
