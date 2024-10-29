@@ -41,7 +41,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(45deg, #31ad42, #33e668);
+  background: linear-gradient(135deg, rgba(255, 210, 200, 0.8), rgba(180, 235, 240, 0.7));
   padding: 20px 0;
   text-align: center;
 }
