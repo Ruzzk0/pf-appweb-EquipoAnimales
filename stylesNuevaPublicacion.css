@@ -18,11 +18,13 @@ header {
     background: linear-gradient(45deg, #4b505a, #5A98F2);
     padding: 20px 0;
     text-align: center;
+    
 }
 
 h1{
     color: aliceblue;
     text-align: center;
+    margin-left: 43%;
 }
 
 .material-symbols-outlined {

@@ -22,7 +22,7 @@
     </div>
 
     <div class="form-container">
-        <form action="#" class="formularioPublicacion">
+        <form  id="formPublicar" action="#" class="formularioPublicacion" method="post">
             <div class="form-group">
                 <label for="nombreAnimalPost">Nombre del animal:</label>
                 <input id="nombreAnimalPost" type="text" placeholder="Ingresa el nombre del animal" required>
@@ -45,9 +45,9 @@
             </div>
             <div class="form-group">
                 <label for="imagenPost">Imagen del animal:</label>
-                <input type="file" id="imagenPost" accept="image/*" required>
+                <input type="file" id="imagenPost" accept="image/*">
             </div>
-            <button type="submit" id="btnPublicar">Publicar</button>
+            <button type="submit" id="btnPublicar" form="formPublicar">Publicar</button>
         </form>
     </div>
 
