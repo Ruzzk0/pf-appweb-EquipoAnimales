@@ -1,118 +1,162 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
-
-body{
+body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #93E1D8;
+    background-color: #e7f0ef;
 }
 
 header {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(45deg, #3572EF, #5A98F2);
+    background: linear-gradient(45deg, #4b505a, #5A98F2);
     padding: 20px 0;
+}
+
+.back-button {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.back-button i {
+    font-size: 24px;
+}
+
+.perfil {
+    width: 100%;
 }
 
 section#perfil {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     width: 100%;
-    max-width: 1200px;
-    gap: 150px;
 }
-
-i.fi {
-    margin-top: 5px;
-    font-size: 32px;
-    color: white;
-}
-
-.imagen-perfil {
-    width: 25%;
-    height: 25%;
-    border-radius: 100%;
-    border: 8px solid; /* Color de borde por defecto */
-    box-sizing: border-box;
-    transition: border-color 0.5s; /* Efecto suave al cambiar el borde */
-}
-
-.borde-terrestre {
-    border-color: #88B04B; /* Color verde para terrestre */
-}
-
-.borde-acuatico {
-    border-color: #3498db; /* Color azul para acuático */
-}
-
-.borde-aereo {
-    border-color: #f39c12; /* Color naranja para aéreo */
-}
-
-
 
 h1#textoPerfil {
     color: white;
     font-size: 24px;
     font-weight: 700;
-    margin: 0;
+    text-align: center;
 }
 
-div[class="perfil"] {
-    width: 100%;
-    height: 100%;
+.cuerpo {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 0 20px;
 }
 
-div[class="cuerpo"] {
-    margin-top: 50px;
+label#textoPerfil {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+#logo {
     display: flex;
     flex-direction: column;
-}
-
-div[id="logo"] {
-    display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
 }
 
-img[id="menuOpciones"] {
-    width: 100px;
-    margin-left: 10px;
-    margin-top: 5px;
+.imagen-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
 }
 
-label[id="textoPerfil"] {
-    margin-left: 160px;
+.imagen-perfil {
+    width: 100%;
+    height: 100%;
+    border-radius: 60%;
+    border: 8px solid;
+    box-sizing: border-box;
+    object-fit: cover;
+    transition: border-color 0.5s;
 }
 
-label[id="nombre"], label[id="representa"] {
-    margin-left: 150px;
+.camera-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    padding: 8px;
 }
 
-label[id="representa"] {
-    margin-top: 10px;
-    display: block;
-
+.camera-icon:hover {
+    background: #f0f0f0;
 }
 
-img[id="logo"] {
+.camera-icon i {
+    color: #4b505a;
+    font-size: 18px;
+}
+
+.profile-info {
     display: flex;
-    margin-left: 15px;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    text-align: center;
 }
 
-button[id="cambioBando"]{
+label#nombre, label#representa {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+button#cambioBando {
     margin-top: 20px;
-    margin-left: 140px;
-    padding: 8px 16px;
+    padding: 8px 24px;
     font-size: 14px;
-    background-color: #AA4465; /* color del botón */
+    background: linear-gradient(45deg, #4b505a, #5A98F2);
     color: white;
     border: none;
     border-radius: 40px;
     cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button#cambioBando:hover {
+    background: linear-gradient(45deg, #5a6070, #6BA3F3);
+}
+
+.borde-terrestre {
+    border-color: #673232;
+}
+
+.borde-acuatico {
+    border-color: #042d77;
+}
+
+.borde-aereo {
+    border-color: #124f13;
+}
+
+.hidden {
+    display: none;
 }
 
 
+@media (max-width: 480px) {
+    .imagen-container {
+        width: 150px;
+        height: 150px;
+    }
 
+    .cuerpo {
+        padding: 0 15px;
+    }
+}

@@ -1,3 +1,7 @@
+
+
 function cambiarBando() {
-    window.location.href = "cambiarBando.html";
+    GestorBando.redirigir('cambiarBando.html');
 }
+
+

@@ -10,29 +10,42 @@
 </head>
 <body>
     <header>
+        <div class="back-button">
+            <a href="principal.html">
+                <i class="fi fi-br-arrow-left"></i>
+            </a>
+        </div>
         <div class="perfil">
             <section id="perfil">
-                <i class="fi fi-br-settings-sliders"></i>
                 <h1 id="textoPerfil">ANIMAL SOCIAL</h1>
             </section>
         </div>
     </header>
     <div class="cuerpo">
-        <label id="textoPerfil" for="cuerpo">PERFIL</label>
+        <label id="textoPerfil">PERFIL</label>
         <div id="logo">
-            <img src="imagenesPerfil/dog.jpg" alt="Perfil" class="imagen-perfil" id="imagenPerfil">
-            <div>
-                <label id="nombre" for="cuerpo">Nombre del usuario</label>
-                <label id="representa" for="cuerpo">Me representa.....</label>
-                <!-- El botón para cambiar bando puede redirigir a la otra página -->
-                <button id="cambioBando" onclick="window.location.href='cambiarBando.html'">Cambiar de bando</button> 
+            <div class="imagen-container">
+                <img src="imagenesPerfil/dog.jpg" alt="Perfil" class="imagen-perfil" id="imagenPerfil">
+                <label for="fileInput" class="camera-icon">
+                    <i class="fi fi-br-camera"></i>
+                </label>
+                <input type="file" id="fileInput" accept="image/*" class="hidden">
+            </div>
+            <div class="profile-info">
+                <label id="nombre">Nombre del usuario</label>
+                <label id="representa">Me representa...</label>
+               
+                <div id="colorOptions" class="hidden">
+                    <button onclick="handleTeamChange('terrestre')">Bando Terrestre</button>
+                    <button onclick="handleTeamChange('acuatico')">Bando Acuático</button>
+                    <button onclick="handleTeamChange('aereo')">Bando Aéreo</button>
+                </div> 
+                <button id="editProfileButton" onclick="toggleEditMode()">Editar Perfil</button>
+                <button id="saveChangesButton" class="hidden" onclick="saveChanges()">Guardar Cambios</button>
             </div>
         </div>
     </div>
-
     <!-- Script para recuperar el color del borde -->
-    <script src="cambiarVentanas.js"></script>
     <script src="perfil.js"></script>
-
 </body>
 </html>
