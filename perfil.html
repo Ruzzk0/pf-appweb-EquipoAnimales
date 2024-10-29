@@ -7,12 +7,15 @@
     <link rel="stylesheet" href="stylesPerfil.css">
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-bold-rounded/css/uicons-bold-rounded.css'>
     <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-straight/css/uicons-solid-straight.css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back_ios" />
 </head>
 <body>
     <header>
-        <div class="back-button">
-            <a href="principal.html">
-                <i class="fi fi-br-arrow-left"></i>
+        <div>
+            <a href="principal.html" class="back-button">
+                <span class="material-symbols-outlined">
+                    arrow_back_ios
+                </span>
             </a>
         </div>
         <div class="perfil">
@@ -36,9 +39,9 @@
                 <label id="representa">Me representa...</label>
                
                 <div id="colorOptions" class="hidden">
-                    <button onclick="handleTeamChange('terrestre')">Bando Terrestre</button>
-                    <button onclick="handleTeamChange('acuatico')">Bando Acuático</button>
-                    <button onclick="handleTeamChange('aereo')">Bando Aéreo</button>
+                    <button id="terrestre" onclick="handleTeamChange('terrestre')">Bando Terrestre</button>
+                    <button id="acuatico" onclick="handleTeamChange('acuatico')">Bando Acuático</button>
+                    <button id="aereo" onclick="handleTeamChange('aereo')">Bando Aéreo</button>
                 </div> 
                 <button id="editProfileButton" onclick="toggleEditMode()">Editar Perfil</button>
                 <button id="saveChangesButton" class="hidden" onclick="saveChanges()">Guardar Cambios</button>
