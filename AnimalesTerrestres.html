@@ -1,267 +1,310 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ANIMALES TERRESTRES</title>
+        <link rel="stylesheet" href="stylesTerrestres.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANIMALES TERRESTRES</title>
-    <link rel="stylesheet" href="stylesTerrestres.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_back_ios" /></head>
+    <body>
+        <header class="sticky-header">
+            <a href="principal.html" class="back-button">
+                <span class="material-icons">arrow_back</span>
 
-<body>
-    <header class="sticky-header">
-        <a href="principal.html" class="back-button">
-            <span class="material-symbols-outlined">
-                arrow_back_ios
-            </span>
-        </a>
-        <h1>ANIMALES TERRESTRES</h1>
-        <a class="add-post-btn" href="NuevaPublicacion.html"><i class="fas fa-plus"></i> Nueva Publicación</a>
-    </header>
+            </a>
+            <h1>ANIMALES TERRESTRES</h1>
+            <a class="add-post-btn" href="NuevaPublicacion.html"><i class="fas fa-plus"></i> Nueva Publicación</a>
+        </header>
 
-    <div class="image-container">
-        <img src="imagenesAnimalesT/leopardo.jpg" alt="Animales Terrestres">
-        <div class="transparent-box"></div>
-    </div>
-
-    <div class="postAnimales">
-        <section id="postAnimales">
-            <!-- Elefante africano -->
-            <div class="card">
-                <div class="card-actions">
-                    <button class="edit-btn"><i class="fas fa-edit"></i></button>
-                    <button class="delete-btn"><i class="fas fa-trash"></i></button>
-                </div>
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="imagenesAnimalesT/elefante.jpg" alt="Elefante africano">
-                        <div class="card-title">Elefante Africano</div>
-                        <div class="card-controls">
-                            <button class="comment-btn"><i class="fas fa-comment"></i> Comentarios</button>
-                            <span class="comment-count">0 comentarios</span>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <h3>Elefante Africano</h3>
-                        <p class=info-title>Tamaño</p>
-                        <p class="info-text">Los machos pueden medir hasta 4 metros de altura y pesar hasta 6 toneladas.</p>
-                        <p class="info-title">Caracteristicas</p>
-                        <p class="info-text">Reconocido por sus grandes orejas, trompa versátil y colmillos de marfil. Son animales muy inteligentes con una gran memoria.</p>
-                        <p class="info-title">Dieta</p>
-                        <p class="info-text">Herbívoro, alimentándose de pasto, frutas, hojas y corteza de árboles.</p>
-                        <p class="info-title">Hábitat</p>
-                        <p class="info-text">Sabana africana y algunas zonas de bosques tropicales.</p>
-
-
-                    </div>
-                </div>
-                <div class="comments-section hidden">
-                    <div class="comments-list"></div>
-                    <div class="add-comment">
-                        <textarea placeholder="Escribe un comentario..."></textarea>
-                        <button class="submit-comment-btn">Enviar</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tigre de bengala -->
-            <div class="card">
-                <div class="card-actions">
-                    <button class="edit-btn"><i class="fas fa-edit"></i></button>
-                    <button class="delete-btn"><i class="fas fa-trash"></i></button>
-                </div>
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="imagenesAnimalesT/tigre.jpg" alt="Tigre de bengala">
-                        <div class="card-title">Tigre de Bengala</div>
-                        <div class="card-controls">
-                            <button class="comment-btn"><i class="fas fa-comment"></i> Comentarios</button>
-                            <span class="comment-count">0 comentarios</span>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <h3>Tigre de Bengala</h3>
-                        <p class="info-title">Tamaño</p>
-                        <p class="info-text"> Entre 2.5 y 3 metros de longitud, pesando entre 180 y 250 kg.</p>
-                        <p class="info-title">Caracteristicas</p>
-                        <p class="info-text">Conocido por su pelaje naranja con rayas negras, es un cazador solitario y territorial.</p>
-                        <p class="info-title">Dieta</p>
-                        <p class="info-text">Carnívoro, cazando ciervos, jabalíes y otros mamíferos grandes.</p>
-                        <p class="info-title">Hábitat</p>
-                        <p class="info-text">Bosques tropicales, manglares y praderas de India, Bangladesh y Nepal.</p>
-                    </div>
-                </div>
-                <div class="comments-section hidden">
-                    <div class="comments-list"></div>
-                    <div class="add-comment">
-                        <textarea placeholder="Escribe un comentario..."></textarea>
-                        <button class="submit-comment-btn">Enviar</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Oso Pardo -->
-            <div class="card">
-                <div class="card-actions">
-                    <button class="edit-btn"><i class="fas fa-edit"></i></button>
-                    <button class="delete-btn"><i class="fas fa-trash"></i></button>
-                </div>
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="imagenesAnimalesT/oso.jpg" alt="Oso Pardo">
-                        <div class="card-title">Oso Pardo</div>
-                        <div class="card-controls">
-                            <button class="comment-btn"><i class="fas fa-comment"></i> Comentarios</button>
-                            <span class="comment-count">0 comentarios</span>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <h3>Oso Pardo</h3>
-                        <p class="info-title">Tamaño</p>
-                        <p class="info-text">Puede medir hasta 2.5 metros de altura y pesar entre 300 y 700 kg.</p>
-                        <p class="info-title">Caracteristicas</p>
-                        <p class="info-text">Posee un pelaje espeso y garras fuertes para excavar y trepar. Tiene un sentido del olfato extremadamente desarrollado.</p>
-                        <p class="info-title">Dieta</p>
-                        <p class="info-text">Omnívoro, se alimenta de plantas, frutas, peces y pequeños mamíferos.</p>
-                        <p class="info-title">Hábitat</p>
-                        <p class="info-text">Bosques y montañas de América del Norte, Europa y Asia.</p>
-                    </div>
-                </div>
-                <div class="comments-section hidden">
-                    <div class="comments-list"></div>
-                    <div class="add-comment">
-                        <textarea placeholder="Escribe un comentario..."></textarea>
-                        <button class="submit-comment-btn">Enviar</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Canguro Rojo -->
-            <div class="card">
-                <div class="card-actions">
-                    <button class="edit-btn"><i class="fas fa-edit"></i></button>
-                    <button class="delete-btn"><i class="fas fa-trash"></i></button>
-                </div>
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="imagenesAnimalesT/canguro.jpg" alt="Canguro Rojo">
-                        <div class="card-title">Canguro Rojo</div>
-                        <div class="card-controls">
-                            <button class="comment-btn"><i class="fas fa-comment"></i> Comentarios</button>
-                            <span class="comment-count">0 comentarios</span>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <h3>Canguro Rojo</h3>
-                        <p class="info-title">Tamaño</p>
-                        <p class="info-text">Hasta 1.8 metros de altura y pueden pesar hasta 85 kg.</p>
-                        <p class="info-title">Caracteristicas</p>
-                        <p class="info-text">Sus fuertes patas traseras y cola larga lo hacen excelente saltador, alcanzando grandes distancias en sus saltos.</p>
-                        <p class="info-title">Dieta</p>
-                        <p class="info-text">Herbívoro, principalmente pasto y hierbas.</p>
-                        <p class="info-title">Hábitat</p>
-                        <p class="info-text">Zonas áridas y semiáridas de Australia.</p>
-                    </div>
-                </div>
-                <div class="comments-section hidden">
-                    <div class="comments-list"></div>
-                    <div class="add-comment">
-                        <textarea placeholder="Escribe un comentario..."></textarea>
-                        <button class="submit-comment-btn">Enviar</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Panda Gigante -->
-            <div class="card">
-                <div class="card-actions">
-                    <button class="edit-btn"><i class="fas fa-edit"></i></button>
-                    <button class="delete-btn"><i class="fas fa-trash"></i></button>
-                </div>
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="imagenesAnimalesT/panda.jpg" alt="Panda Gigante">
-                        <div class="card-title">Panda Gigante</div>
-                        <div class="card-controls">
-                            <button class="comment-btn"><i class="fas fa-comment"></i> Comentarios</button>
-                            <span class="comment-count">0 comentarios</span>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <h3>Panda Gigante</h3>
-                        <p class="info-title">Tamaño</p>
-                        <p class="info-text">Entre 1.2 y 1.5 metros de longitud y un peso de 75 a 160 kg.</p>
-                        <p class="info-title">Caracteristicas</p>
-                        <p class="info-text">Reconocido por su pelaje blanco y negro distintivo, es un símbolo de la conservación animal en el mundo.</p>
-                        <p class="info-title">Dieta</p>
-                        <p class="info-text">Principalmente bambú, aunque en ocasiones puede comer pequeños roedores o aves.</p>
-                        <p class="info-title">Hábitat</p>
-                        <p class="info-text">Bosques de bambú en las montañas de China.</p>
-                    </div>
-                </div>
-                <div class="comments-section hidden">
-                    <div class="comments-list"></div>
-                    <div class="add-comment">
-                        <textarea placeholder="Escribe un comentario..."></textarea>
-                        <button class="submit-comment-btn">Enviar</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Vaca Angus -->
-            <div class="card">
-                <div class="card-actions">
-                    <button class="edit-btn"><i class="fas fa-edit"></i></button>
-                    <button class="delete-btn"><i class="fas fa-trash"></i></button>
-                </div>
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="imagenesAnimalesT/vaca.jpg" alt="Vaca Angus">
-                        <div class="card-title">Vaca Angus</div>
-                        <div class="card-controls">
-                            <button class="comment-btn"><i class="fas fa-comment"></i> Comentarios</button>
-                            <span class="comment-count">0 comentarios</span>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <h3>Vaca Angus</h3>
-                        <p class="info-title">Tamaño</p>
-                        <p class="info-text">Las hembras suelen pesar entre 450 y 600 kg.
-                            Los machos pueden pesar entre 850 y 1,000 kg.</p>
-                        <p class="info-title">Caracteristicas</p>
-                        <p class="info-text">Raza sin cuernos, con pelaje negro o rojo, musculosa y bien adaptada a diferentes climas.</p>
-                        <p class="info-title">Alimentación</p>
-                        <p class="info-text">Herbívora, se alimenta principalmente de pasto, aunque puede incluir granos para mejorar la calidad de la carne.</p>
-                        <p class="info-title">Hábitat</p>
-                        <p class="info-text">Praderas y ranchos en América, Europa y Australia.</p>
-                    </div>
-                </div>
-                <div class="comments-section hidden">
-                    <div class="comments-list"></div>
-                    <div class="add-comment">
-                        <textarea placeholder="Escribe un comentario..."></textarea>
-                        <button class="submit-comment-btn">Enviar</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- Modal para nueva publicación -->
-    <div class="modal" id="newPostModal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2>Nueva Publicación</h2>
-            <form id="newPostForm">
-                <input type="text" placeholder="Título" required>
-                <input type="file" accept="image/*" required>
-                <textarea placeholder="Alimentación" required></textarea>
-                <textarea placeholder="Hábitat" required></textarea>
-                <button type="submit">Guardar</button>
-            </form>
+        <div class="image-container">
+            <img src="imagenesAnimalesT/leopardo.jpg" alt="Animales Terrestres">
+            <div class="transparent-box"></div>
         </div>
-    </div>
-</body>
 
+        <div class="postAnimales">
+            <section id="postAnimales">
+                <!-- Elefante africano -->
+                <div class="card">
+                    <div class="card-actions">
+                        <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                        <button class="add-comment-btn" id="addCommentBtn">
+                            <span class="material-icons">comment</span>
+                        </button>
+                        <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                    </div>
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="imagenesAnimalesT/elefante.jpg" alt="Elefante africano">
+                            <div class="card-title">Elefante Africano</div>
+                            <div class="card-controls">
+                                <button class="comment-btn" id="showCommentsBtn"><i class="fas fa-comment"></i> Comentarios</button>
+                                <span class="comment-count">0 comentarios</span>
+                            </div>
+                            <div class="comments-section">
+                                <div class="comments-list"></div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Elefante Africano</h3>
+                            <p class="info-title">Tamaño</p>
+                            <p class="info-text">Los machos pueden medir hasta 4 metros de altura y pesar hasta 6 toneladas.</p>
+                            <p class="info-title">Características</p>
+                            <p class="info-text">Reconocido por sus grandes orejas, trompa versátil y colmillos de marfil. Son animales muy inteligentes con una gran memoria.</p>
+                            <p class="info-title">Dieta</p>
+                            <p class="info-text">Herbívoro, alimentándose de pasto, frutas, hojas y corteza de árboles.</p>
+                            <p class="info-title">Hábitat</p>
+                            <p class="info-text">Sabana africana y algunas zonas de bosques tropicales.</p>
+                        </div>
+
+                                            <!-- Modal de Comentarios -->
+                    <div id="commentModal" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <h2>Agregar Comentario</h2>
+                            <textarea id="commentText" placeholder="Escribe tu comentario aquí..."></textarea>
+                            <button id="submitComment">Enviar Comentario</button>
+                        </div>
+                    </div>        
+                    </div>
+                </div>
+
+
+                <!-- Tigre de bengala -->                        
+                <div class="card">
+                    <div class="card-actions">
+                        <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                        <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                    </div>
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="imagenesAnimalesT/tigre.jpg" alt="Tigre de bengala">
+                            <div class="card-title">Tigre de Bengala</div>
+                            <div class="card-controls">
+                                <button class="comment-btn"><i class="fas fa-comment"></i> Comentarios</button>
+                                <span class="comment-count">0 comentarios</span>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Tigre de Bengala</h3>
+                            <p class="info-title">Tamaño</p>
+                            <p class="info-text"> Entre 2.5 y 3 metros de longitud, pesando entre 180 y 250 kg.</p>
+                            <p class="info-title">Caracteristicas</p>
+                            <p class="info-text">Conocido por su pelaje naranja con rayas negras, es un cazador solitario y territorial.</p>
+                            <p class="info-title">Dieta</p>
+                            <p class="info-text">Carnívoro, cazando ciervos, jabalíes y otros mamíferos grandes.</p>
+                            <p class="info-title">Hábitat</p>
+                            <p class="info-text">Bosques tropicales, manglares y praderas de India, Bangladesh y Nepal.</p>
+                        </div>
+                    </div>
+                    <div class="comments-section hidden">
+                        <div class="comments-list"></div>
+                        <div class="add-comment">
+                            <textarea placeholder="Escribe un comentario..."></textarea>
+                            <button class="submit-comment-btn">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Oso Pardo -->
+                <div class="card">
+                    <div class="card-actions">
+                        <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                        <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                    </div>
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="imagenesAnimalesT/oso.jpg" alt="Oso Pardo">
+                            <div class="card-title">Oso Pardo</div>
+                            <div class="card-controls">
+                                <button class="comment-btn"><i class="fas fa-comment"></i> Comentarios</button>
+                                <span class="comment-count">0 comentarios</span>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Oso Pardo</h3>
+                            <p class="info-title">Tamaño</p>
+                            <p class="info-text">Puede medir hasta 2.5 metros de altura y pesar entre 300 y 700 kg.</p>
+                            <p class="info-title">Caracteristicas</p>
+                            <p class="info-text">Posee un pelaje espeso y garras fuertes para excavar y trepar. Tiene un sentido del olfato extremadamente desarrollado.</p>
+                            <p class="info-title">Dieta</p>
+                            <p class="info-text">Omnívoro, se alimenta de plantas, frutas, peces y pequeños mamíferos.</p>
+                            <p class="info-title">Hábitat</p>
+                            <p class="info-text">Bosques y montañas de América del Norte, Europa y Asia.</p>
+                        </div>
+                    </div>
+                    <div class="comments-section hidden">
+                        <div class="comments-list"></div>
+                        <div class="add-comment">
+                            <textarea placeholder="Escribe un comentario..."></textarea>
+                            <button class="submit-comment-btn">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Canguro Rojo-->
+                <div class="card">
+                    <div class="card-actions">
+                        <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                        <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                    </div>
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="imagenesAnimalesT/canguro.jpg" alt="Canguro Rojo">
+                            <div class="card-title">Canguro Rojo</div>
+                            <div class="card-controls">
+                                <button class="comment-btn"><i class="fas fa-comment"></i> Comentarios</button>
+                                <span class="comment-count">0 comentarios</span>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Canguro Rojo</h3>
+                            <p class="info-title">Tamaño</p>
+                            <p class="info-text">Hasta 1.8 metros de altura y pueden pesar hasta 85 kg.</p>
+                            <p class="info-title">Caracteristicas</p>
+                            <p class="info-text">Sus fuertes patas traseras y cola larga lo hacen excelente saltador, alcanzando grandes distancias en sus saltos.</p>
+                            <p class="info-title">Dieta</p>
+                            <p class="info-text">Herbívoro, principalmente pasto y hierbas.</p>
+                            <p class="info-title">Hábitat</p>
+                            <p class="info-text">Zonas áridas y semiáridas de Australia.</p>
+                        </div>
+                    </div>
+                    <div class="comments-section hidden">
+                        <div class="comments-list"></div>
+                        <div class="add-comment">
+                            <textarea placeholder="Escribe un comentario..."></textarea>
+                            <button class="submit-comment-btn">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Panda Gigante-->
+                <div class="card">
+                    <div class="card-actions">
+                        <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                        <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                    </div>
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="imagenesAnimalesT/panda.jpg" alt="Panda Gigante">
+                            <div class="card-title">Panda Gigante</div>
+                            <div class="card-controls">
+                                <button class="comment-btn"><i class="fas fa-comment"></i> Comentarios</button>
+                                <span class="comment-count">0 comentarios</span>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Panda Gigante</h3>
+                            <p class="info-title">Tamaño</p>
+                            <p class="info-text">Entre 1.2 y 1.5 metros de longitud y un peso de 75 a 160 kg.</p>
+                            <p class="info-title">Caracteristicas</p>
+                            <p class="info-text">Reconocido por su pelaje blanco y negro distintivo, es un símbolo de la conservación animal en el mundo.</p>
+                            <p class="info-title">Dieta</p>
+                            <p class="info-text">Principalmente bambú, aunque en ocasiones puede comer pequeños roedores o aves.</p>
+                            <p class="info-title">Hábitat</p>
+                            <p class="info-text">Bosques de bambú en las montañas de China.</p>
+                        </div>
+                    </div>
+                    <div class="comments-section hidden">
+                        <div class="comments-list"></div>
+                        <div class="add-comment">
+                            <textarea placeholder="Escribe un comentario..."></textarea>
+                            <button class="submit-comment-btn">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Vaca Angus-->
+                <div class="card">
+                    <div class="card-actions">
+                        <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                        <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                    </div>
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <img src="imagenesAnimalesT/vaca.jpg" alt="Vaca Angus">
+                            <div class="card-title">Vaca Angus</div>
+                            <div class="card-controls">
+                                <button class="comment-btn"><i class="fas fa-comment"></i> Comentarios</button>
+                                <span class="comment-count">0 comentarios</span>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h3>Vaca Angus</h3>
+                            <p class="info-title">Tamaño</p>
+                            <p class="info-text">Las hembras suelen pesar entre 450 y 600 kg.
+                                Los machos pueden pesar entre 850 y 1,000 kg.</p>
+                            <p class="info-title">Caracteristicas</p>
+                            <p class="info-text">Raza sin cuernos, con pelaje negro o rojo, musculosa y bien adaptada a diferentes climas.</p>
+                            <p class="info-title">Alimentación</p>
+                            <p class="info-text">Herbívora, se alimenta principalmente de pasto, aunque puede incluir granos para mejorar la calidad de la carne.</p>
+                            <p class="info-title">Hábitat</p>
+                            <p class="info-text">Praderas y ranchos en América, Europa y Australia.</p>
+                        </div>
+                    </div>
+                <!-- Modal de Comentarios -->
+                <div id="commentModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2>Agregar Comentario</h2>
+                        <textarea id="commentText" placeholder="Escribe tu comentario aquí..."></textarea>
+                        <button id="submitComment">Enviar Comentario</button>
+                    </div>
+                </div>
+                </div>   
+            </section>
+        </div>
+        <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const modal = document.getElementById('commentModal');
+    const commentBtn = document.getElementById('addCommentBtn');
+    const commentText = document.getElementById('commentText');
+    const commentsList = document.querySelector('.comments-list');
+    const commentCount = document.querySelector('.comment-count');
+
+    // Mostrar el modal al hacer clic en el botón de agregar comentario
+    commentBtn.addEventListener('click', () => {
+        modal.style.display = "block"; // Muestra el modal
+    });
+
+    // Cerrar el modal al hacer clic en la "X"
+    document.querySelector('.close').addEventListener('click', () => {
+        modal.style.display = "none";
+    });
+
+    // Cerrar el modal si se hace clic fuera de él
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+
+    // Manejar el evento de envío de comentario
+    document.getElementById('submitComment').addEventListener('click', (e) => {
+        e.preventDefault();
+        const comment = commentText.value.trim();
+
+        if (comment !== '') {
+            const commentItem = document.createElement('div');
+            commentItem.classList.add('comment-item');
+            commentItem.textContent = comment;
+
+            // Agregar nuevo comentario a la lista
+            commentsList.appendChild(commentItem);
+            const currentCount = parseInt(commentCount.textContent) || 0;
+            commentCount.textContent = `${currentCount + 1} comentarios`;
+            commentText.value = '';
+            modal.style.display = "none"; // Cierra el modal
+        } else {
+            alert('Por favor, escribe un comentario antes de enviar.');
+        }
+    });
+});
+
+        </script>
+        
+
+    </body>
 </html>
