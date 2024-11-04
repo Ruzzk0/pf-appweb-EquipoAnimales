@@ -368,41 +368,79 @@ document.addEventListener('DOMContentLoaded', function() {
             "NU": { nombre: "Nunavut", ciudades: ["Iqaluit", "Rankin Inlet"] }
         }
     },
-        "HT": {
-            nombre: "Haití",
-            estados: {
-                "OU": { nombre: "Ouest", ciudades: ["Puerto Príncipe", "Delmas", "Carrefour", "Petion-Ville"] },
-                "ND": { nombre: "Nord", ciudades: ["Cap-Haïtien", "Limonade", "Milot", "Acul-du-Nord"] }
-            }
-        },
+    "HT": {
+        nombre: "Haití",
+        estados: {
+            "OU": { nombre: "Ouest", ciudades: ["Puerto Príncipe", "Delmas", "Carrefour", "Petion-Ville"] },
+            "ND": { nombre: "Nord", ciudades: ["Cap-Haïtien", "Limonade", "Milot", "Acul-du-Nord"] },
+            "AR": { nombre: "Artibonite", ciudades: ["Gonaïves", "Saint-Marc", "Dessalines", "Gros-Morne"] },
+            "CE": { nombre: "Centre", ciudades: ["Hinche", "Mirebalais", "Lascahobas", "Belladère"] },
+            "SD": { nombre: "Sud", ciudades: ["Les Cayes", "Aquin", "Coteaux", "Port-Salut"] },
+            "NE": { nombre: "Nord-Est", ciudades: ["Fort-Liberté", "Ouanaminthe", "Trou-du-Nord", "Ferrier"] },
+            "NO": { nombre: "Nord-Ouest", ciudades: ["Port-de-Paix", "Saint-Louis du Nord", "Jean-Rabel", "Anse-à-Foleur"] },
+            "SE": { nombre: "Sud-Est", ciudades: ["Jacmel", "Marigot", "Cayes-Jacmel", "Belle-Anse"] },
+            "NI": { nombre: "Nippes", ciudades: ["Miragoâne", "Baradères", "Petite-Rivière-de-Nippes", "Anse-à-Veau"] },
+            "GD": { nombre: "Grand'Anse", ciudades: ["Jérémie", "Dame-Marie", "Anse-d'Hainault", "Les Irois"] }
+        }
+    },
         "DO": {
-            nombre: "República Dominicana",
-            estados: {
-                "SD": { nombre: "Santo Domingo", ciudades: ["Santo Domingo", "Boca Chica", "Los Alcarrizos", "San Cristóbal"] },
-                "PN": { nombre: "Punta Cana", ciudades: ["Punta Cana", "Bávaro", "Verón", "Higüey"] }
-            }
-        },
+        nombre: "República Dominicana",
+        estados: {
+            "SD": { nombre: "Santo Domingo", ciudades: ["Santo Domingo", "Boca Chica", "Los Alcarrizos", "San Cristóbal"] },
+            "PN": { nombre: "La Altagracia", ciudades: ["Punta Cana", "Bávaro", "Verón", "Higüey"] },
+            "PR": { nombre: "Puerto Plata", ciudades: ["Puerto Plata", "Sosúa", "Cabarete", "Maimón"] },
+            "AS": { nombre: "Sánchez Ramírez", ciudades: ["Cotuí", "La Mata", "Cerro de Oro", "Jima Abajo"] },
+            "DN": { nombre: "Distrito Nacional", ciudades: ["Santo Domingo", "Los Alcarrizos", "La Zurza"] },
+            "SJ": { nombre: "San Juan", ciudades: ["San Juan de la Maguana", "Bohechío", "Las Matas de Farfán"] },
+            "BA": { nombre: "Barahona", ciudades: ["Barahona", "Neiba", "Cabral"] },
+            "EX": { nombre: "El Seibo", ciudades: ["El Seibo", "Pueblo Viejo", "La Higuera"] },
+            "MA": { nombre: "Maria Trinidad Sánchez", ciudades: ["Nagua", "Cabrera", "Sánchez"] },
+            "PR": { nombre: "Samaná", ciudades: ["Samaná", "Las Terrenas", "El Limón"] }
+        }
+    },
         "SV": {
-            nombre: "El Salvador",
-            estados: {
-                "SS": { nombre: "San Salvador", ciudades: ["San Salvador", "Santa Tecla", "Soyapango", "Apopa"] },
-                "LA": { nombre: "La Libertad", ciudades: ["La Libertad", "El Tunco", "Antiguo Cuscatlán", "Santa Tecla"] }
-            }
-        },
+        nombre: "El Salvador",
+        estados: {
+            "SS": { nombre: "San Salvador", ciudades: ["San Salvador", "Santa Tecla", "Soyapango", "Apopa"] },
+            "LA": { nombre: "La Libertad", ciudades: ["La Libertad", "El Tunco", "Antiguo Cuscatlán", "Santa Tecla"] },
+            "CH": { nombre: "Chalatenango", ciudades: ["Chalatenango", "La Palma", "San Ignacio"] },
+            "CUS": { nombre: "Cuscatlán", ciudades: ["Cojutepeque", "San Ramón", "Santa Cruz"] },
+            "LA": { nombre: "La Paz", ciudades: ["La Paz", "El Rosario", "San Pedro Perulapán"] },
+            "SAN": { nombre: "San Vicente", ciudades: ["San Vicente", "San Esteban Catarina", "Apastepeque"] },
+            "Ahu": { nombre: "Ahuachapán", ciudades: ["Ahuachapán", "El Sunza", "San Francisco Menéndez"] },
+            "SON": { nombre: "Sonsonate", ciudades: ["Sonsonate", "Juayúa", "Salcoatitán"] },
+            "MOR": { nombre: "Morazán", ciudades: ["San Francisco Gotera", "Perquín", "Corinto"] },
+            "SUC": { nombre: "Santa Ana", ciudades: ["Santa Ana", "Metapán", "El Congo"] }
+        }
+    },
         "NI": {
-            nombre: "Nicaragua",
-            estados: {
-                "SG": { nombre: "Managua", ciudades: ["Managua", "Masaya", "Tipitapa", "Diriamba"] },
-                "LE": { nombre: "León", ciudades: ["León", "Chinandega", "El Viejo", "La Paz Centro"] }
-            }
-        },
-        "GY": {
-            nombre: "Guyana",
-            estados: {
-                "DE": { nombre: "Demerara-Mahaica", ciudades: ["Georgetown", "Vreed-en-Hoop", "Diamond", "Beterverwagting"] },
-                "ES": { nombre: "Essequibo Islands-West Demerara", ciudades: ["Vreed-en-Hoop", "Bibiana", "Parika", "Good Hope"] }
-            }
-        },
+        nombre: "Nicaragua",
+        estados: {
+            "SG": { nombre: "Managua", ciudades: ["Managua", "Masaya", "Tipitapa", "Diriamba"] },
+            "LE": { nombre: "León", ciudades: ["León", "Chinandega", "El Viejo", "La Paz Centro"] },
+            "GR": { nombre: "Granada", ciudades: ["Granada", "Nandaime", "Diriomo", "San Francisco"] },
+            "CS": { nombre: "Carazo", ciudades: ["Diriamba", "La Conquista", "Masatepe", "San Marcos"] },
+            "SJ": { nombre: "San Juan", ciudades: ["San Juan del Sur", "San Juan de Oriente", "El Ostional"] },
+            "RI": { nombre: "Rivas", ciudades: ["Rivas", "San Jorge", "San Juan del Sur", "Tola"] },
+            "BZ": { nombre: "Boaco", ciudades: ["Boaco", "Camoapa", "San Lorenzo", "Santa Lucía"] },
+            "CA": { nombre: "Caldas", ciudades: ["Caldas", "San Ramón", "Matagalpa"] },
+            "MD": { nombre: "Matagalpa", ciudades: ["Matagalpa", "Jinotega", "San Ramón", "Esquipulas"] },
+            "NS": { nombre: "Nueva Segovia", ciudades: ["Jalapa", "Nueva Segovia", "Ocotal"] }
+        }
+    },
+       "GY": {
+        nombre: "Guyana",
+        estados: {
+            "DE": { nombre: "Demerara-Mahaica", ciudades: ["Georgetown", "Vreed-en-Hoop", "Diamond", "Beterverwagting"] },
+            "ES": { nombre: "Essequibo Islands-West Demerara", ciudades: ["Vreed-en-Hoop", "Bibiana", "Parika", "Good Hope"] },
+            "BA": { nombre: "Berbice", ciudades: ["New Amsterdam", "Rosignol", "Canje"] },
+            "PM": { nombre: "Pomeroon-Supenaam", ciudades: ["Anna Regina", "Cotton Field", "Suddie"] },
+            "MA": { nombre: "Mahaica-Berbice", ciudades: ["Rosignol", "New Amsterdam", "Number 43"] },
+            "CU": { nombre: "Cuyuni-Mazaruni", ciudades: ["Bartica", "Potaro-Siparuni", "Bovoni"] },
+            "UP": { nombre: "Upper Takutu-Upper Essequibo", ciudades: ["Lethem", "Surama", "Nappi"] },
+            "GE": { nombre: "Georgetown", ciudades: ["Georgetown", "Linden", "Kwakwani"] }
+        }
+    },
         "SR": {
             nombre: "Surinam",
             estados: {
