@@ -89,33 +89,95 @@
     <script>
 document.addEventListener('DOMContentLoaded', function() {
     const datosPaises = {
-        "MX": {
-            nombre: "México",
-            estados: {
-                "JAL": { nombre: "Jalisco", ciudades: ["Guadalajara", "Puerto Vallarta", "Tlaquepaque", "Zapopan"] },
-                "NL": { nombre: "Nuevo León", ciudades: ["Monterrey", "San Pedro", "San Nicolás", "Guadalupe"] },
-                "BC": { nombre: "Baja California", ciudades: ["Tijuana", "Mexicali", "Ensenada", "Rosarito"] },
-                "CMX": { nombre: "Ciudad de México", ciudades: ["México City", "Iztapalapa", "Gustavo A. Madero", "Álvaro Obregón"] }
-            }
+   "MX": {
+        nombre: "México",
+        estados: {
+            "AGS": { nombre: "Aguascalientes", ciudades: ["Aguascalientes", "Jesús María", "Rincón de Romos"] },
+            "BC": { nombre: "Baja California", ciudades: ["Tijuana", "Mexicali", "Ensenada", "Rosarito"] },
+            "BCS": { nombre: "Baja California Sur", ciudades: ["La Paz", "Los Cabos", "Comondú"] },
+            "CAM": { nombre: "Campeche", ciudades: ["Campeche", "Ciudad del Carmen", "Champotón"] },
+            "CHIS": { nombre: "Chiapas", ciudades: ["Tuxtla Gutiérrez", "San Cristóbal de las Casas", "Tapachula"] },
+            "CHIH": { nombre: "Chihuahua", ciudades: ["Chihuahua", "Ciudad Juárez", "Delicias"] },
+            "COAH": { nombre: "Coahuila", ciudades: ["Saltillo", "Torreón", "Monclova"] },
+            "COL": { nombre: "Colima", ciudades: ["Colima", "Manzanillo", "Tecomán"] },
+            "CDMX": { nombre: "Ciudad de México", ciudades: ["México City", "Iztapalapa", "Gustavo A. Madero", "Álvaro Obregón"] },
+            "DGO": { nombre: "Durango", ciudades: ["Durango", "Gómez Palacio", "Lerdo"] },
+            "GTO": { nombre: "Guanajuato", ciudades: ["León", "Irapuato", "Celaya", "Guanajuato"] },
+            "GRO": { nombre: "Guerrero", ciudades: ["Acapulco", "Chilpancingo", "Iguala"] },
+            "HGO": { nombre: "Hidalgo", ciudades: ["Pachuca", "Tulancingo", "Tizayuca"] },
+            "JAL": { nombre: "Jalisco", ciudades: ["Guadalajara", "Puerto Vallarta", "Tlaquepaque", "Zapopan"] },
+            "MEX": { nombre: "Estado de México", ciudades: ["Toluca", "Naucalpan", "Tlalnepantla", "Ecatepec"] },
+            "MICH": { nombre: "Michoacán", ciudades: ["Morelia", "Uruapan", "Zamora"] },
+            "MOR": { nombre: "Morelos", ciudades: ["Cuernavaca", "Jiutepec", "Cuautla"] },
+            "NAY": { nombre: "Nayarit", ciudades: ["Tepic", "Bahía de Banderas", "Compostela"] },
+            "NL": { nombre: "Nuevo León", ciudades: ["Monterrey", "San Pedro", "San Nicolás", "Guadalupe"] },
+            "OAX": { nombre: "Oaxaca", ciudades: ["Oaxaca de Juárez", "Salina Cruz", "Juchitán de Zaragoza"] },
+            "PUE": { nombre: "Puebla", ciudades: ["Puebla", "Tehuacán", "San Andrés Cholula"] },
+            "QRO": { nombre: "Querétaro", ciudades: ["Querétaro", "San Juan del Río", "Corregidora"] },
+            "QROO": { nombre: "Quintana Roo", ciudades: ["Cancún", "Chetumal", "Playa del Carmen"] },
+            "SLP": { nombre: "San Luis Potosí", ciudades: ["San Luis Potosí", "Soledad de Graciano Sánchez", "Matehuala"] },
+            "SIN": { nombre: "Sinaloa", ciudades: ["Culiacán", "Mazatlán", "Los Mochis"] },
+            "SON": { nombre: "Sonora", ciudades: ["Hermosillo", "Ciudad Obregón", "Nogales"] },
+            "TAB": { nombre: "Tabasco", ciudades: ["Villahermosa", "Cárdenas", "Comalcalco"] },
+            "TAM": { nombre: "Tamaulipas", ciudades: ["Ciudad Victoria", "Tampico", "Nuevo Laredo"] },
+            "TLAX": { nombre: "Tlaxcala", ciudades: ["Tlaxcala", "Apizaco", "Huamantla"] },
+            "VER": { nombre: "Veracruz", ciudades: ["Veracruz", "Xalapa", "Coatzacoalcos"] },
+            "YUC": { nombre: "Yucatán", ciudades: ["Mérida", "Valladolid", "Progreso"] },
+            "ZAC": { nombre: "Zacatecas", ciudades: ["Zacatecas", "Fresnillo", "Guadalupe"] }
+        }
         },
-        "ES": {
-            nombre: "España",
-            estados: {
-                "MAD": { nombre: "Madrid", ciudades: ["Madrid", "Alcalá", "Móstoles", "Getafe"] },
-                "CAT": { nombre: "Cataluña", ciudades: ["Barcelona", "Girona", "Tarragona", "Lleida"] },
-                "AND": { nombre: "Andalucía", ciudades: ["Sevilla", "Málaga", "Granada", "Córdoba"] },
-                "VAL": { nombre: "Comunidad Valenciana", ciudades: ["Valencia", "Alicante", "Castellón", "Elche"] }
-            }
-        },
+       "ES": {
+        nombre: "España",
+        estados: {
+            "AND": { nombre: "Andalucía", ciudades: ["Sevilla", "Málaga", "Granada", "Córdoba", "Almería", "Jaén", "Huelva", "Cádiz"] },
+            "ARA": { nombre: "Aragón", ciudades: ["Zaragoza", "Huesca", "Teruel"] },
+            "AST": { nombre: "Asturias", ciudades: ["Oviedo", "Gijón", "Avilés"] },
+            "CAN": { nombre: "Cantabria", ciudades: ["Santander", "Torrelavega", "Castro Urdiales"] },
+            "CLM": { nombre: "Castilla-La Mancha", ciudades: ["Toledo", "Albacete", "Guadalajara", "Cuenca", "Ciudad Real"] },
+            "CYL": { nombre: "Castilla y León", ciudades: ["Valladolid", "Burgos", "Salamanca", "León", "Segovia", "Ávila", "Soria", "Palencia", "Zamora"] },
+            "CAT": { nombre: "Cataluña", ciudades: ["Barcelona", "Girona", "Tarragona", "Lleida"] },
+            "VAL": { nombre: "Comunidad Valenciana", ciudades: ["Valencia", "Alicante", "Castellón", "Elche"] },
+            "EXT": { nombre: "Extremadura", ciudades: ["Mérida", "Badajoz", "Cáceres"] },
+            "GAL": { nombre: "Galicia", ciudades: ["Santiago de Compostela", "A Coruña", "Vigo", "Lugo", "Ourense"] },
+            "MAD": { nombre: "Madrid", ciudades: ["Madrid", "Alcalá de Henares", "Móstoles", "Getafe", "Fuenlabrada", "Leganés"] },
+            "MUR": { nombre: "Región de Murcia", ciudades: ["Murcia", "Cartagena", "Lorca"] },
+            "NAV": { nombre: "Navarra", ciudades: ["Pamplona", "Tudela", "Estella"] },
+            "PVA": { nombre: "País Vasco", ciudades: ["Bilbao", "Vitoria-Gasteiz", "San Sebastián"] },
+            "RIO": { nombre: "La Rioja", ciudades: ["Logroño", "Calahorra", "Haro"] },
+            "CANAR": { nombre: "Canarias", ciudades: ["Santa Cruz de Tenerife", "Las Palmas de Gran Canaria", "La Laguna", "Telde"] },
+            "BAL": { nombre: "Islas Baleares", ciudades: ["Palma", "Ibiza", "Manacor", "Mahón"] },
+            "CEU": { nombre: "Ceuta", ciudades: ["Ceuta"] },
+            "MEL": { nombre: "Melilla", ciudades: ["Melilla"] }
+        }
+    },
         "AR": {
-            nombre: "Argentina",
-            estados: {
-                "BUE": { nombre: "Buenos Aires", ciudades: ["La Plata", "Mar del Plata", "Quilmes", "Lanús"] },
-                "COR": { nombre: "Córdoba", ciudades: ["Córdoba", "Villa María", "Río Cuarto", "Carlos Paz"] },
-                "MEN": { nombre: "Mendoza", ciudades: ["Mendoza", "Godoy Cruz", "San Rafael", "Luján de Cuyo"] },
-                "SFE": { nombre: "Santa Fe", ciudades: ["Santa Fe", "Rosario", "Venado Tuerto", "Rafaela"] }
-            }
-        },
+        nombre: "Argentina",
+        estados: {
+            "BUE": { nombre: "Buenos Aires", ciudades: ["La Plata", "Mar del Plata", "Quilmes", "Lanús", "Tigre", "Bahía Blanca", "Avellaneda"] },
+            "CABA": { nombre: "Ciudad Autónoma de Buenos Aires", ciudades: ["Buenos Aires"] },
+            "CAT": { nombre: "Catamarca", ciudades: ["San Fernando del Valle de Catamarca", "Belén", "Tinogasta"] },
+            "CHACO": { nombre: "Chaco", ciudades: ["Resistencia", "Presidencia Roque Sáenz Peña", "Villa Ángela"] },
+            "CHUB": { nombre: "Chubut", ciudades: ["Rawson", "Comodoro Rivadavia", "Puerto Madryn", "Trelew"] },
+            "COR": { nombre: "Córdoba", ciudades: ["Córdoba", "Villa María", "Río Cuarto", "Carlos Paz"] },
+            "CORR": { nombre: "Corrientes", ciudades: ["Corrientes", "Goya", "Paso de los Libres"] },
+            "ER": { nombre: "Entre Ríos", ciudades: ["Paraná", "Concordia", "Gualeguaychú", "Gualeguay"] },
+            "FOR": { nombre: "Formosa", ciudades: ["Formosa", "Clorinda", "Pirané"] },
+            "JUJ": { nombre: "Jujuy", ciudades: ["San Salvador de Jujuy", "Palpalá", "San Pedro"] },
+            "LP": { nombre: "La Pampa", ciudades: ["Santa Rosa", "General Pico", "Toay"] },
+            "LR": { nombre: "La Rioja", ciudades: ["La Rioja", "Chilecito", "Aimogasta"] },
+            "MEN": { nombre: "Mendoza", ciudades: ["Mendoza", "Godoy Cruz", "San Rafael", "Luján de Cuyo"] },
+            "MIS": { nombre: "Misiones", ciudades: ["Posadas", "Oberá", "Eldorado"] },
+            "NQN": { nombre: "Neuquén", ciudades: ["Neuquén", "San Martín de los Andes", "Cutral Có"] },
+            "RNE": { nombre: "Río Negro", ciudades: ["Viedma", "San Carlos de Bariloche", "General Roca"] },
+            "SAL": { nombre: "Salta", ciudades: ["Salta", "San Ramón de la Nueva Orán", "Tartagal"] },
+            "SJ": { nombre: "San Juan", ciudades: ["San Juan", "Rawson", "Caucete"] },
+            "SL": { nombre: "San Luis", ciudades: ["San Luis", "Villa Mercedes", "Merlo"] },
+            "SFE": { nombre: "Santa Fe", ciudades: ["Santa Fe", "Rosario", "Venado Tuerto", "Rafaela"] },
+            "SDE": { nombre: "Santiago del Estero", ciudades: ["Santiago del Estero", "La Banda", "Termas de Río Hondo"] },
+            "TDF": { nombre: "Tierra del Fuego", ciudades: ["Ushuaia", "Río Grande", "Tolhuin"] },
+            "TUC": { nombre: "Tucumán", ciudades: ["San Miguel de Tucumán", "Tafí Viejo", "Concepción"] }
+        }
+    },
         "BR": {
             nombre: "Brasil",
             estados: {
