@@ -14,6 +14,8 @@ public class Usuario {
     private String nombre;
     private String correo;
     private String contrasena;
+    private String administrador;
+    private String visitante;
 
     
     /**
@@ -29,11 +31,13 @@ public class Usuario {
      * @param correo Correo electrónico del usuario.
      * @param contrasena Contraseña del usuario.
      */
-    public Usuario(int id, String nombre, String correo, String contrasena) {
+    public Usuario(int id, String nombre, String correo, String contrasena, String administrador, String visitante) {
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;
         this.contrasena = contrasena;
+        this.administrador = administrador;
+        this.visitante = visitante;
     }
 
     public int getId() {
@@ -67,6 +71,22 @@ public class Usuario {
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
+
+    public String getAdministrador(){
+     return administrador;
+    }
+    
+    public void setAdministrador(String administrador){
+       this.administrador = administrador;
+    }
+    
+    public String getVisitante(){
+     return administrador;
+    }
+    
+    public void setVisitante(String visitante){
+       this.visitante = visitante;
+    }
    /**
      * Método toString.
      * Retorna una representación en texto de los atributos del usuario.
@@ -74,7 +94,7 @@ public class Usuario {
      */
     @Override
     public String toString() {
-        return "Usuario{" + "id=" + id + ", nombre=" + nombre + ", correo=" + correo + ", contrasena=" + contrasena + '}';
+        return "Usuario{" + "id=" + id + ", nombre=" + nombre + ", correo=" + correo + ", contrasena=" + contrasena + ", administrador=" + administrador + ", visitante=" + visitante + '}';
     }
    
     
