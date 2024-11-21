@@ -12,15 +12,29 @@ import java.time.LocalDateTime;
  * @author diana
  */
 public class Comentario {
+    
     private int id;
     private String contenido;
     private LocalDateTime fechaComentario;
     private Usuario autor;
     private Publicacion publicacion;
 
+    
+    /**
+     * Constructor vacío.
+     * Permite crear una instancia de Comentario sin inicializar atributos.
+     */
     public Comentario() {
     }
-
+    
+    /**
+     * Constructor con parámetros.
+     * @param id Identificador único del comentario.
+     * @param contenido Texto del comentario.
+     * @param fechaComentario Fecha y hora en que se hizo el comentario.
+     * @param autor Usuario que realizó el comentario.
+     * @param publicacion Publicación asociada al comentario.
+     */
     public Comentario(int id, String contenido, LocalDateTime fechaComentario, Usuario autor, Publicacion publicacion) {
         this.id = id;
         this.contenido = contenido;
@@ -69,6 +83,10 @@ public class Comentario {
         this.publicacion = publicacion;
     }
 
+     /**
+     * Método toString.
+     * Retorna una representación en texto de los atributos del comentario.
+     */
     @Override
     public String toString() {
         return "Comentario{" + "id=" + id + ", contenido=" + contenido + ", fechaComentario=" + fechaComentario + ", autor=" + autor + ", publicacion=" + publicacion + '}';

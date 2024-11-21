@@ -11,14 +11,26 @@ import java.time.LocalDateTime;
  * @author diana
  */
 public class Publicacion {
+    
     private int id;
     private String contenido;
     private LocalDateTime fechaPublicacion;
     private Usuario autor;
 
+    /**
+     * Constructor vacío.
+     * Permite crear una instancia de Publicacion sin inicializar atributos.
+     */
     public Publicacion() {
     }
 
+     /**
+     * Constructor con parámetros.
+     * @param id Identificador único de la publicación.
+     * @param contenido Texto o contenido de la publicación.
+     * @param fechaPublicacion Fecha y hora en que se realizó la publicación.
+     * @param autor Usuario que creó la publicación.
+     */
     public Publicacion(int id, String contenido, LocalDateTime fechaPublicacion, Usuario autor) {
         this.id = id;
         this.contenido = contenido;
@@ -58,6 +70,10 @@ public class Publicacion {
         this.autor = autor;
     }
 
+    /**
+     * Método toString.
+     * Retorna una representación en texto de los atributos de la publicación.
+     */
     @Override
     public String toString() {
         return "Publicacion{" + "id=" + id + ", contenido=" + contenido + ", fechaPublicacion=" + fechaPublicacion + ", autor=" + autor + '}';

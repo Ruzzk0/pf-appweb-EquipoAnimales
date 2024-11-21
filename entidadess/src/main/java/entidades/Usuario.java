@@ -15,9 +15,20 @@ public class Usuario {
     private String correo;
     private String contrasena;
 
+    
+    /**
+     * Constructor vacío.
+     * Permite crear una instancia de Usuario sin inicializar atributos.
+     */
     public Usuario() {
     }
-
+    /**
+     * Constructor con parámetros.
+     * @param id Identificador único del usuario.
+     * @param nombre Nombre completo del usuario.
+     * @param correo Correo electrónico del usuario.
+     * @param contrasena Contraseña del usuario.
+     */
     public Usuario(int id, String nombre, String correo, String contrasena) {
         this.id = id;
         this.nombre = nombre;
@@ -56,7 +67,11 @@ public class Usuario {
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
-
+   /**
+     * Método toString.
+     * Retorna una representación en texto de los atributos del usuario.
+     * @return 
+     */
     @Override
     public String toString() {
         return "Usuario{" + "id=" + id + ", nombre=" + nombre + ", correo=" + correo + ", contrasena=" + contrasena + '}';
