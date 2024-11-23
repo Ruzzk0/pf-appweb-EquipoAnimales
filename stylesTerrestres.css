@@ -23,7 +23,7 @@ header {
   .modal {
     display: none; /* Oculto por defecto */
     position: fixed; /* Posición fija para que cubra la pantalla */
-    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+    z-index: 1000; 
     left: 0;
     top: 0;
     width: 100%; /* Ancho completo */

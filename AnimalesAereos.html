@@ -7,15 +7,13 @@
     <title>ANIMALES AEREOS</title>
     <link rel="stylesheet" href="stylesAereos.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_back_ios" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
     <header class="sticky-header">
         <a href="principal.html" class="back-button">
-            <span class="material-symbols-outlined">
-                arrow_back_ios
-            </span>
+            <span class="material-icons">arrow_back_ios</span>
         </a>
         <h1>ANIMALES AEREOS</h1>
         <a class="add-post-btn" href="NuevaPublicacion.html"><i class="fas fa-plus"></i>Nueva Publicación</a>
@@ -32,15 +30,22 @@
             <div class="card">
                 <div class="card-actions">
                     <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                    <button class="add-comment-btn" id="addCommentBtn">
+                        <span class="material-icons">comment</span>
+                    </button>    
                     <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                    
                 </div>
                 <div class="card-inner">
                     <div class="card-front">
                         <img src="imagenesAnimalesA/aguila.jpg" alt="Ballena Jorobada">
                         <div class="card-title">Aguila Real</div>
                         <div class="card-controls">
-                            <button class="comment-btn"><i class="fas fa-comment"></i> Comentarios</button>
+                            <button class="comment-btn" id="showCommentsBtn"><i class="fas fa-comment"></i> Comentarios</button>
                             <span class="comment-count">0 comentarios</span>
+                        </div>
+                        <div class="comments-section">
+                            <div class="comments-list"></div>
                         </div>
                     </div>
                     <div class="card-back">
@@ -56,20 +61,25 @@
 
 
                     </div>
-                </div>
-                <div class="comments-section hidden">
-                    <div class="comments-list"></div>
-                    <div class="add-comment">
-                        <textarea placeholder="Escribe un comentario..."></textarea>
-                        <button class="submit-comment-btn">Enviar</button>
+                 <!-- Modal de Comentarios -->
+                 <div id="commentModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2>Agregar Comentario</h2>
+                        <textarea id="commentText" placeholder="Escribe tu comentario aquí..."></textarea>
+                        <button id="submitComment">Enviar Comentario</button>
                     </div>
-                </div>
+                </div>        
             </div>
+        </div>
 
             <!-- Colibri-->
             <div class="card">
                 <div class="card-actions">
                     <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                    <button class="add-comment-btn" id="addCommentBtn">
+                        <span class="material-icons">comment</span>
+                    </button>
                     <button class="delete-btn"><i class="fas fa-trash"></i></button>
                 </div>
                 <div class="card-inner">
@@ -77,8 +87,11 @@
                         <img src="imagenesAnimalesA/colibri.jpg" alt="Colibri">
                         <div class="card-title">Colibrí</div>
                         <div class="card-controls">
-                            <button class="comment-btn"><i class="fas fa-comment"></i> Comentarios</button>
+                            <button class="comment-btn" id="showCommentsBtn"><i class="fas fa-comment"></i> Comentarios</button>
                             <span class="comment-count">0 comentarios</span>
+                        </div>
+                        <div class="comments-section">
+                            <div class="comments-list"></div>
                         </div>
                     </div>
                     <div class="card-back">
@@ -92,20 +105,25 @@
                         <p class="info-title">Hábitat</p>
                         <p class="info-text">Bosques tropicales, zonas subtropicales y jardines; presentes principalmente en América.</p>
                     </div>
-                </div>
-                <div class="comments-section hidden">
-                    <div class="comments-list"></div>
-                    <div class="add-comment">
-                        <textarea placeholder="Escribe un comentario..."></textarea>
-                        <button class="submit-comment-btn">Enviar</button>
+                <!-- Modal de Comentarios -->
+                <div id="commentModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2>Agregar Comentario</h2>
+                        <textarea id="commentText" placeholder="Escribe tu comentario aquí..."></textarea>
+                        <button id="submitComment">Enviar Comentario</button>
                     </div>
-                </div>
+                </div>        
             </div>
+        </div>
 
             <!-- Guacamayo azul y amarillo  -->
             <div class="card">
                 <div class="card-actions">
                     <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                    <button class="add-comment-btn" id="addCommentBtn">
+                        <span class="material-icons">comment</span>
+                    </button>
                     <button class="delete-btn"><i class="fas fa-trash"></i></button>
                 </div>
                 <div class="card-inner">
@@ -113,9 +131,12 @@
                         <img src="imagenesAnimalesA/guacamayo.jpg" alt="Guacamayo azul y amarillo ">
                         <div class="card-title">Guacamayo azul y amarillo </div>
                         <div class="card-controls">
-                            <button class="comment-btn"><i class="fas fa-comment"></i> Comentarios</button>
-                            <span class="comment-count">0 comentarios</span>
-                        </div>
+                            <button class="comment-btn" id="showCommentsBtn"><i class="fas fa-comment"></i> Comentarios</button>
+                                <span class="comment-count">0 comentarios</span>
+                            </div>
+                            <div class="comments-section">
+                                <div class="comments-list"></div>
+                            </div>
                     </div>
                     <div class="card-back">
                         <h3>Oso Pardo</h3>
@@ -129,20 +150,26 @@
                         <p class="info-title">Hábitat</p>
                         <p class="info-text">Selvas tropicales, manglares y zonas húmedas de América del Sur, especialmente en la cuenca del Amazonas.</p>
                     </div>
-                </div>
-                <div class="comments-section hidden">
-                    <div class="comments-list"></div>
-                    <div class="add-comment">
-                        <textarea placeholder="Escribe un comentario..."></textarea>
-                        <button class="submit-comment-btn">Enviar</button>
+                
+                 <!-- Modal de Comentarios -->
+                 <div id="commentModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2>Agregar Comentario</h2>
+                        <textarea id="commentText" placeholder="Escribe tu comentario aquí..."></textarea>
+                        <button id="submitComment">Enviar Comentario</button>
                     </div>
-                </div>
+                </div>        
             </div>
+        </div>
 
             <!-- Flamenco  -->
             <div class="card">
                 <div class="card-actions">
                     <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                    <button class="add-comment-btn" id="addCommentBtn">
+                        <span class="material-icons">comment</span>
+                    </button>
                     <button class="delete-btn"><i class="fas fa-trash"></i></button>
                 </div>
                 <div class="card-inner">
@@ -150,9 +177,12 @@
                         <img src="imagenesAnimalesA/flamenco.jpg" alt="Flamenco">
                         <div class="card-title">Flamenco</div>
                         <div class="card-controls">
-                            <button class="comment-btn"><i class="fas fa-comment"></i> Comentarios</button>
-                            <span class="comment-count">0 comentarios</span>
-                        </div>
+                            <button class="comment-btn" id="showCommentsBtn"><i class="fas fa-comment"></i> Comentarios</button>
+                                <span class="comment-count">0 comentarios</span>
+                            </div>
+                            <div class="comments-section">
+                                <div class="comments-list"></div>
+                            </div>
                     </div>
                     <div class="card-back">
                         <h3>Flamenco</h3>
@@ -165,20 +195,25 @@
                         <p class="info-title">Hábitat</p>
                         <p class="info-text">Lagunas salinas, humedales y lagos alcalinos.</p>
                     </div>
-                </div>
-                <div class="comments-section hidden">
-                    <div class="comments-list"></div>
-                    <div class="add-comment">
-                        <textarea placeholder="Escribe un comentario..."></textarea>
-                        <button class="submit-comment-btn">Enviar</button>
+                <!-- Modal de Comentarios -->
+                <div id="commentModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2>Agregar Comentario</h2>
+                        <textarea id="commentText" placeholder="Escribe tu comentario aquí..."></textarea>
+                        <button id="submitComment">Enviar Comentario</button>
                     </div>
-                </div>
+                </div>        
             </div>
+        </div>
 
             <!-- Búho real  -->
             <div class="card">
                 <div class="card-actions">
                     <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                    <button class="add-comment-btn" id="addCommentBtn">
+                        <span class="material-icons">comment</span>
+                    </button>
                     <button class="delete-btn"><i class="fas fa-trash"></i></button>
                 </div>
                 <div class="card-inner">
@@ -186,9 +221,12 @@
                         <img src="imagenesAnimalesA/buho.jpg" alt="Búho real">
                         <div class="card-title">Búho real</div>
                         <div class="card-controls">
-                            <button class="comment-btn"><i class="fas fa-comment"></i> Comentarios</button>
-                            <span class="comment-count">0 comentarios</span>
-                        </div>
+                            <button class="comment-btn" id="showCommentsBtn"><i class="fas fa-comment"></i> Comentarios</button>
+                                <span class="comment-count">0 comentarios</span>
+                            </div>
+                            <div class="comments-section">
+                                <div class="comments-list"></div>
+                            </div>
                     </div>
                     <div class="card-back">
                         <h3>Búho real</h3>
@@ -201,20 +239,25 @@
                         <p class="info-title">Hábitat</p>
                         <p class="info-text">Bosques, montañas y zonas rurales de Europa y Asia.</p>
                     </div>
-                </div>
-                <div class="comments-section hidden">
-                    <div class="comments-list"></div>
-                    <div class="add-comment">
-                        <textarea placeholder="Escribe un comentario..."></textarea>
-                        <button class="submit-comment-btn">Enviar</button>
+                <!-- Modal de Comentarios -->
+                <div id="commentModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2>Agregar Comentario</h2>
+                        <textarea id="commentText" placeholder="Escribe tu comentario aquí..."></textarea>
+                        <button id="submitComment">Enviar Comentario</button>
                     </div>
-                </div>
+                </div>        
             </div>
+        </div>
 
             <!-- Tucán toco  -->
             <div class="card">
                 <div class="card-actions">
                     <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                    <button class="add-comment-btn" id="addCommentBtn">
+                        <span class="material-icons">comment</span>
+                    </button>
                     <button class="delete-btn"><i class="fas fa-trash"></i></button>
                 </div>
                 <div class="card-inner">
@@ -222,8 +265,11 @@
                         <img src="imagenesAnimalesA/tucan.jpg" alt="Tucán toco">
                         <div class="card-title">Tucán toco</div>
                         <div class="card-controls">
-                            <button class="comment-btn"><i class="fas fa-comment"></i> Comentarios</button>
+                            <button class="comment-btn" id="showCommentsBtn"><i class="fas fa-comment"></i> Comentarios</button>
                             <span class="comment-count">0 comentarios</span>
+                        </div>
+                        <div class="comments-section">
+                            <div class="comments-list"></div>
                         </div>
                     </div>
                     <div class="card-back">
@@ -237,32 +283,20 @@
                         <p class="info-title">Hábitat</p>
                         <p class="info-text">Selvas tropicales de América del Sur.</p>
                     </div>
-                </div>
-                <div class="comments-section hidden">
-                    <div class="comments-list"></div>
-                    <div class="add-comment">
-                        <textarea placeholder="Escribe un comentario..."></textarea>
-                        <button class="submit-comment-btn">Enviar</button>
+               <!-- Modal de Comentarios -->
+                        <div id="commentModal" class="modal">
+                            <div class="modal-content">
+                                <span class="close">&times;</span>
+                                <h2>Agregar Comentario</h2>
+                                <textarea id="commentText" placeholder="Escribe tu comentario aquí..."></textarea>
+                                <button id="submitComment">Enviar Comentario</button>
+                            </div>
+                        </div>        
                     </div>
                 </div>
-            </div>
         </section>
     </div>
-
-    <!-- Modal para nueva publicación -->
-    <div class="modal" id="newPostModal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2>Nueva Publicación</h2>
-            <form id="newPostForm">
-                <input type="text" placeholder="Título" required>
-                <input type="file" accept="image/*" required>
-                <textarea placeholder="Alimentación" required></textarea>
-                <textarea placeholder="Hábitat" required></textarea>
-                <button type="submit">Guardar</button>
-            </form>
-        </div>
-    </div>
+    <script src="registrarComentarios.js"></script>
 </body>
 
 </html>
