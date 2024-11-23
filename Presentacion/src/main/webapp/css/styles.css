@@ -1,0 +1,102 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 23 nov 2024, 13:34:21
+    Author     : gamaliel
+*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 20px;
+    background-image: url(https://cdn.pixabay.com/animation/2023/02/28/14/20/14-20-09-131_512.gif);
+    background-repeat: no-repeat;
+    background-position: 120px 470px;
+}
+
+#login-section {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, rgba(255, 210, 200, 0.8), rgba(180, 235, 240, 0.7));
+    backdrop-filter: blur(5px);
+    margin-top: 30px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+.form-group i {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #aaa;
+}
+
+input {
+    width: 100%;
+    padding: 10px 10px 10px 35px;
+    margin: 5px 0;
+    border: 1px solid rgba(246, 226, 221, 0.8);
+    border-radius: 4px;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #0a7b67;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.btn-success {
+    background-color: #0a7b67;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+h4 {
+    margin-bottom: 20px;
+    color: #0a7b67;
+    text-align: center;
+}
+
+p {
+    margin-top: 10px;
+    text-align: center;
+}
+
+header {
+    text-align: center;
+    font-family: 'Arial';
+}
+
+h1[title='bienvenida'] {
+    color: #0a7b67;
+}
+
+div[id='texto-bienvenida'] {
+    background-color: #f2f2f2;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
