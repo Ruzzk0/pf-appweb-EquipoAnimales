@@ -73,6 +73,7 @@ public class Publicacion {
     /**
      * Método toString.
      * Retorna una representación en texto de los atributos de la publicación.
+     * @return 
      */
     @Override
     public String toString() {

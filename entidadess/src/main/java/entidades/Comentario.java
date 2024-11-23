@@ -86,6 +86,7 @@ public class Comentario {
      /**
      * Método toString.
      * Retorna una representación en texto de los atributos del comentario.
+     * @return 
      */
     @Override
     public String toString() {

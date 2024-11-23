@@ -4,10 +4,39 @@
  */
 package interfaces.Daos;
 
+import entidades.Comentario;
+import excepciones.DAOException;
+import java.util.List;
+
 /**
  *
  * @author diana
  */
 public interface IComentarioDAO {
-    
+     /**
+     * Agrega un nuevo comentario a la base de datos.
+     * 
+     * @param comentario El comentario a agregar.
+     * @throws DAOException Si ocurre un error al agregar el comentario.
+     */
+    public void agregar(Comentario comentario) throws DAOException;
+
+    /**
+     * Busca un comentario por su ID.
+     * 
+     * @param id El identificador único del comentario.
+     * @return El comentario encontrado o null si no existe.
+     * @throws DAOException Si ocurre un error al buscar el comentario.
+     */
+    public Comentario buscarPorId(int id) throws DAOException;
+
+    /**
+     * Lista todos los comentarios asociados a una publicación específica.
+     * 
+     * @param publicacionId El ID de la publicación.
+     * @return Una lista de comentarios relacionados con la publicación.
+     * @throws DAOException Si ocurre un error al listar los comentarios.
+     */
+    public List<Comentario> listarPorPublicacion(int publicacionId) throws DAOException;
 }
+

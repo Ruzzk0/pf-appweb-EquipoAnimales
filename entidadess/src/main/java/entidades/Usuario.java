@@ -30,6 +30,8 @@ public class Usuario {
      * @param nombre Nombre completo del usuario.
      * @param correo Correo electrónico del usuario.
      * @param contrasena Contraseña del usuario.
+     * @param administrador
+     * @param visitante
      */
     public Usuario(int id, String nombre, String correo, String contrasena, String administrador, String visitante) {
         this.id = id;
