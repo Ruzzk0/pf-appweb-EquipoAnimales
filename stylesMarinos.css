@@ -11,6 +11,168 @@ header {
     width: 100%;
     z-index: 1;
 }
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+  }
+
+  .modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Posición fija para que cubra la pantalla */
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+    overflow: auto; /* Desplazamiento si el contenido excede la altura */
+    transition: none; /* Sin transición para evitar efectos de deslizamiento */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    position: fixed;
+    margin: 15% auto; /* Margen automático para centrar */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Ancho del modal */
+    max-width: 500px; /* Ancho máximo del modal */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
+}
+
+.close {
+    color: #aaa;
+    float: right; /* Alinear a la derecha */
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black; /* Cambia color al pasar el mouse */
+    text-decoration: none;
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+}
+
+/* Estilo del textarea */
+#commentText {
+    width: 100%; /* Ancho completo */
+    height: 80px; /* Altura */
+    padding: 10px; /* Espacio interno */
+    border: 1px solid #ccc; /* Borde gris */
+    border-radius: 5px; /* Bordes redondeados */
+    font-family: 'Montserrat', sans-serif; /* Fuente Montserrat */
+    font-size: 14px; /* Tamaño de fuente */
+    margin-bottom: 15px; /* Espacio inferior */
+}
+
+
+/* Estilos para la expansión de la tarjeta */
+.card.expanded {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.card.expanded .comments-section {
+    display: block;
+    padding: 20px;
+}
+
+.card .comments-section {
+    display: none; /* Oculta comentarios cuando la tarjeta está pequeña */
+}
+
+.card.expanded .card-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal {
+    display: none; /* Oculta el modal inicialmente */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1001;
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+}
+.modal .close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+/* Estilo del botón de enviar comentario */
+#submitComment {
+    padding: 10px 20px; /* Espacio interno */
+    background-color: #673232; /* Color de fondo */
+    color: white; /* Color de texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor tipo puntero */
+    font-size: 16px; /* Tamaño de fuente */
+    transition: background-color 0.3s; /* Transición suave */
+}
+
+#submitComment:hover {
+    background-color: #472727; /* Color de fondo al pasar el mouse */
+}
+
+
+.comments-section {
+    padding: 10px; /* Espaciado interior */
+    background-color: #f9f9f9; /* Color de fondo */
+    border-top: 1px solid #ccc; /* Línea superior */
+    max-height: 150px; /* Altura máxima para el scroll */
+    overflow-y: auto; /* Habilita scroll vertical */
+}
+
+.comments-list {
+    max-height: 100px; /* Altura máxima de la lista de comentarios */
+    overflow-y: auto; /* Habilita scroll vertical para la lista */
+}
+
+.comment-item {
+    margin-bottom: 5px; /* Espaciado entre comentarios */
+    padding: 5px; /* Espaciado interior de los comentarios */
+    background-color: #e6e6e6; /* Color de fondo de comentarios */
+    border-radius: 4px; /* Bordes redondeados de comentarios */
+}
+
+#commentText {
+    width: 100%; /* Ancho completo */
+    margin-top: 5px; /* Margen superior */
+    padding: 5px; /* Espaciado interior */
+    border-radius: 4px; /* Bordes redondeados */
+    border: 1px solid #ccc; /* Borde */
+}
+
+
 
 body {
     font-family: Arial, sans-serif;
@@ -221,7 +383,10 @@ h1 {
     background-color: #4CAF50;
     color: white;
 }
-
+.add-comment-btn:hover {
+    background-color: #e7d84b;
+    color: white;
+}
 .delete-btn:hover {
     background-color: #f44336;
     color: white;
@@ -260,6 +425,51 @@ h1 {
 .comments-list {
     max-height: 200px;
     overflow-y: auto;
+}
+.comments-section {
+    margin-top: 20px; /* Espacio superior */
+    padding: 15px; /* Espacio interno */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 10px; /* Bordes redondeados */
+    background-color: #f9f9f9; /* Fondo claro */
+}
+
+.comments-list {
+    max-height: 150px; /* Altura máxima para la lista */
+    overflow-y: auto; /* Habilitar scroll si hay muchos comentarios */
+    margin-bottom: 15px; /* Espacio inferior */
+}
+
+.add-comment {
+    display: flex;
+    flex-direction: column; /* Organiza los elementos en columna */
+    align-items: center; /* Centrar elementos horizontalmente */
+}
+
+.add-comment textarea {
+    width: 100%; /* Ancho completo */
+    height: 80px; /* Altura del textarea */
+    padding: 10px; /* Espacio interno */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    font-family: 'Montserrat', sans-serif; /* Fuente Montserrat */
+    font-size: 14px; /* Tamaño de fuente */
+    margin-bottom: 10px; /* Espacio inferior */
+}
+
+.submit-comment-btn {
+    padding: 10px 20px; /* Espacio interno del botón */
+    background-color: #673ab7; /* Color de fondo del botón */
+    color: white; /* Color de texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar cursor al pasar el mouse */
+    font-size: 16px; /* Tamaño de fuente */
+    transition: background-color 0.3s; /* Transición suave para el fondo */
+}
+
+.submit-comment-btn:hover {
+    background-color: #5e35b1; /* Color de fondo al pasar el mouse */
 }
 
 .comment {
