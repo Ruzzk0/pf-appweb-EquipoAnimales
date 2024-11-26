@@ -130,7 +130,7 @@ header {
 /* Estilo del botón de enviar comentario */
 #submitComment {
     padding: 10px 20px; /* Espacio interno */
-    background-color: #673232; /* Color de fondo */
+    background-color: #021d4f; /* Color de fondo */
     color: white; /* Color de texto */
     border: none; /* Sin borde */
     border-radius: 5px; /* Bordes redondeados */
@@ -140,7 +140,7 @@ header {
 }
 
 #submitComment:hover {
-    background-color: #472727; /* Color de fondo al pasar el mouse */
+    background-color: #021d4f; /* Color de fondo al pasar el mouse */
 }
 
 
