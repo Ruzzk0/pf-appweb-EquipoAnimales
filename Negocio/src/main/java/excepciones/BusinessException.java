@@ -10,12 +10,12 @@ package excepciones;
  */
 
 
-  public class BisnessException extends Exception{
+  public class BusinessException extends Exception{
     
     /**
      * Construye una nueva excepción de lógica de negocio sin mensaje de detalle.
      */
-    public BisnessException() {
+    public BusinessException() {
     }
 
     /**
@@ -23,7 +23,7 @@ package excepciones;
      * 
      * @param message el mensaje que detalla la excepción.
      */
-    public BisnessException(String message) {
+    public BusinessException(String message) {
         super(message);
     }
 
@@ -33,7 +33,7 @@ package excepciones;
      * @param message el mensaje que detalla la excepción.
      * @param cause la causa raíz de la excepción.
      */
-    public BisnessException(String message, Throwable cause) {
+    public BusinessException(String message, Throwable cause) {
         super(message, cause);
     }
 
@@ -43,7 +43,7 @@ package excepciones;
      * 
      * @param cause la causa raíz de la excepción.
      */
-    public BisnessException(Throwable cause) {
+    public BusinessException(Throwable cause) {
         super(cause);
     }
 
@@ -56,9 +56,9 @@ package excepciones;
      * @param enableSuppression indica si la supresión de la pila de seguimiento está habilitada o deshabilitada.
      * @param writableStackTrace indica si la pila de seguimiento es modificable o no.
      */
-    public BisnessException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+    public BusinessException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
    
 }
-}
+

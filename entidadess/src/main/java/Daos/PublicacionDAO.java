@@ -85,21 +85,7 @@ public class PublicacionDAO implements IPublicacionDAO {
      * @return Una lista de publicaciones asociadas al usuario.
      * @throws DAOException Si ocurre un error durante la operación.
      */
-    @Override
-    public List<Publicacion> listarPorUsuario(int usuarioId) throws DAOException {
-        try {
-            List<Publicacion> publicaciones = new ArrayList<>();
-            MongoCursor<Publicacion> cursor = publicacionCollection.find(
-                Filters.eq("autor.id", usuarioId)).iterator();
-            while (cursor.hasNext()) {
-                publicaciones.add(cursor.next());
-            }
-            cursor.close();
-            return publicaciones;
-        } catch (Exception e) {
-            throw new DAOException("Error al listar publicaciones por usuario: " + e.getMessage(), e);
-        }
-    }
+   
 
    
 }

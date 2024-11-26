@@ -30,13 +30,5 @@ public interface IPublicacionDAO {
      */
     public Publicacion buscarPorId(int id) throws DAOException;
 
-    /**
-     * Lista todas las publicaciones almacenadas en la base de datos.
-     * 
-     * @param usuarioId
-     * @return Una lista de publicaciones.
-     * @throws DAOException Si ocurre un error al listar las publicaciones.
-     */
-    public List<Publicacion> listarPorUsuario(int usuarioId) throws DAOException;
 }
 

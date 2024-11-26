@@ -4,7 +4,14 @@
  */
 package BO;
 
+import Daos.PublicacionDAO;
+import Interfaces.IPublicacionBO;
+import convertidores.PublicacionCVR;
+import dto.PublicacionDTO;
+import excepciones.BusinessException;
 import excepciones.DAOException;
+import interfaces.Daos.IPublicacionDAO;
+
 
 /**
  *
@@ -55,33 +62,8 @@ import excepciones.DAOException;
         }
     }
 
-    @Override
-    public List<PublicacionDTO> listaPaginada(int offset, int limit) throws BusinessException {
-        try {
-            List<Publicacion> lista = publicacionDAO.listaPaginada(offset, limit);
-            List<PublicacionDTO> listaDTO = new ArrayList<>();
-            for (int i = 0; i < lista.size(); i++) {
-                listaDTO.add(publicacionCVR.convertir_DTO(lista.get(i)));
-            }
-            return listaDTO;
-        } catch (DAOException ex) {
-            throw new BusinessException(ex.getMessage());
-        }
-    }
-
-    @Override
-    public List<PublicacionDTO> listaPorFecha(LocalDateTime begin, LocalDateTime end) throws BusinessException {
-        try {
-            List<Publicacion> lista = publicacionDAO.listaPorFecha(begin, end);
-            List<PublicacionDTO> listaDTO = new ArrayList<>();
-            for (int i = 0; i < lista.size(); i++) {
-                listaDTO.add(publicacionCVR.convertir_DTO(lista.get(i)));
-            }
-            return listaDTO;
-        } catch (DAOException ex) {
-            throw new BusinessException(ex.getMessage());
-        }
-    }
+    
+   
 }
  
-}
+

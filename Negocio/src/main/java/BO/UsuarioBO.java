@@ -4,8 +4,13 @@
  */
 package BO;
 
+import Daos.UsuarioDAO;
+import Interfaces.IUsuarioBO;
+import convertidores.UsuarioCVR;
+import dto.UsuarioDTO;
+import excepciones.BusinessException;
 import excepciones.DAOException;
-
+import interfaces.Daos.IUsuarioDAO;
 /**
  *
  * @author diana
@@ -55,26 +60,5 @@ public class UsuarioBO implements IUsuarioBO {
         }
     }
 
-    @Override
-    public List<UsuarioDTO> listaPaginada(int offset, int limit) throws BusinessException {
-        try {
-            List<Usuario> lista = usuarioDAO.listaPaginada(offset, limit);
-            List<UsuarioDTO> listaDTO = new ArrayList<>();
-            for (int i = 0; i < lista.size(); i++) {
-                listaDTO.add(usuarioCVR.convertir_DTO(lista.get(i)));
-            }
-            return listaDTO;
-        } catch (DAOException ex) {
-            throw new BusinessException(ex.getMessage());
-        }
-    }
-
-    @Override
-    public UsuarioDTO buscarPorCorreo(String correo) throws BusinessException {
-        try {
-            return usuarioCVR.convertir_DTO(this.usuarioDAO.buscarPorCorreo(correo));
-        } catch (DAOException e) {
-            throw new BusinessException(e.getMessage());
-        }
-    }
+    
 }

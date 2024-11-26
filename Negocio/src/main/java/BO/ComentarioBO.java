@@ -4,13 +4,19 @@
  */
 package BO;
 
+import Daos.ComentarioDAO;
+import Interfaces.IComentarioBO;
+import convertidores.ComentarioCVR;
+import dto.ComentarioDTO;
+import excepciones.BusinessException;
 import excepciones.DAOException;
+import interfaces.Daos.IComentarioDAO;
 
 /**
  *
  * @author diana
  */
-    public class ComentarioBO implements IComentarioBO {
+    public class ComentarioBO implements IComentarioBO{
 
   
     private final IComentarioDAO comentarioDAO; 
@@ -55,33 +61,7 @@ import excepciones.DAOException;
         }
     }
 
-    @Override
-    public List<ComentarioDTO> listaPaginada(int offset, int limit) throws BusinessException {
-        try {
-            List<Comentario> lista = comentarioDAO.listaPaginada(offset, limit);
-            List<ComentarioDTO> listaDTO = new ArrayList<>();
-            for (int i = 0; i < lista.size(); i++) {
-                listaDTO.add(comentarioCVR.convertir_DTO(lista.get(i)));
-            }
-            return listaDTO;
-        } catch (DAOException ex) {
-            throw new BusinessException(ex.getMessage());
-        }
-    }
-
-    @Override
-    public List<ComentarioDTO> listaPorFecha(LocalDateTime begin, LocalDateTime end) throws BusinessException {
-        try {
-            List<Comentario> lista = comentarioDAO.listaPorFecha(begin, end);
-            List<ComentarioDTO> listaDTO = new ArrayList<>();
-            for (int i = 0; i < lista.size(); i++) {
-                listaDTO.add(comentarioCVR.convertir_DTO(lista.get(i)));
-            }
-            return listaDTO;
-        } catch (DAOException ex) {
-            throw new BusinessException(ex.getMessage());
-        }
-    }
+    
 }
 
-}
+
