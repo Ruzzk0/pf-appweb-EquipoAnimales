@@ -16,7 +16,7 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author gamaliel
  */
-@WebServlet(name = "indexController", urlPatterns = {"/index"})
+@WebServlet(name = "indexController", urlPatterns = {"/indexController"})
 public class indexController extends HttpServlet {
 
     /**
@@ -78,11 +78,11 @@ public class indexController extends HttpServlet {
 
         if (user.isValid()) {
             // Redirigir a la página de dashboard o inicio
-            response.sendRedirect("dashboard.jsp");
+            response.sendRedirect("errorView.jsp");
         } else {
             // Si las credenciales son incorrectas, redirigir de nuevo a index.jsp con un mensaje de error
             request.setAttribute("errorMessage", "Credenciales incorrectas. Inténtalo de nuevo.");
-            request.getRequestDispatcher("/WEB-INF/views/index.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/views/indexView.jsp").forward(request, response);
         }
     }
 

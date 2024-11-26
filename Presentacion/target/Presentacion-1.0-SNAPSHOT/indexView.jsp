@@ -25,7 +25,7 @@
         <section class="section" id="login-section">
             <h4>Inicio de Sesión</h4>
 
-            <form id="loginForm" action="${pageContext.request.contextPath}/index" method="post">
+            <form id="loginForm" action="${pageContext.request.contextPath}/indexController" method="post">
                 <div class="form-group">
                     <i class="uil uil-at"></i>
                     <input type="email" id="loginEmail" placeholder="Correo Electrónico" required>

@@ -9,7 +9,7 @@ package dto;
  * @author diana
  */
 public class UsuarioDTO {
-     private int id;
+    private int id;
     private String nombre;
     private String correo;
     private String contrasena;

@@ -2,3 +2,5 @@
 /home/gamaliel/Documentos/pf-appweb-EquipoAnimales/Presentacion/src/main/java/org/itson/webapps/index/mvc/indexModel.java
 /home/gamaliel/Documentos/pf-appweb-EquipoAnimales/Presentacion/src/main/java/org/itson/webapps/presentacion/JakartaRestConfiguration.java
 /home/gamaliel/Documentos/pf-appweb-EquipoAnimales/Presentacion/src/main/java/org/itson/webapps/presentacion/resources/JakartaEE11Resource.java
+/home/gamaliel/Documentos/pf-appweb-EquipoAnimales/Presentacion/src/main/java/org/itson/webapps/register/mvc/registerController.java
+/home/gamaliel/Documentos/pf-appweb-EquipoAnimales/Presentacion/src/main/java/org/itson/webapps/register/mvc/registerModel.java

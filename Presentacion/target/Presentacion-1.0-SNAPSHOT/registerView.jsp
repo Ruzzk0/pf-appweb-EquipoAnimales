@@ -13,6 +13,7 @@
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/stylesRegistro.css"/>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="${pageContext.request.contextPath}/js/jsCountries.js"></script>
+        <script src="${pageContext.request.contextPath}/js/jsRegister.js"></script>
     </head>
     <body>   
 
@@ -26,7 +27,7 @@
 
         <section class="section" id="register-section">
             <h4 title="texto-Registro">Registrarse</h4>
-            <form id="registroForm"  action="${pageContext.request.contextPath}/register" method="post">
+            <form id="registroForm"  action="${pageContext.request.contextPath}/registerController" method="post">
                 <div class="form-group">
                     <input type="text" placeholder="Nombre Completo" id="nombre" required>
                     <i class="uil uil-user"></i>

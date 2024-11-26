@@ -747,14 +747,37 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         if (!errores) {
-            // Guardar el usuario en localStorage
-            const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
-            usuarios.push({nombre, email, password, fechaNacimiento, telefono});
-            localStorage.setItem('usuarios', JSON.stringify(usuarios));
+            // Enviar los datos al servidor
+            const datos = {
+                nombre,
+                email,
+                password,
+                fechaNacimiento,
+                telefono
+            };
 
-            alert('Registro exitoso');
-            document.getElementById('registroForm').reset(); // Limpiar el formulario
-            window.location.href = 'index.html'; // Redirigir a index.html
+            fetch('${pageContext.request.contextPath}/registerController', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(datos)
+            })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('Registro exitoso');
+                            document.getElementById('registroForm').reset(); // Limpiar el formulario
+                            window.location.href = 'indexView.jsp'; // Redirigir a index.html
+                          
+                        } else {
+                            alert('Error al registrar al usuario: ' + data.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error al enviar los datos:', error);
+                        alert('Hubo un problema al registrar al usuario.');
+                    });
         }
     });
 });
