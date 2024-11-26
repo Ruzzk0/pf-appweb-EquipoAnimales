@@ -25,7 +25,7 @@
         <section class="section" id="login-section">
             <h4>Inicio de Sesión</h4>
 
-            <form id="loginForm">
+            <form id="loginForm" action="${pageContext.request.contextPath}/index" method="post">
                 <div class="form-group">
                     <i class="uil uil-at"></i>
                     <input type="email" id="loginEmail" placeholder="Correo Electrónico" required>
@@ -43,9 +43,12 @@
                 <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
 
                 <p class="text-center mt-3">
-                    ¿Aún no tienes cuenta? <a href="registro.jsp" class="link">Regístrate aquí</a>
+                    ¿Aún no tienes cuenta? <a href="registerView.jsp" class="link">Regístrate aquí</a>
                 </p>
             </form>
+            <c:if test="${not empty errorMessage}">
+                <div class="alert alert-danger">${errorMessage}</div>
+            </c:if>
         </section>
     </body>
 </html>

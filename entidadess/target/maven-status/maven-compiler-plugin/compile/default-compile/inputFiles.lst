@@ -1,0 +1,11 @@
+/home/gamaliel/Documentos/pf-appweb-EquipoAnimales/entidadess/src/main/java/Daos/ComentarioDAO.java
+/home/gamaliel/Documentos/pf-appweb-EquipoAnimales/entidadess/src/main/java/Daos/PublicacionDAO.java
+/home/gamaliel/Documentos/pf-appweb-EquipoAnimales/entidadess/src/main/java/Daos/UsuarioDAO.java
+/home/gamaliel/Documentos/pf-appweb-EquipoAnimales/entidadess/src/main/java/conexion/ConexionBD.java
+/home/gamaliel/Documentos/pf-appweb-EquipoAnimales/entidadess/src/main/java/entidades/Comentario.java
+/home/gamaliel/Documentos/pf-appweb-EquipoAnimales/entidadess/src/main/java/entidades/Publicacion.java
+/home/gamaliel/Documentos/pf-appweb-EquipoAnimales/entidadess/src/main/java/entidades/Usuario.java
+/home/gamaliel/Documentos/pf-appweb-EquipoAnimales/entidadess/src/main/java/excepciones/DAOException.java
+/home/gamaliel/Documentos/pf-appweb-EquipoAnimales/entidadess/src/main/java/interfaces/Daos/IComentarioDAO.java
+/home/gamaliel/Documentos/pf-appweb-EquipoAnimales/entidadess/src/main/java/interfaces/Daos/IPublicacionDAO.java
+/home/gamaliel/Documentos/pf-appweb-EquipoAnimales/entidadess/src/main/java/interfaces/Daos/IUsuarioDAO.java
