@@ -38,5 +38,14 @@ public interface IComentarioDAO {
      * @throws DAOException Si ocurre un error al listar los comentarios.
      */
     public List<Comentario> listarPorPublicacion(int publicacionId) throws DAOException;
+    
+    /**
+    * Elimina un comentario de la base de datos según su identificador único (ID).
+    * 
+    * @param id El identificador único del comentario a eliminar.
+    * @throws DAOException Si ocurre un error durante la operación.
+    */
+
+   public void eliminar(int id) throws DAOException;
 }
 

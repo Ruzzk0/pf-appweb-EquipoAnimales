@@ -30,6 +30,8 @@ public interface IComentarioBO {
      * @throws BusinessException Arroja una excepción si ocurre un error en la operación.
      */
     public ComentarioDTO buscarPorId(int id) throws BusinessException;
+    
+    
 }
 
 

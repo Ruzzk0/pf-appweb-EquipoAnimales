@@ -6,7 +6,6 @@ package interfaces.Daos;
 
 import entidades.Publicacion;
 import excepciones.DAOException;
-import java.util.List;
 
 /**
  *
@@ -29,6 +28,25 @@ public interface IPublicacionDAO {
      * @throws DAOException Si ocurre un error al buscar la publicación.
      */
     public Publicacion buscarPorId(int id) throws DAOException;
+    
+    /**
+     * Elimina una publicación por su identificador único (ID).
+     * 
+     * @param id El identificador único de la publicación a eliminar.
+     * @throws DAOException Si ocurre un error durante la operación o si la publicación no existe.
+     */
+    public void eliminar(int id) throws DAOException;
+    
+    /**
+     * Actualiza una publicación existente en la base de datos.
+     * 
+     * @param id El identificador único de la publicación a actualizar.
+     * @param publicacion Los datos actualizados de la publicación.
+     * @throws DAOException Si ocurre un error durante la operación o si la publicación no existe.
+     */
+   
+    public void actualizar(int id, Publicacion publicacion) throws DAOException;
+    
 
 }
 

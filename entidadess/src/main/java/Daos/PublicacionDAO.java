@@ -7,13 +7,16 @@ package Daos;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
+import com.mongodb.client.result.DeleteResult;
+import com.mongodb.client.result.UpdateResult;
 import conexion.ConexionBD;
 import entidades.Publicacion;
 import entidades.Usuario;
 import excepciones.DAOException;
 import interfaces.Daos.IPublicacionDAO;
-import java.util.ArrayList;
-import java.util.List;
+import org.bson.conversions.Bson;
+
 
 /**
  *
@@ -78,14 +81,61 @@ public class PublicacionDAO implements IPublicacionDAO {
         }
     }
 
-     /**
-     * Lista todas las publicaciones asociadas a un usuario específico.
+     
+    /**
+     * Elimina una publicación por su identificador único (ID).
      * 
-     * @param usuarioId El identificador único del usuario (autor) de las publicaciones.
-     * @return Una lista de publicaciones asociadas al usuario.
-     * @throws DAOException Si ocurre un error durante la operación.
+     * @param id El identificador único de la publicación a eliminar.
+     * @throws DAOException Si ocurre un error durante la operación o si la publicación no existe.
      */
-   
+    @Override
+    public void eliminar(int id) throws DAOException {
+    try {
+        DeleteResult resultado = publicacionCollection.deleteOne(Filters.eq("id", id));
+        if (resultado.getDeletedCount() == 0) {
+            throw new DAOException("No se encontró ninguna publicación con el ID especificado.");
+        }
+    } catch (Exception e) {
+        throw new DAOException("Error al eliminar la publicación: " + e.getMessage(), e);
+    }
+}
+       
+        /**
+     * Actualiza una publicación existente en la base de datos.
+     * 
+     * @param id El identificador único de la publicación a actualizar.
+     * @param publicacion Los datos actualizados de la publicación.
+     * @throws DAOException Si ocurre un error durante la operación o si la publicación no existe.
+     */
+    @Override
+    public void actualizar(int id, Publicacion publicacion) throws DAOException {
+    try {
+        
+        Publicacion publicacionExistente = buscarPorId(id);
+        if (publicacionExistente == null) {
+            throw new DAOException("No se encontró ninguna publicación con el ID especificado.");
+        }
+
+        Usuario autor = usuarioDAO.buscarPorId(publicacion.getAutor().getId());
+        if (autor == null) {
+            throw new DAOException("No se encontró el autor de la publicación.");
+        }
+
+        Bson updates = Updates.combine(
+            Updates.set("contenido", publicacion.getContenido()),
+            Updates.set("autor", autor)
+        );
+
+        UpdateResult resultado = publicacionCollection.updateOne(Filters.eq("id", id), updates);
+
+        if (resultado.getMatchedCount() == 0) {
+            throw new DAOException("No se pudo actualizar la publicación. Verifica el ID.");
+        }
+    } catch (Exception e) {
+        throw new DAOException("Error al actualizar la publicación: " + e.getMessage(), e);
+    }
+}
+
 
    
 }

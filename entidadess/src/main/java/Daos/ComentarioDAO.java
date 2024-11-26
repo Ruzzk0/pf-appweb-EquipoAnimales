@@ -7,6 +7,7 @@ package Daos;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.model.Filters;
+import com.mongodb.client.result.DeleteResult;
 import conexion.ConexionBD;
 import entidades.Comentario;
 import entidades.Publicacion;
@@ -115,6 +116,24 @@ public class ComentarioDAO implements IComentarioDAO {
             throw new DAOException("Error al listar comentarios por publicación: " + e.getMessage(), e);
         }
     }
+    /**
+    * Elimina un comentario de la base de datos según su identificador único (ID).
+    * 
+    * @param id El identificador único del comentario a eliminar.
+    * @throws DAOException Si ocurre un error durante la operación.
+    */
+
+   public void eliminar(int id) throws DAOException {
+    try {
+        DeleteResult resultado = comentarioCollection.deleteOne(Filters.eq("id", id));
+        if (resultado.getDeletedCount() == 0) {
+            throw new DAOException("No se encontró el comentario con el ID especificado.");
+        }
+    } catch (Exception e) {
+        throw new DAOException("Error al eliminar el comentario: " + e.getMessage(), e);
+    }
+}
+
 }
 
 
