@@ -102,24 +102,10 @@ if (nombre == null || nombre.trim().isEmpty()
             return;
         }
 
-        // 1. Leer el cuerpo de la solicitud como JSON
-        BufferedReader reader = request.getReader();
-        StringBuilder sb = new StringBuilder();
-        String line;
-        while ((line = reader.readLine()) != null) {
-            sb.append(line);
-        }
-
-        // 2. Convertir el JSON leído en un objeto UsuarioDTO
-        String jsonData = sb.toString();
-        ObjectMapper objectMapper = new ObjectMapper();
-        UsuarioDTO usuarioNuevo = objectMapper.readValue(jsonData, UsuarioDTO.class);
-
-
         try {
             // 3. Crear objeto UsuarioDTO
             UsuarioDTO usuarioNuevo = new UsuarioDTO(
-                    nombre, email, contrasena, bando, bando
+                    nombre, email, contrasena, bando, ciudad, estado, pais, genero, telefono,fechaNacimiento
             );
             
             usuarioBO.agregar(usuarioNuevo);
