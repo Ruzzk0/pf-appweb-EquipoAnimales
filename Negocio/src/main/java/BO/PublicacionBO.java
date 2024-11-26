@@ -8,6 +8,7 @@ import Daos.PublicacionDAO;
 import Interfaces.IPublicacionBO;
 import convertidores.PublicacionCVR;
 import dto.PublicacionDTO;
+import entidades.Publicacion;
 import excepciones.BusinessException;
 import excepciones.DAOException;
 import interfaces.Daos.IPublicacionDAO;
@@ -62,8 +63,39 @@ import interfaces.Daos.IPublicacionDAO;
         }
     }
 
-    
-   
+     /**
+     * Método que permite eliminar una publicación por su ID.
+     *
+     * @param id Id de la publicación a eliminar.
+     * @throws BusinessException Arroja una excepción si ocurre un error en la operación.
+     */
+    @Override
+    public void eliminar(int id) throws BusinessException {
+        try {
+            this.publicacionDAO.eliminar(id);
+        } catch (DAOException e) {
+            throw new BusinessException(e.getMessage());
+        }
+    }
+
+    /**
+     * Método para actualizar una publicación existente.
+     *
+     * @param id Id de la publicación a actualizar.
+     * @param publicacionDTO Los nuevos datos para la publicación.
+     * @throws BusinessException Arroja una excepción si ocurre un error en la operación.
+     */
+    @Override
+    public void actualizar(int id, PublicacionDTO publicacionDTO) throws BusinessException {
+        try {
+            Publicacion publicacion = publicacionCVR.convertir_Publicacion(publicacionDTO);
+            this.publicacionDAO.actualizar(id, publicacion);
+        } catch (DAOException e) {
+            throw new BusinessException(e.getMessage());
+        }
+    }
 }
+   
+
  
 

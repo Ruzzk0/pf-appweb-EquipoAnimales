@@ -6,6 +6,7 @@ package Interfaces;
 
 import dto.ComentarioDTO;
 import excepciones.BusinessException;
+import java.util.List;
 
 
 /**
@@ -30,7 +31,23 @@ public interface IComentarioBO {
      * @throws BusinessException Arroja una excepción si ocurre un error en la operación.
      */
     public ComentarioDTO buscarPorId(int id) throws BusinessException;
+   
+    /**
+     * Método que lista todos los comentarios asociados a una publicación.
+     *
+     * @param publicacionId ID de la publicación asociada.
+     * @return Una lista de objetos ComentarioDTO relacionados con la publicación.
+     * @throws BusinessException Arroja una excepción si ocurre un error en la operación.
+     */
+    public List<ComentarioDTO> listarPorPublicacion(int publicacionId) throws BusinessException;
     
+     /**
+     * Método que elimina un comentario por su ID.
+     *
+     * @param id ID del comentario a eliminar.
+     * @throws BusinessException Arroja una excepción si ocurre un error en la operación.
+     */
+    public void eliminar(int id) throws BusinessException;
     
 }
 

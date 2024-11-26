@@ -7,12 +7,16 @@ package Daos;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Updates;
+import com.mongodb.client.result.DeleteResult;
+import com.mongodb.client.result.UpdateResult;
 import conexion.ConexionBD;
 import entidades.Usuario;
 import excepciones.DAOException;
 import interfaces.Daos.IUsuarioDAO;
 import java.util.ArrayList;
 import java.util.List;
+import org.bson.conversions.Bson;
 
 /**
  *
@@ -109,5 +113,48 @@ public class UsuarioDAO implements IUsuarioDAO {
         }
     }
 
-    
+        /**
+     * Actualiza un usuario existente en la base de datos.
+     * 
+     * @param id El identificador único del usuario a actualizar.
+     * @param usuario Los datos actualizados del usuario.
+     * @throws DAOException Si ocurre un error durante la operación o si no se encuentra el usuario.
+     */
+    @Override
+    public void actualizar(int id, Usuario usuario) throws DAOException {
+        try {
+            Bson updates = Updates.combine(
+                Updates.set("nombre", usuario.getNombre()),
+                Updates.set("correo", usuario.getCorreo()),
+                Updates.set("contrasena", usuario.getContrasena())
+            );
+
+            UpdateResult resultado = usuarioCollection.updateOne(Filters.eq("id", id), updates);
+
+            if (resultado.getMatchedCount() == 0) {
+                throw new DAOException("No se encontró ningún usuario con el ID especificado.");
+            }
+        } catch (Exception e) {
+            throw new DAOException("Error al actualizar el usuario: " + e.getMessage(), e);
+        }
+    }
+
+    /**
+     * Elimina un usuario por su identificador único (ID).
+     * 
+     * @param id El identificador único del usuario a eliminar.
+     * @throws DAOException Si ocurre un error durante la operación o si no se encuentra el usuario.
+     */
+    @Override
+    public void eliminar(int id) throws DAOException {
+        try {
+            DeleteResult resultado = usuarioCollection.deleteOne(Filters.eq("id", id));
+            if (resultado.getDeletedCount() == 0) {
+                throw new DAOException("No se encontró ningún usuario con el ID especificado.");
+            }
+        } catch (Exception e) {
+            throw new DAOException("Error al eliminar el usuario: " + e.getMessage(), e);
+        }
+    }
 }
+

@@ -39,5 +39,22 @@ public interface IUsuarioDAO  {
      * @throws DAOException Si ocurre un error al listar los usuarios.
      */
     public List<Usuario> listarTodos() throws DAOException;
+    
+    /**
+     * Actualiza un usuario existente en la base de datos.
+     * 
+     * @param id El identificador único del usuario a actualizar.
+     * @param usuario Los datos actualizados del usuario.
+     * @throws DAOException Si ocurre un error durante la operación o si no se encuentra el usuario.
+     */
+    public void actualizar(int id, Usuario usuario) throws DAOException;
+    
+    /**
+     * Elimina un usuario por su identificador único (ID).
+     * 
+     * @param id El identificador único del usuario a eliminar.
+     * @throws DAOException Si ocurre un error durante la operación o si no se encuentra el usuario.
+     */
+    public void eliminar(int id) throws DAOException;
 }
 

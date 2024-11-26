@@ -32,5 +32,21 @@ public interface IPublicacionBO {
     public PublicacionDTO buscarPorId(int id) throws BusinessException;
 
    
+     /**
+     * Método que permite eliminar una publicación por su ID.
+     *
+     * @param id Id de la publicación a eliminar.
+     * @throws BusinessException Arroja una excepción si ocurre un error en la operación.
+     */
+    public void eliminar(int id) throws BusinessException;
+    
+    /**
+     * Método para actualizar una publicación existente.
+     *
+     * @param id Id de la publicación a actualizar.
+     * @param publicacionDTO Los nuevos datos para la publicación.
+     * @throws BusinessException Arroja una excepción si ocurre un error en la operación.
+//     */
+    public void actualizar(int id, PublicacionDTO publicacionDTO) throws BusinessException;
 }
 

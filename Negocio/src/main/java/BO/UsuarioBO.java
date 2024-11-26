@@ -13,6 +13,7 @@ import entidades.Usuario;
 import excepciones.BusinessException;
 import excepciones.DAOException;
 import interfaces.Daos.IUsuarioDAO;
+import java.util.List;
 
 /**
  *
@@ -73,6 +74,13 @@ public class UsuarioBO implements IUsuarioBO {
         }
     }
     
+    /**
+     * Método que permite buscar un usuario por su correo y contraseña.
+     *
+     * @param dto Objeto UsuarioDTO con el correo y contraseña.
+     * @return Objeto UsuarioDTO con los datos del usuario encontrado.
+     * @throws BusinessException Arroja una excepción si ocurre un error en la operación.
+     */
     @Override
     public UsuarioDTO buscarPorCorreo(UsuarioDTO dto) throws BusinessException {
         try {
@@ -96,4 +104,67 @@ public class UsuarioBO implements IUsuarioBO {
         }
     }
     
+    /**
+     * Método que permite actualizar un usuario existente.
+     *
+     * @param id         ID del usuario a actualizar.
+     * @param usuarioDTO Datos actualizados del usuario.
+     * @throws BusinessException Arroja una excepción si ocurre un error en la operación.
+     */
+    @Override
+    public void actualizar(int id, UsuarioDTO usuarioDTO) throws BusinessException {
+        try {
+            if (usuarioDTO.getCorreo().isBlank() || usuarioDTO.getNombre().isBlank()) {
+                throw new BusinessException("Faltan campos requeridos.");
+            }
+
+            String contrasena = enc.encriptar(usuarioDTO.getContrasena());
+            usuarioDTO.setContrasena(contrasena);
+
+            Usuario usuarioActualizado = usuarioCVR.convertir_Usuario(usuarioDTO);
+            this.usuarioDAO.actualizar(id, usuarioActualizado);
+        } catch (DAOException e) {
+            throw new BusinessException(e.getMessage());
+        }
+    }
+
+    /**
+     * Método para eliminar un usuario por su ID.
+     *
+     * @param id ID del usuario a eliminar.
+     * @throws BusinessException Arroja una excepción si ocurre un error en la operación.
+     */
+    @Override
+    public void eliminar(int id) throws BusinessException {
+        try {
+            this.usuarioDAO.eliminar(id);
+        } catch (DAOException e) {
+            throw new BusinessException(e.getMessage());
+        }
+    }
+
+    
+    /**
+     * Método para listar todos los usuarios.
+     *
+     * @return Lista de objetos UsuarioDTO.
+     * @throws BusinessException Arroja una excepción si ocurre un error en la operación.
+     */
+    @Override
+    public List<UsuarioDTO> listarTodos() throws BusinessException {
+        try {
+            List<Usuario> usuarios = usuarioDAO.listarTodos();
+            List<UsuarioDTO> usuariosDTO = new ArrayList<>();
+
+            for (Usuario usuario : usuarios) {
+                usuariosDTO.add(usuarioCVR.convertir_DTO(usuario));
+            }
+
+            return usuariosDTO;
+        } catch (DAOException e) {
+            throw new BusinessException(e.getMessage());
+        }
+    }
 }
+    
+

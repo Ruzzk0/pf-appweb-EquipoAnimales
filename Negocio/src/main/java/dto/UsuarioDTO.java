@@ -183,13 +183,13 @@ public class UsuarioDTO {
         this.bando = bando;
     }
 
-    
-    
-    
     @Override
     public String toString() {
-        return "UsuarioDTO{" + "id=" + id + ", nombre=" + nombre + ", correo=" + correo + ", contrasena=" + contrasena + ", administrador=" + administrador + ", visitante=" + visitante + '}';
+        return "UsuarioDTO{" + "id=" + id + ", nombre=" + nombre + ", correo=" + correo 
+                + ", contrasena=" + contrasena + ", pais=" + pais + ", estado=" + estado + ", ciudad=" 
+                + ciudad + ", telefono=" + telefono + ", fechaNacimiento=" + fechaNacimiento + ", genero=" 
+                + genero + ", bando=" + bando + ", administrador=" + administrador + ", visitante=" + visitante + '}';
     }
-    
+
     
 }

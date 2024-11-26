@@ -123,6 +123,7 @@ public class ComentarioDAO implements IComentarioDAO {
     * @throws DAOException Si ocurre un error durante la operación.
     */
 
+     @Override
    public void eliminar(int id) throws DAOException {
     try {
         DeleteResult resultado = comentarioCollection.deleteOne(Filters.eq("id", id));
