@@ -14,6 +14,13 @@ public class Usuario {
     private String nombre;
     private String correo;
     private String contrasena;
+    private String pais;
+    private String estado;
+    private String ciudad;
+    private String telefono;
+    private String fechaNacimiento;
+    private String genero;
+    private String bando;
     private String administrador;
     private String visitante;
 
@@ -55,6 +62,37 @@ public class Usuario {
         this.contrasena = contrasena;
     }
 
+    public Usuario(int id, String nombre, String correo, String contrasena, String pais, String estado, String ciudad, String telefono, String fechaNacimiento, String genero, String bando, String administrador, String visitante) {
+        this.id = id;
+        this.nombre = nombre;
+        this.correo = correo;
+        this.contrasena = contrasena;
+        this.pais = pais;
+        this.estado = estado;
+        this.ciudad = ciudad;
+        this.telefono = telefono;
+        this.fechaNacimiento = fechaNacimiento;
+        this.genero = genero;
+        this.bando = bando;
+        this.administrador = administrador;
+        this.visitante = visitante;
+    }
+
+    public Usuario(String nombre, String correo, String contrasena, String pais, String estado, String ciudad, String telefono, String fechaNacimiento, String genero, String bando, String administrador, String visitante) {
+        this.nombre = nombre;
+        this.correo = correo;
+        this.contrasena = contrasena;
+        this.pais = pais;
+        this.estado = estado;
+        this.ciudad = ciudad;
+        this.telefono = telefono;
+        this.fechaNacimiento = fechaNacimiento;
+        this.genero = genero;
+        this.bando = bando;
+        this.administrador = administrador;
+        this.visitante = visitante;
+    }
+    
     public int getId() {
         return id;
     }
@@ -102,6 +140,64 @@ public class Usuario {
     public void setVisitante(String visitante){
        this.visitante = visitante;
     }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public String getBando() {
+        return bando;
+    }
+
+    public void setBando(String bando) {
+        this.bando = bando;
+    }
+    
+    
    /**
      * Método toString.
      * Retorna una representación en texto de los atributos del usuario.

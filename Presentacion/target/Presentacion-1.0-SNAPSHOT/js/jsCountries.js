@@ -745,40 +745,6 @@ document.addEventListener('DOMContentLoaded', function () {
             mostrarError('telefono', 'El teléfono debe tener 10 dígitos numéricos');
             errores = true;
         }
-
-        if (!errores) {
-            // Enviar los datos al servidor
-            const datos = {
-                nombre,
-                email,
-                password,
-                fechaNacimiento,
-                telefono
-            };
-
-            fetch('${pageContext.request.contextPath}/registerController', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(datos)
-            })
-                    .then(response => response.json())
-                    .then(data => {
-                        if (data.success) {
-                            alert('Registro exitoso');
-                            document.getElementById('registroForm').reset(); // Limpiar el formulario
-                            window.location.href = 'indexView.jsp'; // Redirigir a index.html
-                          
-                        } else {
-                            alert('Error al registrar al usuario: ' + data.message);
-                        }
-                    })
-                    .catch(error => {
-                        console.error('Error al enviar los datos:', error);
-                        alert('Hubo un problema al registrar al usuario.');
-                    });
-        }
     });
 });
 

@@ -35,6 +35,13 @@ import entidades.Usuario;
             dto.getNombre(),
             dto.getCorreo(),
             dto.getContrasena(),
+                dto.getBando(),
+                dto.getCiudad(),
+                dto.getEstado(),
+                dto.getFechaNacimiento(),
+                dto.getGenero(),
+                dto.getTelefono(),
+                dto.getPais(),
             dto.getAdministrador(),
             dto.getVisitante());
 
@@ -47,11 +54,18 @@ import entidades.Usuario;
         }
         
         Usuario usuario = new Usuario(
-            dto.getNombre(),
-            dto.getCorreo(),
-            dto.getContrasena(),
-            dto.getAdministrador(),
-            dto.getVisitante());
+                dto.getNombre(),
+                dto.getCorreo(),
+                dto.getContrasena(),
+                dto.getBando(),
+                dto.getCiudad(),
+                dto.getEstado(),
+                dto.getFechaNacimiento(),
+                dto.getGenero(),
+                dto.getTelefono(),
+                dto.getPais(),
+                dto.getAdministrador(),
+                dto.getVisitante());
 
         return usuario;
     }
@@ -77,6 +91,13 @@ import entidades.Usuario;
             entidad.getNombre(),
             entidad.getCorreo(),
             entidad.getContrasena(),
+                entidad.getBando(),
+                entidad.getCiudad(),
+                entidad.getEstado(),
+                entidad.getFechaNacimiento(),
+                entidad.getGenero(),
+                entidad.getTelefono(),
+                entidad.getPais(),
             entidad.getAdministrador(),
             entidad.getVisitante()
         );
