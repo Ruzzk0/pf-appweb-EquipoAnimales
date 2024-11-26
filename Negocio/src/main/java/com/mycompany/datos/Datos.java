@@ -60,9 +60,9 @@ public class Datos {
             System.out.println("Publicación encontrada: " + publicacionEncontrada);
 
             // Listar publicaciones de un usuario
-            List<Publicacion> publicaciones = publicacionDAO.listarPorUsuario(1);
+//            List<Publicacion> publicaciones = publicacionDAO.listarPorUsuario(1);
             System.out.println("Publicaciones del usuario:");
-            publicaciones.forEach(System.out::println);
+//            publicaciones.forEach(System.out::println);
 
             // Listar comentarios de una publicación
             List<Comentario> comentarios = comentarioDAO.listarPorPublicacion(1);

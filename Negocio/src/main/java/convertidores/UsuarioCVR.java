@@ -21,18 +21,39 @@ import entidades.Usuario;
      * @return Entidad Usuario convertida.
      */
     public Usuario convertir_Usuario(UsuarioDTO dto) {
+        int id = -1;
+        
         if (dto == null) {
             return null;
         }
-
-        return new Usuario(
-            dto.getId(),
+        
+        if(dto.getId() >=0){
+            id = dto.getId();
+        }
+        
+        Usuario usuario = new Usuario(id,
             dto.getNombre(),
             dto.getCorreo(),
             dto.getContrasena(),
             dto.getAdministrador(),
-            dto.getVisitante()
-        );
+            dto.getVisitante());
+
+        return usuario;
+    }
+    
+    public Usuario convertir_Usuario_Sin_Id(UsuarioDTO dto) {
+        if (dto == null) {
+            return null;
+        }
+        
+        Usuario usuario = new Usuario(
+            dto.getNombre(),
+            dto.getCorreo(),
+            dto.getContrasena(),
+            dto.getAdministrador(),
+            dto.getVisitante());
+
+        return usuario;
     }
 
     /**
@@ -42,18 +63,41 @@ import entidades.Usuario;
      * @return Objeto UsuarioDTO convertido.
      */
     public UsuarioDTO convertir_DTO(Usuario entidad) {
+        int id = -1;
         if (entidad == null) {
             return null;
         }
-
-        return new UsuarioDTO(
-            entidad.getId(),
+        
+        if(entidad.getId() >= 0){
+            id = entidad.getId();
+        }
+        
+        UsuarioDTO usuarioDTO =new UsuarioDTO(
+            id,
             entidad.getNombre(),
             entidad.getCorreo(),
             entidad.getContrasena(),
             entidad.getAdministrador(),
             entidad.getVisitante()
         );
+
+        return usuarioDTO;
+    }
+    
+    public UsuarioDTO convertir_DTO_Sin_Id(Usuario entidad) {
+        if (entidad == null) {
+            return null;
+        }
+        
+        UsuarioDTO usuarioDTO =new UsuarioDTO(
+            entidad.getNombre(),
+            entidad.getCorreo(),
+            entidad.getContrasena(),
+            entidad.getAdministrador(),
+            entidad.getVisitante()
+        );
+
+        return usuarioDTO;
     }
 }
   

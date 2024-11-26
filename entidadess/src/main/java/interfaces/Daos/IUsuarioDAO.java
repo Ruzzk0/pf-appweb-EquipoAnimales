@@ -29,6 +29,8 @@ public interface IUsuarioDAO  {
      * @throws DAOException Si ocurre un error al buscar el usuario.
      */
     public Usuario buscarPorId(int id) throws DAOException;
+    
+    public Usuario buscarPorCorreo(Usuario usuario) throws DAOException;
 
     /**
      * Lista todos los usuarios almacenados en la base de datos.

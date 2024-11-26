@@ -8,22 +8,26 @@ import Daos.UsuarioDAO;
 import Interfaces.IUsuarioBO;
 import convertidores.UsuarioCVR;
 import dto.UsuarioDTO;
+import encriptacion.Encriptador;
+import entidades.Usuario;
 import excepciones.BusinessException;
 import excepciones.DAOException;
 import interfaces.Daos.IUsuarioDAO;
+
 /**
  *
  * @author diana
  */
 public class UsuarioBO implements IUsuarioBO {
-
     
-    private final IUsuarioDAO usuarioDAO; 
-    private final UsuarioCVR usuarioCVR; 
-
+    private final IUsuarioDAO usuarioDAO;    
+    private final UsuarioCVR usuarioCVR;    
+    private Encriptador enc;
+    
     public UsuarioBO() {
         this.usuarioDAO = new UsuarioDAO();
         this.usuarioCVR = new UsuarioCVR();
+        this.enc = Encriptador.getInstance();
     }
 
     /**
@@ -36,8 +40,17 @@ public class UsuarioBO implements IUsuarioBO {
     @Override
     public void agregar(UsuarioDTO usuarioDTO) throws BusinessException {
         try {
-           
-            this.usuarioDAO.agregar(usuarioCVR.convertir_Usuario(usuarioDTO));
+            if(usuarioDTO.getContrasena().isBlank()){
+                throw new DAOException("No ingreso contraseña");
+            }
+            
+            if(usuarioDTO.getCorreo().isBlank() || usuarioDTO.getNombre().isBlank()){
+                throw new DAOException("Faltan campos requeridos");
+            }
+            
+            String contra = enc.encriptar(usuarioDTO.getContrasena());
+            usuarioDTO.setContrasena(contra);
+            this.usuarioDAO.agregar(usuarioCVR.convertir_Usuario_Sin_Id(usuarioDTO));
         } catch (DAOException e) {
             throw new BusinessException(e.getMessage());
         }
@@ -59,6 +72,28 @@ public class UsuarioBO implements IUsuarioBO {
             throw new BusinessException(e.getMessage());
         }
     }
-
+    
+    @Override
+    public UsuarioDTO buscarPorCorreo(UsuarioDTO dto) throws BusinessException {
+        try {
+            UsuarioDTO clon = dto;
+            
+            if (clon.getCorreo() == null || clon.getContrasena() == null
+                    || clon.getCorreo().isBlank() || clon.getContrasena().isBlank()) {
+                throw new DAOException();
+            }
+            String contrasena = enc.encriptar(clon.getContrasena());
+            
+            clon.setContrasena(contrasena);
+            
+            Usuario usuarioConvert = usuarioCVR.convertir_Usuario_Sin_Id(dto);
+            Usuario usuarioBuscado = usuarioDAO.buscarPorCorreo(usuarioConvert);
+            UsuarioDTO usuarioBuscadoDTO = usuarioCVR.convertir_DTO_Sin_Id(usuarioBuscado);            
+            return usuarioBuscadoDTO;
+            
+        } catch (DAOException e) {
+            throw new BusinessException();
+        }
+    }
     
 }

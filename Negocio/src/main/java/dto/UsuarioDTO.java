@@ -27,6 +27,19 @@ public class UsuarioDTO {
         this.administrador = administrador;
         this.visitante = visitante;
     }
+    
+    public UsuarioDTO(String nombre, String correo, String contrasena, String administrador, String visitante) {
+        this.nombre = nombre;
+        this.correo = correo;
+        this.contrasena = contrasena;
+        this.administrador = administrador;
+        this.visitante = visitante;
+    }
+    
+    public UsuarioDTO(String correo, String contrasena) {
+        this.correo = correo;
+        this.contrasena = contrasena;
+    }
 
     public int getId() {
         return id;

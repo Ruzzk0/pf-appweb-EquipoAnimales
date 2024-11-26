@@ -70,13 +70,19 @@ public class UsuarioDAO implements IUsuarioDAO {
      /**
      * Busca un usuario por su dirección de correo electrónico.
      * 
-     * @param correo El correo electrónico del usuario.
+     * @param usuario
      * @return El usuario encontrado o null si no existe.
      * @throws DAOException Si ocurre un error durante la búsqueda.
      */
-    public Usuario buscarPorCorreo(String correo) throws DAOException {
+    @Override
+    public Usuario buscarPorCorreo(Usuario usuario) throws DAOException {
         try {
-            return usuarioCollection.find(Filters.eq("correo", correo)).first();
+            String correo = usuario.getCorreo();
+            String contrasena = usuario.getContrasena();
+            return usuarioCollection.find( Filters.and(
+                    Filters.eq("correo", correo),
+                    Filters.eq("contrasena", contrasena)
+            )).first();
         } catch (Exception e) {
             throw new DAOException("Error al buscar el usuario por correo: " + e.getMessage(), e);
         }

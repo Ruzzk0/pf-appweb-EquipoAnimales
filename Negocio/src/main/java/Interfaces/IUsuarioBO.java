@@ -30,6 +30,8 @@ public interface IUsuarioBO {
      * @throws BusinessException Si ocurre un error al buscar el usuario.
      */
     public UsuarioDTO buscarPorId(int id) throws BusinessException;
+    
+    public UsuarioDTO buscarPorCorreo(UsuarioDTO usuarioDTO) throws BusinessException;
 
 }
 
