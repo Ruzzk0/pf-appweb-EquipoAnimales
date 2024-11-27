@@ -13,7 +13,7 @@
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/stylesRegistro.css"/>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <script src="${pageContext.request.contextPath}/js/jsCountries.js"></script>
-        <script src="${pageContext.request.contextPath}/js/jsRegister.js"></script>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>   
 
@@ -27,50 +27,50 @@
 
         <section class="section" id="register-section">
             <h4 title="texto-Registro">Registrarse</h4>
-            <form id="registroForm"  action="${pageContext.request.contextPath}/registerController" method="post">
+            <form id="registroForm"  action="registerController" method="POST">
                 <div class="form-group">
-                    <input type="text" placeholder="Nombre Completo" id="nombre" required>
+                    <input type="text" placeholder="Nombre Completo" id="nombre" name="nombre" required>
                     <i class="uil uil-user"></i>
                     <span class="error-message" id="nombreError"></span>
                 </div>
                 <div class="form-group">
-                    <input type="email" placeholder="Correo Electrónico" id="email" required>
+                    <input type="email" placeholder="Correo Electrónico" id="email" name="email" required>
                     <i class="uil uil-at"></i>
                     <span class="error-message" id="emailError"></span>
                 </div>
                 <div class="form-group">
-                    <input type="password" placeholder="Contraseña (mín. 8 caracteres, mayúscula, minúscula)" id="password" required>
+                    <input type="password" placeholder="Contraseña (mín. 8 caracteres, mayúscula, minúscula)" id="password" name="password" required>
                     <i class="uil uil-lock-alt"></i>
                     <span class="error-message" id="passwordError"></span>
                 </div>
                 <div class="form-group">
-                    <select id="pais" required>
+                    <select id="pais" name="pais" required>
                         <option value="">Selecciona tu país</option>
                     </select>
                     <i class="uil uil-globe"></i>
                     <span class="error-message" id="paisError"></span>
                 </div>
                 <div class="form-group">
-                    <select id="estado" required>
+                    <select id="estado" name="estado" required>
                         <option value="">Selecciona tu estado</option>
                     </select>
                     <i class="uil uil-map-pin"></i>
                     <span class="error-message" id="estadoError"></span>
                 </div>
                 <div class="form-group">
-                    <select id="ciudad" required>
+                    <select id="ciudad" name="ciudad" required>
                         <option value="">Selecciona tu ciudad</option>
                     </select>
                     <i class="uil uil-city"></i>
                     <span class="error-message" id="ciudadError"></span>
                 </div>
                 <div class="form-group">
-                    <input type="tel" placeholder="Teléfono" id="telefono" required>
+                    <input type="tel" placeholder="Teléfono" id="telefono" name="telefono" required>
                     <i class="uil uil-phone"></i>
                     <span class="error-message" id="telefonoError"></span>
                 </div>
                 <div class="form-group">
-                    <input type="date" placeholder="Fecha de Nacimiento" id="fechaNacimiento" required>
+                    <input type="date" placeholder="Fecha de Nacimiento" id="fechaNacimiento" name="fechaNacimiento" required>
                     <i class="uil uil-calendar-alt"></i>
                     <span class="error-message" id="fechaNacimientoError"></span>
                 </div>
@@ -81,7 +81,7 @@
                     <span class="error-message" id="generoError"></span>
                 </div>
                 <div class="form-group">
-                    <select id="bando" required>
+                    <select id="bando" name="bando" required>
                         <option value="">Selecciona tu bando</option>
                         <option value="terrestre">Animales Terrestres</option>
                         <option value="marino">Animales Marinos</option>

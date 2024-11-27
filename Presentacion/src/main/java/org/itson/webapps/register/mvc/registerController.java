@@ -24,7 +24,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class registerController extends HttpServlet {
 
     private final IUsuarioBO usuarioBO = new UsuarioBO();
-    
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -36,19 +36,7 @@ public class registerController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet registerController</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet registerController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -78,6 +66,7 @@ public class registerController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setCharacterEncoding("UTF-8");
+        System.out.println("gola");
 
         // 1. Obtener datos del formulario
         String nombre = request.getParameter("nombre");
@@ -89,10 +78,10 @@ public class registerController extends HttpServlet {
         String telefono = request.getParameter("telefono");
         String fechaNacimiento = request.getParameter("fechaNacimiento");
         String genero = request.getParameter("genero");
-        String bando =  request.getParameter("bando");
+        String bando = request.getParameter("bando");
 
         // 2. Validar datos (ejemplo básico)
-if (nombre == null || nombre.trim().isEmpty()
+        if (nombre == null || nombre.trim().isEmpty()
                 || email == null || email.trim().isEmpty()
                 || contrasena == null || contrasena.trim().isEmpty()
                 || bando == null || bando.trim().isEmpty()) {
@@ -105,14 +94,14 @@ if (nombre == null || nombre.trim().isEmpty()
         try {
             // 3. Crear objeto UsuarioDTO
             UsuarioDTO usuarioNuevo = new UsuarioDTO(
-                    nombre, email, contrasena, bando, ciudad, estado, pais, genero, telefono,fechaNacimiento
+                    nombre, email, contrasena, bando, ciudad, estado, pais, genero, telefono, fechaNacimiento
             );
-            
+
             usuarioBO.agregar(usuarioNuevo);
-            
+
             // 5. Redirigir a la página de éxito
             request.setAttribute("mensaje", "¡Registro exitoso! Bienvenido a Animal Social.");
-            request.getRequestDispatcher("indexView.jsp").forward(request, response);            
+            request.getRequestDispatcher("indexView.jsp").forward(request, response);
         } catch (BusinessException ex) {
             // 6. Manejo de errores y redirección
             request.setAttribute("error", "Hubo un problema al registrar al usuario: " + ex.getMessage());
