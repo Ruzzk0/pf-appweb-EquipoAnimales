@@ -1,0 +1,236 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 26 nov 2024, 23:33:38
+    Author     : Ruzzky
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e7f0ef;
+}
+
+h1{
+    color: aliceblue;
+}
+
+header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #4b505a, #5A98F2);
+    padding: 20px 0;
+}
+
+.back-button {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.back-button i {
+    font-size: 24px;
+}
+
+.perfil {
+    width: 100%;
+}
+
+section#perfil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+h1#textoPerfil {
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.cuerpo {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+label#textoPerfil {
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+#logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.imagen-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px;
+}
+
+.imagen-perfil {
+    width: 100%;
+    height: 100%;
+    border-radius: 60%;
+    border: 8px solid;
+    box-sizing: border-box;
+    object-fit: cover;
+    transition: border-color 0.5s;
+}
+
+.camera-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    padding: 8px;
+}
+
+.camera-icon:hover {
+    background: #f0f0f0;
+}
+
+.camera-icon i {
+    color: #4b505a;
+    font-size: 18px;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+label#nombre, label#representa {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+/* Botón de cambio de bando común */
+button#cambioBando {
+    margin-top: 20px;
+    padding: 8px 24px;
+    font-size: 14px;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s; /* Transición suave */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+}
+
+/* Colores específicos para cada bando */
+button.bando-terrestre {
+    background: linear-gradient(45deg, #673232, #9e5c5c);
+}
+
+button.bando-acuatico {
+    background: linear-gradient(45deg, #042d77, #4f79b3);
+}
+
+button.bando-aereo {
+    background: linear-gradient(45deg, #124f13, #4caf50);
+}
+
+/* Efecto al pasar el mouse */
+button:hover {
+    transform: translateY(-2px); /* Levantar el botón al pasar el mouse */
+}
+
+/* Efecto al hacer clic */
+button:active {
+    transform: translateY(0); /* Restablecer la posición al hacer clic */
+}
+
+/* Transiciones específicas al pasar el mouse sobre los botones de cada bando */
+button.bando-terrestre:hover {
+    background: linear-gradient(45deg, #9e5c5c, #673232);
+}
+
+button.bando-acuatico:hover {
+    background: linear-gradient(45deg, #4f79b3, #042d77);
+}
+
+button.bando-aereo:hover {
+    background: linear-gradient(45deg, #4caf50, #124f13);
+}
+
+
+button {
+    padding: 0.75em 1.5em; /* Espaciado más amplio para una mejor apariencia */
+    border: none;
+    border-radius: 30px; /* Bordes redondeados más pronunciados */
+    background: linear-gradient(45deg, #4b505a, #5A98F2); /* Fondo con degradado */
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s; /* Añadir transición para suavidad */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+}
+
+button:hover {
+    background: linear-gradient(45deg, #5A98F2, #4b505a); /* Cambiar el orden del degradado al pasar el mouse */
+    transform: translateY(-2px); /* Levantar el botón al pasar el mouse */
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:active {
+    transform: translateY(0); /* Restablecer la posición al hacer clic */
+}
+
+.hidden {
+    display: none; /* Para ocultar elementos cuando sea necesario */
+}
+
+
+.borde-terrestre {
+    border-color: #673232;
+}
+
+.borde-acuatico {
+    border-color: #042d77;
+}
+
+.borde-aereo {
+    border-color: #124f13;
+}
+
+.hidden {
+    display: none;
+}
+
+
+@media (max-width: 480px) {
+    .imagen-container {
+        width: 150px;
+        height: 150px;
+    }
+
+    .cuerpo {
+        padding: 0 15px;
+    }
+}

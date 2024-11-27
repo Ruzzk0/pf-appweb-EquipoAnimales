@@ -9,7 +9,7 @@
     // Verificar si el usuario está logueado
     String isLoggedIn = (String) session.getAttribute("isLoggedIn");
     if (isLoggedIn == null || !isLoggedIn.equals("true")) {
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("indexView.jsp");
         return;
     }
 
