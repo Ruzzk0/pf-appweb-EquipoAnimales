@@ -6,10 +6,10 @@ package org.itson.webapps.register.mvc;
 
 import BO.UsuarioBO;
 import Interfaces.IUsuarioBO;
+import com.google.gson.Gson;
 import dto.UsuarioDTO;
-import excepciones.BusinessException;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.InputStreamReader;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -65,47 +65,36 @@ public class registerController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        System.out.println("gola");
+     
+        // Configurar la respuesta para que sea JSON
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
 
-        // 1. Obtener datos del formulario
-        String nombre = request.getParameter("nombre");
-        String email = request.getParameter("email");
-        String contrasena = request.getParameter("password");
-        String pais = request.getParameter("pais");
-        String estado = request.getParameter("estado");
-        String ciudad = request.getParameter("ciudad");
-        String telefono = request.getParameter("telefono");
-        String fechaNacimiento = request.getParameter("fechaNacimiento");
-        String genero = request.getParameter("genero");
-        String bando = request.getParameter("bando");
+        // Leer el cuerpo de la solicitud
+        InputStreamReader reader = new InputStreamReader(request.getInputStream());
+        Gson gson = new Gson();
+        
+        // Convertir directamente el flujo a un objeto UsuarioDTO
+        UsuarioDTO usuarioNuevo = gson.fromJson(reader, UsuarioDTO.class);
 
-        // 2. Validar datos (ejemplo básico)
-        if (nombre == null || nombre.trim().isEmpty()
-                || email == null || email.trim().isEmpty()
-                || contrasena == null || contrasena.trim().isEmpty()
-                || bando == null || bando.trim().isEmpty()) {
-            // Redirigir a una página de error
-            request.setAttribute("error", "Por favor completa todos los campos obligatorios.");
-            request.getRequestDispatcher("error.jsp").forward(request, response);
+        // Validación simple
+        if (usuarioNuevo.getNombre() == null || usuarioNuevo.getCorreo() == null || usuarioNuevo.getContrasena() == null) {
+            String jsonResponse = "{\"success\": false, \"message\": \"Todos los campos son obligatorios.\"}";
+            response.getWriter().write(jsonResponse);
             return;
         }
-
+        
         try {
-            // 3. Crear objeto UsuarioDTO
-            UsuarioDTO usuarioNuevo = new UsuarioDTO(
-                    nombre, email, contrasena, bando, ciudad, estado, pais, genero, telefono, fechaNacimiento
-            );
-
+            // Guardar el usuario
             usuarioBO.agregar(usuarioNuevo);
 
-            // 5. Redirigir a la página de éxito
-            request.setAttribute("mensaje", "¡Registro exitoso! Bienvenido a Animal Social.");
-            request.getRequestDispatcher("indexView.jsp").forward(request, response);
-        } catch (BusinessException ex) {
-            // 6. Manejo de errores y redirección
-            request.setAttribute("error", "Hubo un problema al registrar al usuario: " + ex.getMessage());
-            request.getRequestDispatcher("error.jsp").forward(request, response);
+            // Responder con éxito
+            String jsonResponse = "{\"success\": true, \"message\": \"¡Registro exitoso! Bienvenido a Animal Social.\"}";
+            response.getWriter().write(jsonResponse);
+        } catch (Exception e) {
+            // Manejo de errores
+            String jsonResponse = "{\"success\": false, \"message\": \"Hubo un problema al registrar al usuario: " + e.getMessage() + "\"}";
+            response.getWriter().write(jsonResponse);
         }
     }
 

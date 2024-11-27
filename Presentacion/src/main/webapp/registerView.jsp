@@ -33,7 +33,7 @@
 
     <section class="section" id="register-section">
         <h4 title="texto-Registro">Registrarse</h4>
-        <form id="registroForm" action="registerController" method="POST">
+        <form id="registroForm" action="${pageContext.request.contextPath}/registerController" method="POST">
             <div class="form-group">
                 <input type="text" placeholder="Nombre Completo" id="nombre" name="nombre" required>
                 <i class="uil uil-user"></i>

@@ -29,10 +29,12 @@ public class ConexionBD {
         );
 
         // Configuración de los ajustes del cliente MongoDB
-        MongoClientSettings clientSettings = MongoClientSettings.builder()
-            .applyConnectionString(new com.mongodb.ConnectionString(direccion))
-            .codecRegistry(pojoCodecRegistry)
-            .build();
+MongoClientSettings clientSettings = MongoClientSettings.builder()
+                .applyConnectionString(new com.mongodb.ConnectionString(direccion))
+                .codecRegistry(pojoCodecRegistry)
+                .writeConcern(com.mongodb.WriteConcern.ACKNOWLEDGED) // Cambia a WriteConcern.DEFAULT
+                .build();
+
 
         // Creación de la instancia de MongoDatabase
         mongoDatabase = MongoClients.create(clientSettings).getDatabase(nombreBD);
