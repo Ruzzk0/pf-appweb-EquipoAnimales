@@ -58,9 +58,6 @@ public class ComentarioDAO implements IComentarioDAO {
             if (autor == null) {
                 throw new DAOException("No se encontró el autor del comentario.");
             }
-            if (!"visitante".equalsIgnoreCase(autor.getVisitante())) {
-                throw new DAOException("El autor del comentario debe ser un visitante.");
-            }
 
             // Verificar que la publicación exista
             Publicacion publicacion = publicacionDAO.buscarPorId(comentario.getPublicacion().getId());

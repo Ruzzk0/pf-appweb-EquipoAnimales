@@ -20,48 +20,34 @@ public class UsuarioDTO {
     private String fechaNacimiento;
     private String genero;
     private String bando;
-    private String administrador;
-    private String visitante;
+    private boolean administrador;
 
     public UsuarioDTO() {
     }
 
-    public UsuarioDTO(int id, String nombre, String correo, String contrasena, String administrador, String visitante) {
+    public UsuarioDTO(int id, String nombre, String correo, String contrasena, boolean administrador) {
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;
         this.contrasena = contrasena;
         this.administrador = administrador;
-        this.visitante = visitante;
     }
-    
-    public UsuarioDTO(String nombre, String correo, String contrasena, String administrador, String visitante) {
+
+
+    public UsuarioDTO(String nombre, String correo, String contrasena, boolean administrador) {
         this.nombre = nombre;
         this.correo = correo;
         this.contrasena = contrasena;
         this.administrador = administrador;
-        this.visitante = visitante;
     }
+    
     
     public UsuarioDTO(String correo, String contrasena) {
         this.correo = correo;
         this.contrasena = contrasena;
     }
 
-    public UsuarioDTO(String nombre, String correo, String contrasena, String pais, String estado, String ciudad, String telefono, String fechaNacimiento, String genero, String bando) {
-        this.nombre = nombre;
-        this.correo = correo;
-        this.contrasena = contrasena;
-        this.pais = pais;
-        this.estado = estado;
-        this.ciudad = ciudad;
-        this.telefono = telefono;
-        this.fechaNacimiento = fechaNacimiento;
-        this.genero = genero;
-        this.bando = bando;
-    }
-
-    public UsuarioDTO(int id, String nombre, String correo, String contrasena, String pais, String estado, String ciudad, String telefono, String fechaNacimiento, String genero, String bando, String administrador, String visitante) {
+    public UsuarioDTO(int id, String nombre, String correo, String contrasena, String pais, String estado, String ciudad, String telefono, String fechaNacimiento, String genero, String bando, boolean administrador) {
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;
@@ -74,9 +60,23 @@ public class UsuarioDTO {
         this.genero = genero;
         this.bando = bando;
         this.administrador = administrador;
-        this.visitante = visitante;
     }
-    
+
+    public UsuarioDTO(String nombre, String correo, String contrasena, String pais, String estado, String ciudad, String telefono, String fechaNacimiento, String genero, String bando, boolean administrador) {
+        this.nombre = nombre;
+        this.correo = correo;
+        this.contrasena = contrasena;
+        this.pais = pais;
+        this.estado = estado;
+        this.ciudad = ciudad;
+        this.telefono = telefono;
+        this.fechaNacimiento = fechaNacimiento;
+        this.genero = genero;
+        this.bando = bando;
+        this.administrador = administrador;
+    }
+
+
     
 
     public int getId() {
@@ -109,22 +109,6 @@ public class UsuarioDTO {
 
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
-    }
-
-    public String getAdministrador() {
-        return administrador;
-    }
-
-    public void setAdministrador(String administrador) {
-        this.administrador = administrador;
-    }
-
-    public String getVisitante() {
-        return visitante;
-    }
-
-    public void setVisitante(String visitante) {
-        this.visitante = visitante;
     }
 
     public String getPais() {
@@ -183,13 +167,35 @@ public class UsuarioDTO {
         this.bando = bando;
     }
 
+    public boolean isAdministrador() {
+        return administrador;
+    }
+
+    public void setAdministrador(boolean administrador) {
+        this.administrador = administrador;
+    }
+
     @Override
     public String toString() {
-        return "UsuarioDTO{" + "id=" + id + ", nombre=" + nombre + ", correo=" + correo 
-                + ", contrasena=" + contrasena + ", pais=" + pais + ", estado=" + estado + ", ciudad=" 
-                + ciudad + ", telefono=" + telefono + ", fechaNacimiento=" + fechaNacimiento + ", genero=" 
-                + genero + ", bando=" + bando + ", administrador=" + administrador + ", visitante=" + visitante + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("UsuarioDTO{");
+        sb.append("id=").append(id);
+        sb.append(", nombre=").append(nombre);
+        sb.append(", correo=").append(correo);
+        sb.append(", contrasena=").append(contrasena);
+        sb.append(", pais=").append(pais);
+        sb.append(", estado=").append(estado);
+        sb.append(", ciudad=").append(ciudad);
+        sb.append(", telefono=").append(telefono);
+        sb.append(", fechaNacimiento=").append(fechaNacimiento);
+        sb.append(", genero=").append(genero);
+        sb.append(", bando=").append(bando);
+        sb.append(", administrador=").append(administrador);
+        sb.append('}');
+        return sb.toString();
     }
+
+
 
     
 }

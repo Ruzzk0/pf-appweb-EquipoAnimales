@@ -15,8 +15,8 @@ import excepciones.DAOException;
 public class NewClass {
     public static void main(String[] args) throws DAOException {
         UsuarioDAO d = new UsuarioDAO();
-        Usuario us = new Usuario("1", "1", "1", "1", "1", 
-                "1", "1", "1", "1", "1", "1", "1");
-        d.agregar(us);
+//        Usuario us = new Usuario("1", "1", "1", "1", "1", 
+//                "1", "1", "1", "1", "1", "1", "1");
+//        d.agregar(us);
     }
 }

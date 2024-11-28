@@ -21,20 +21,17 @@ import entidades.Usuario;
      * @return Entidad Usuario convertida.
      */
     public Usuario convertir_Usuario(UsuarioDTO dto) {
-        int id = -1;
-        
         if (dto == null) {
             return null;
         }
-        
-        if(dto.getId() >=0){
-            id = dto.getId();
-        }
-        
-        Usuario usuario = new Usuario(id,
-            dto.getNombre(),
-            dto.getCorreo(),
-            dto.getContrasena(),
+
+        int id = dto.getId() >= 0 ? dto.getId() : -1; // Asegura un ID válido solo si está configurado.
+
+        Usuario usuario = new Usuario(
+                id,
+                dto.getNombre(),
+                dto.getCorreo(),
+                dto.getContrasena(),
                 dto.getBando(),
                 dto.getCiudad(),
                 dto.getEstado(),
@@ -42,9 +39,8 @@ import entidades.Usuario;
                 dto.getGenero(),
                 dto.getTelefono(),
                 dto.getPais(),
-            dto.getAdministrador(),
-            dto.getVisitante());
-
+                dto.isAdministrador()
+        );
         return usuario;
     }
     
@@ -64,8 +60,7 @@ import entidades.Usuario;
                 dto.getGenero(),
                 dto.getTelefono(),
                 dto.getPais(),
-                dto.getAdministrador(),
-                dto.getVisitante());
+                dto.isAdministrador());
 
         return usuario;
     }
@@ -98,8 +93,7 @@ import entidades.Usuario;
                 entidad.getGenero(),
                 entidad.getTelefono(),
                 entidad.getPais(),
-            entidad.getAdministrador(),
-            entidad.getVisitante()
+            entidad.isAdministrador()
         );
 
         return usuarioDTO;
@@ -114,8 +108,7 @@ import entidades.Usuario;
             entidad.getNombre(),
             entidad.getCorreo(),
             entidad.getContrasena(),
-            entidad.getAdministrador(),
-            entidad.getVisitante()
+            entidad.isAdministrador()
         );
 
         return usuarioDTO;
