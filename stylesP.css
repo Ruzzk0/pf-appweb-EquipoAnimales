@@ -1,36 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    background-color: #e7f0ef;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente */
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #4b505a, #5A98F2);
+    padding: 20px 0;
+    text-align: center;
+    
+}
+
+h1{
+    color: aliceblue;
+    text-align: center;
+    margin-left: 43%;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 24
+}
+
+/* Header fijo */
+.sticky-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+
+.back-button {
+    position: absolute;
+    left: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    cursor: pointer;
+    z-index: 2;
+    font-size: 24px;
+}
+
+.title {
+    text-align: center; /* Centra el título */
+    margin: 90px 0 0px 0; /* Aumenta el margen superior para dar espacio al encabezado fijo */
+    font-size: 24px; /* Tamaño de fuente más grande */
+    color: #333; /* Color del texto */
 }
 
 .form-container {
-    background-color: white;
+    max-width: 800px;
+    width: 100%;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    max-width: 500px;
-    margin: auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-input[type="text"], textarea, input[type="file"] {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.form-group {
+    margin-bottom: 20px; /* Espacio entre grupos de formulario */
+}
+
+label {
+    display: block; /* Hace que el label ocupe el ancho completo */
+    font-size: 18px; /* Tamaño de fuente más grande para labels */
+    margin-bottom: 5px; /* Espacio debajo de los labels */
+}
+
+input[type="text"],
+textarea,
+input[type="file"] {
+    width: 100%; /* Ancho completo */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+}
+
+textarea {
+    height: 100px; /* Altura fija para las textareas */
 }
 
 button {
-    background-color: #007BFF;
+    background: linear-gradient(45deg, #4b505a, #5A98F2);
     color: white;
     border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
+    border-radius: 40px;
+    padding: 10px 20px;
+    font-size: 16px;
     cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    display: block;
+    margin: 0 auto; /* Centra el botón */
 }
 
 button:hover {
-    background-color: #0056b3;
+    background: linear-gradient(45deg, #5A98F2, #4b505a);
+    transform: translateY(-2px); /* Efecto de elevación al pasar el mouse */
+}
+
+@media (max-width: 480px) {
+    .form-container {
+        padding: 15px; /* Espacio interno reducido en pantallas pequeñas */
+    }
 }

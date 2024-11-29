@@ -7,39 +7,34 @@
     <link rel="stylesheet" href="stylesP.css">
 </head>
 <body>
-
     <div class="form-container">
         <h2>Editar Publicación</h2>
         <form id="editForm">
-            <label for="title">Título</label>
-            <input type="text" id="title" name="title" placeholder="Ingrese el título" required>
+            <label for="idPublicacion">ID Publicación</label>
+            <input type="text" id="idPublicacion" name="idPublicacion" placeholder="Ingrese el ID de la publicación" required>
 
-            <label for="size">Tamaño</label>
-            <textarea id="size" name="size" rows="2" placeholder="Ingrese el tamaño del animal"></textarea>
+            <label for="nombreAnimalPost">Nombre</label>
+            <input type="text" id="nombreAnimalPost" name="nombreAnimalPost" placeholder="Ingrese el nombre" required>
 
-            <label for="characteristics">Características</label>
-            <textarea id="characteristics" name="characteristics" rows="3" placeholder="Ingrese las características"></textarea>
+            <label for="tamañoAnimalPost">Tamaño</label>
+            <textarea id="tamañoAnimalPost" name="tamañoAnimalPost" rows="2" placeholder="Ingrese el tamaño del animal"></textarea>
 
-            <label for="diet">Dieta</label>
-            <textarea id="diet" name="diet" rows="2" placeholder="Ingrese la dieta del animal"></textarea>
+            <label for="caracteristicasAnimalPost">Características</label>
+            <textarea id="caracteristicasAnimalPost" name="caracteristicasAnimalPost" rows="3" placeholder="Ingrese las características"></textarea>
 
-            <label for="habitat">Hábitat</label>
-            <textarea id="habitat" name="habitat" rows="2" placeholder="Ingrese el hábitat"></textarea>
+            <label for="dietaAnimalPost">Dieta</label>
+            <textarea id="dietaAnimalPost" name="dietaAnimalPost" rows="2" placeholder="Ingrese la dieta del animal"></textarea>
 
-            <label for="image">Cambiar Imagen</label>
-            <input type="file" id="image" name="image" accept="image/*">
+            <label for="habitadAnimalPost">Hábitat</label>
+            <textarea id="habitadAnimalPost" name="habitadAnimalPost" rows="2" placeholder="Ingrese el hábitat"></textarea>
 
-            <button type="submit">Guardar Cambios</button>
+            <label for="imagenPost">Cambiar Imagen</label>
+            <input type="file" id="imagenPost" name="imagenPost" accept="image/*">
+
+            <button type="button" id="btnEditarPublicacion">Guardar Cambios</button>
         </form>
     </div>
 
-    <script>
-        document.getElementById('editForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            alert('Cambios guardados correctamente.');
-            
-        });
-    </script>
-
+    <script src="editarPublicacion.js"></script>
 </body>
 </html>
