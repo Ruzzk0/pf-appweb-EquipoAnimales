@@ -25,6 +25,6 @@ document.getElementById('btnPublicar').addEventListener("click", function(event)
         imagen: imagen
     };
 
-    window.location.href = 'principal.html';
+    window.location.href = '../html/principal.html';
     // Aquí puedes hacer lo que necesites con los datos, como enviarlos a un servidor
 });

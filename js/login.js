@@ -18,7 +18,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
         // Guardar información de sesión y redirigir (cambiado a sessionStorage)
         sessionStorage.setItem('usuarioActual', JSON.stringify(usuario));  // Modificación aquí
         alert('Inicio de sesión exitoso');
-        window.location.href = 'principal.html'; // Redirigir a la página principal
+        window.location.href = '../html/principal.html'; // Redirigir a la página principal
     } else {
         // Mostrar mensaje de error si no coinciden
         document.getElementById('loginEmailError').textContent = 'Correo o contraseña incorrectos';
@@ -30,6 +30,6 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 window.addEventListener('load', function() {
     const usuarioActual = sessionStorage.getItem('usuarioActual');  // Modificación aquí
     if (usuarioActual) {
-        window.location.href = 'principal.html';
+        window.location.href = '../html/principal.html';
     }
 });

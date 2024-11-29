@@ -30,6 +30,6 @@ document.getElementById('btnEditarPublicacion').addEventListener("click", functi
     console.log("Datos de la publicación editada:", updatedAnimalData);
 
     // Redirige a la página principal
-    window.location.href = 'principal.html';
+    window.location.href = '../html/principal.html';
 });
 

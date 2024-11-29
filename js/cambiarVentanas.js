@@ -1,7 +1,7 @@
 
 
 function cambiarBando() {
-    GestorBando.redirigir('cambiarBando.html');
+    GestorBando.redirigir('../html/cambiarBando.html');
 }
 
 
