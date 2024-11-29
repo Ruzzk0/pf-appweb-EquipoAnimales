@@ -4,79 +4,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANIMALES AEREOS</title>
-    <link rel="stylesheet" href="stylesAereos.css">
+    <title>Animales Marinos</title>
+    <link rel="stylesheet" href="../estilos/stylesMarinos.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
     <header class="sticky-header">
-        <a href="principal.html" class="back-button">
+        <a href="../html/principal.html" class="back-button">
             <span class="material-icons">arrow_back_ios</span>
         </a>
-        <h1>ANIMALES AEREOS</h1>
-        <a class="add-post-btn" href="NuevaPublicacion.html"><span class="material-icons">arrow_back_ios</span>
-           
+        <h1>ANIMALES MARINOS</h1>
+        <a class="add-post-btn" href="../html/NuevaPublicacion.html"><span class="material-icons">arrow_back_ios</span>
+            Nueva Publicación
         </a>
     </header>
 
     <div class="image-container">
-        <img src="imagenesAnimalesA/Cielo.jpg" alt="ANIMALES AEREOS">
+        <img src="../imagenesAnimalesM/mar.jpg" alt="Animales Marinos">
         <div class="transparent-box"></div>
     </div>
 
     <div class="postAnimales">
         <section id="postAnimales">
-            <!-- Aguila Real -->
-            <div class="card">
-                <div class="card-actions">
-                    <button class="edit-btn"><i class="fas fa-edit"></i></button>
-                    <button class="add-comment-btn" id="addCommentBtn">
-                        <span class="material-icons">comment</span>
-                    </button>    
-                    <button class="delete-btn"><i class="fas fa-trash"></i></button>
-                    
-                </div>
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="imagenesAnimalesA/aguila.jpg" alt="Ballena Jorobada">
-                        <div class="card-title">Aguila Real</div>
-                        <div class="card-controls">
-                            <button class="comment-btn"><i class="fas fa-comment"></i> Comentarios</button>
-                            <span class="comment-count">0 comentarios</span>
-                        </div>
-                        <div class="comments-section">
-                            <div class="comments-list"></div>
-                        </div>
-                    </div>
-                    <div class="card-back">
-                        <h3>Aguila Real</h3>
-                        <p class=info-title>Tamaño</p>
-                        <p class="info-text">70-100 cm de longitud; envergadura de 180-230 cm, peso entre 3-6 kg.</p>
-                        <p class="info-title">Caracteristicas</p>
-                        <p class="info-text">Gran agudeza visual, 8 veces más precisa que la humana.Plumaje marrón oscuro con toques dorados en la cabeza y cuello.</p>
-                        <p class="info-title">Dieta</p>
-                        <p class="info-text">Carnívora, cazan mamíferos pequeños, aves y reptiles. También son carroñeros en ocasiones.</p>
-                        <p class="info-title">Hábitat</p>
-                        <p class="info-text">Regiones montañosas, praderas y acantilados, principalmente en el hemisferio norte.</p>
-
-
-                    </div>
-                </div>
-                 <!-- Modal de Comentarios -->
-                 <div id="commentModal" class="modal">
-                    <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <h2>Agregar Comentario</h2>
-                        <textarea id="commentText" placeholder="Escribe tu comentario aquí..."></textarea>
-                        <button id="submitComment">Enviar Comentario</button>
-                    
-                </div>        
-            </div>
-        </div>
-
-            <!-- Colibri-->
+            <!-- Ballena Jorobada -->
             <div class="card">
                 <div class="card-actions">
                     <button class="edit-btn"><i class="fas fa-edit"></i></button>
@@ -87,10 +39,60 @@
                 </div>
                 <div class="card-inner">
                     <div class="card-front">
-                        <img src="imagenesAnimalesA/colibri.jpg" alt="Colibri">
-                        <div class="card-title">Colibrí</div>
+                        <img src="../imagenesAnimalesM/ballena.jpg" alt="Ballena Jorobada">
+                        <div class="card-title">Ballena Jorobada</div>
                         <div class="card-controls">
-                            <button class="comment-btn"><i class="fas fa-comment"></i> Comentarios</button>
+                            <button class="comment-btn" id="showCommentsBtn"><i class="fas fa-comment"></i> Comentarios</button>
+                                <span class="comment-count">0 comentarios</span>
+                        </div>
+                        <div class="comments-section">
+                            <div class="comments-list"></div>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3>Ballena Jorobada</h3>
+                        <p class=info-title>Tamaño</p>
+                        <p class="info-text">Entre 12 y 16 metros de largo, con un peso de hasta 30 toneladas.</p>
+                        <p class="info-title">Caracteristicas</p>
+                        <p class="info-text">Reconocida por sus largas aletas pectorales y su capacidad para realizar
+                            saltos acrobáticos.
+                            Su canto complejo y prolongado se usa en la comunicación y es especialmente conocido en los
+                            machos.</p>
+                        <p class="info-title">Alimentación</p>
+                        <p class="info-text">Krill, pequeños peces y plancton.</p>
+                        <p class="info-title">Hábitat</p>
+                        <p class="info-text">Océanos de todo el mundo, migran entre aguas tropicales y polares.</p>
+
+
+                    </div>
+                </div>
+               <!-- Modal de Comentarios -->
+               <div id="commentModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Agregar Comentario</h2>
+                    <textarea id="commentText" placeholder="Escribe tu comentario aquí..."></textarea>
+                    <button id="submitComment">Enviar Comentario</button>
+                
+            </div>        
+        </div>
+    </div>
+
+            <!-- Pulpo Azul -->
+            <div class="card">
+                <div class="card-actions">
+                    <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                    <button class="add-comment-btn" id="addCommentBtn">
+                        <span class="material-icons">comment</span>
+                    </button>
+                    <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                </div>
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="../imagenesAnimalesM/puploAzul.avif" alt="Pulpo Azul">
+                        <div class="card-title">Pulpo Azul</div>
+                        <div class="card-controls">
+                            <button class="comment-btn" id="showCommentsBtn"><i class="fas fa-comment"></i> Comentarios</button>
                             <span class="comment-count">0 comentarios</span>
                         </div>
                         <div class="comments-section">
@@ -98,15 +100,16 @@
                         </div>
                     </div>
                     <div class="card-back">
-                        <h3>Colibrí</h3>
+                        <h3>Pulpo Azul</h3>
                         <p class="info-title">Tamaño</p>
-                        <p class="info-text">Entre 6 y 12 cm; peso entre 2 y 20 gramos, según la especie.</p>
+                        <p class="info-text">Aproximadamente 40-60 cm de longitud, incluyendo tentáculos.</p>
                         <p class="info-title">Caracteristicas</p>
-                        <p class="info-text">Aletean entre 50 y 80 veces por segundo, lo que les permite mantenerse suspendidos en el aire.Su corazón puede latir más de 1,200 veces por minuto.</p>
-                        <p class="info-title">Dieta</p>
-                        <p class="info-text">Se alimentan de néctar y pequeños insectos como mosquitos y arañas para obtener proteínas.</p>
+                        <p class="info-text"> Conocido por su coloración azul vibrante en ciertas partes del cuerpo
+                            y su capacidad de camuflaje para mezclarse con su entorno.</p>
+                        <p class="info-title">Alimentación</p>
+                        <p class="info-text">Cangrejos, langostas y moluscos.</p>
                         <p class="info-title">Hábitat</p>
-                        <p class="info-text">Bosques tropicales, zonas subtropicales y jardines; presentes principalmente en América.</p>
+                        <p class="info-text">Arrecifes de coral del Pacífico.</p>
                     </div> 
                 </div>
                 <!-- Modal de Comentarios -->
@@ -121,7 +124,8 @@
             </div>
         </div>
 
-            <!-- Guacamayo azul y amarillo  -->
+
+            <!-- Tiburón Martillo -->
             <div class="card">
                 <div class="card-actions">
                     <button class="edit-btn"><i class="fas fa-edit"></i></button>
@@ -132,31 +136,31 @@
                 </div>
                 <div class="card-inner">
                     <div class="card-front">
-                        <img src="imagenesAnimalesA/guacamayo.jpg" alt="Guacamayo azul y amarillo ">
-                        <div class="card-title">Guacamayo azul y amarillo </div>
+                        <img src="../imagenesAnimalesM/tiburonMartillo.jpg" alt="Tiburón Martillo">
+                        <div class="card-title">Tiburón Martillo</div>
                         <div class="card-controls">
-                            <button class="comment-btn" id="showCommentsBtn"><i class="fas fa-comment"></i> Comentarios</button>
-                                <span class="comment-count">0 comentarios</span>
-                            </div>
-                            <div class="comments-section">
-                                <div class="comments-list"></div>
-                            </div>
+                            <button class="comment-btn"><i class="fas fa-comment"></i> Comentarios</button>
+                            <span class="comment-count">0 comentarios</span>
+                        </div>
+                        <div class="comments-section">
+                            <div class="comments-list"></div>
+                        </div>
                     </div>
                     <div class="card-back">
-                        <h3>Oso Pardo</h3>
+                        <h3>Tiburón Martillo</h3>
                         <p class="info-title">Tamaño</p>
-                        <p class="info-text">76-86 cm de longitud; envergadura de 100-110 cm, peso alrededor de 1.3 kg.</p>
+                        <p class="info-text">Puede medir de 3 a 6 metros dependiendo de la especie.</p>
                         <p class="info-title">Caracteristicas</p>
-                        <p class="info-text">Plumaje de colores intensos: cuerpo amarillo, alas y espalda azules, y una franja verde en la frente.Son aves inteligentes y sociales, 
-                            capaces de imitar sonidos y palabras humanas.</p>
-                        <p class="info-title">Dieta</p>
-                        <p class="info-text">Frutas, semillas, frutos secos y flores. Complementan su dieta con arcilla para neutralizar toxinas de algunos alimentos.</p>
+                        <p class="info-text">Tiene una cabeza distintiva en forma de "T",
+                            lo que le permite tener una visión panorámica para localizar a sus presas con facilidad.</p>
+                        <p class="info-title">Alimentación</p>
+                        <p class="info-text">Peces, calamares y otros tiburones pequeños.</p>
                         <p class="info-title">Hábitat</p>
-                        <p class="info-text">Selvas tropicales, manglares y zonas húmedas de América del Sur, especialmente en la cuenca del Amazonas.</p>
+                        <p class="info-text">Aguas tropicales y templadas alrededor del mundo.</p>
                     </div>
-                </div>
-                 <!-- Modal de Comentarios -->
-                 <div id="commentModal" class="modal">
+                  </div>  
+                <!-- Modal de Comentarios -->
+                <div id="commentModal" class="modal">
                     <div class="modal-content">
                         <span class="close">&times;</span>
                         <h2>Agregar Comentario</h2>
@@ -167,7 +171,7 @@
             </div>
         </div>
 
-            <!-- Flamenco  -->
+            <!-- Manta Raya -->
             <div class="card">
                 <div class="card-actions">
                     <button class="edit-btn"><i class="fas fa-edit"></i></button>
@@ -178,72 +182,28 @@
                 </div>
                 <div class="card-inner">
                     <div class="card-front">
-                        <img src="imagenesAnimalesA/flamenco.jpg" alt="Flamenco">
-                        <div class="card-title">Flamenco</div>
+                        <img src="../imagenesAnimalesM/mantaRaya.jpg" alt="Manta Raya">
+                        <div class="card-title">Manta Raya</div>
                         <div class="card-controls">
-                            <button class="comment-btn" id="showCommentsBtn"><i class="fas fa-comment"></i> Comentarios</button>
-                                <span class="comment-count">0 comentarios</span>
-                            </div>
-                            <div class="comments-section">
-                                <div class="comments-list"></div>
-                            </div>
+                            <button class="comment-btn"><i class="fas fa-comment"></i> Comentarios</button>
+                            <span class="comment-count">0 comentarios</span>
+                        </div>
+                        <div class="comments-section">
+                            <div class="comments-list"></div>
+                        </div>
                     </div>
                     <div class="card-back">
-                        <h3>Flamenco</h3>
+                        <h3>Manta Raya</h3>
                         <p class="info-title">Tamaño</p>
-                        <p class="info-text"> 80-145 cm de altura; envergadura de hasta 165 cm, peso entre 2 y 4 kg.</p>
+                        <p class="info-text">Entre 5 y 7 metros de ancho, con un peso de hasta 1,300 kg.</p>
                         <p class="info-title">Caracteristicas</p>
-                        <p class="info-text">Plumaje rosado, producto de los carotenoides presentes en su dieta.Pico curvado para filtrar alimentos del agua.</p>
-                        <p class="info-title">Dieta</p>
-                        <p class="info-text">Omnívora, consume algas, camarones y pequeños crustáceos.</p>
+                        <p class="info-text">Son conocidas por sus aletas pectorales que parecen "alas" y su comportamiento de nado elegante y en círculos. 
+                            Son inofensivas para los humanos y no poseen aguijón venenoso.</p>
+                        <p class="info-title">Alimentación</p>
+                        <p class="info-text">Plancton y pequeños peces.</p>
                         <p class="info-title">Hábitat</p>
-                        <p class="info-text">Lagunas salinas, humedales y lagos alcalinos.</p>
+                        <p class="info-text">Aguas tropicales y subtropicales.</p>
                     </div>
-                 </div>
-                <!-- Modal de Comentarios -->
-                <div id="commentModal" class="modal">
-                    <div class="modal-content">
-                        <span class="close">&times;</span>
-                        <h2>Agregar Comentario</h2>
-                        <textarea id="commentText" placeholder="Escribe tu comentario aquí..."></textarea>
-                        <button id="submitComment">Enviar Comentario</button>
-                   
-                </div>        
-            </div>
-        </div>
-
-            <!-- Búho real  -->
-            <div class="card">
-                <div class="card-actions">
-                    <button class="edit-btn"><i class="fas fa-edit"></i></button>
-                    <button class="add-comment-btn" id="addCommentBtn">
-                        <span class="material-icons">comment</span>
-                    </button>
-                    <button class="delete-btn"><i class="fas fa-trash"></i></button>
-                </div>
-                <div class="card-inner">
-                    <div class="card-front">
-                        <img src="imagenesAnimalesA/buho.jpg" alt="Búho real">
-                        <div class="card-title">Búho real</div>
-                        <div class="card-controls">
-                            <button class="comment-btn" id="showCommentsBtn"><i class="fas fa-comment"></i> Comentarios</button>
-                                <span class="comment-count">0 comentarios</span>
-                            </div>
-                            <div class="comments-section">
-                                <div class="comments-list"></div>
-                            </div>
-                    </div>
-                    <div class="card-back">
-                        <h3>Búho real</h3>
-                        <p class="info-title">Tamaño</p>
-                        <p class="info-text">60-75 cm de longitud; envergadura de hasta 190 cm, peso entre 2 y 4.5 kg.</p>
-                        <p class="info-title">Caracteristicas</p>
-                        <p class="info-text">Grandes ojos anaranjados y "orejas" formadas por mechones de plumas.Su vuelo es completamente silencioso gracias a la estructura especial de sus plumas.</p>
-                        <p class="info-title">Dieta</p>
-                        <p class="info-text">Carnívora, se alimenta de roedores, conejos y aves pequeñas.</p>
-                        <p class="info-title">Hábitat</p>
-                        <p class="info-text">Bosques, montañas y zonas rurales de Europa y Asia.</p>
-                    </div>                    
                 </div>
                 <!-- Modal de Comentarios -->
                 <div id="commentModal" class="modal">
@@ -252,12 +212,12 @@
                         <h2>Agregar Comentario</h2>
                         <textarea id="commentText" placeholder="Escribe tu comentario aquí..."></textarea>
                         <button id="submitComment">Enviar Comentario</button>
-
+                    
                 </div>        
             </div>
         </div>
 
-            <!-- Tucán toco  -->
+            <!-- Delfín Nariz de Botella -->
             <div class="card">
                 <div class="card-actions">
                     <button class="edit-btn"><i class="fas fa-edit"></i></button>
@@ -268,8 +228,8 @@
                 </div>
                 <div class="card-inner">
                     <div class="card-front">
-                        <img src="imagenesAnimalesA/tucan.jpg" alt="Tucán toco">
-                        <div class="card-title">Tucán toco</div>
+                        <img src="../imagenesAnimalesM/delfinBotella.jpg" alt="Delfín Nariz de Botella">
+                        <div class="card-title">Delfín Nariz de Botella</div>
                         <div class="card-controls">
                             <button class="comment-btn" id="showCommentsBtn"><i class="fas fa-comment"></i> Comentarios</button>
                             <span class="comment-count">0 comentarios</span>
@@ -279,31 +239,76 @@
                         </div>
                     </div>
                     <div class="card-back">
-                        <h3>Tucán toco</h3>
+                        <h3>Delfín Nariz de Botella</h3>
                         <p class="info-title">Tamaño</p>
-                        <p class="info-text">55-65 cm de longitud; pico de hasta 20 cm, su peso es alrededor de 500 gramos.</p>
+                        <p class="info-text">Entre 2 y 4 metros de largo y un peso de hasta 650 kg.</p>
                         <p class="info-title">Caracteristicas</p>
-                        <p class="info-text">Pico grande de color naranja, ligero por su estructura hueca.Aves sociales que viven en grupos.</p>
+                        <p class="info-text">Muy inteligente y sociable, con una excelente capacidad de comunicación mediante sonidos, gestos y ecolocación.</p>
                         <p class="info-title">Alimentación</p>
-                        <p class="info-text">Omnívora; consumen frutas, insectos, pequeños reptiles y huevos.</p>
+                        <p class="info-text">Peces, calamares y crustáceos.</p>
                         <p class="info-title">Hábitat</p>
-                        <p class="info-text">Selvas tropicales de América del Sur.</p>
+                        <p class="info-text">Océanos templados y tropicales de todo el mundo.</p>
+                    </div>
+                    </div>
+                    <!-- Modal de Comentarios -->
+                <div id="commentModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2>Agregar Comentario</h2>
+                        <textarea id="commentText" placeholder="Escribe tu comentario aquí..."></textarea>
+                        <button id="submitComment">Enviar Comentario</button>
+                  
+                </div>        
+            </div>
+        </div>
+
+            <!-- Caballito de Mar -->
+            <div class="card">
+                <div class="card-actions">
+                    <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                    <button class="add-comment-btn" id="addCommentBtn">
+                        <span class="material-icons">comment</span>
+                    </button>
+                    <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                </div>
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="../imagenesAnimalesM/CaballoMar.avif" alt="Caballito de Mar">
+                        <div class="card-title">Caballito de Mar</div>
+                        <div class="card-controls">
+                            <button class="comment-btn" id="showCommentsBtn"><i class="fas fa-comment"></i> Comentarios</button>
+                            <span class="comment-count">0 comentarios</span>
+                        </div>
+                        <div class="comments-section">
+                            <div class="comments-list"></div>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <h3>Caballito de Mar</h3>
+                        <p class="info-title">Tamaño</p>
+                        <p class="info-text">Entre 1 y 30 cm de altura, dependiendo de la especie.</p>
+                        <p class="info-title">Caracteristicas</p>
+                        <p class="info-text">Su cuerpo tiene forma de "S" y no tienen escamas. El macho es quien lleva los huevos hasta que nacen.</p>
+                        <p class="info-title">Alimentación</p>
+                        <p class="info-text">Pequeños crustáceos y plancton.</p>
+                        <p class="info-title">Hábitat</p>
+                        <p class="info-text">Aguas costeras tropicales y templadas.</p>
                     </div>
                 </div>
-               <!-- Modal de Comentarios -->
-                        <div id="commentModal" class="modal">
-                            <div class="modal-content">
-                                <span class="close">&times;</span>
-                                <h2>Agregar Comentario</h2>
-                                <textarea id="commentText" placeholder="Escribe tu comentario aquí..."></textarea>
-                                <button id="submitComment">Enviar Comentario</button>
-                            
-                        </div>        
-                    </div>
-                </div>
+                    
+                <!-- Modal de Comentarios -->
+                <div id="commentModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2>Agregar Comentario</h2>
+                        <textarea id="commentText" placeholder="Escribe tu comentario aquí..."></textarea>
+                        <button id="submitComment">Enviar Comentario</button>
+                    
+                </div>        
+            </div>
         </section>
     </div>
-    <script src="registrarComentarios.js"></script>
+    <script src="../js/registrarComentarios.js"></script>
 </body>
 
 </html>

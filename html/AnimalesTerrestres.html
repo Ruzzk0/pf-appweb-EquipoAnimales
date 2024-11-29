@@ -4,25 +4,24 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>ANIMALES TERRESTRES</title>
-        <link rel="stylesheet" href="stylesTerrestres.css">
+        <link rel="stylesheet" href="../estilos/stylesTerrestres.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
 
     <body>
         <header class="sticky-header">
-            <a href="principal.html" class="back-button">
+            <a href="../html/principal.html" class="back-button">
                 <span class="material-icons">arrow_back_ios</span>
             </a>
             <h1>ANIMALES TERRESTRES</h1>
-            <a class="add-post-btn" href="NuevaPublicacion.html">
-                <i class="fas fa-plus"></i> 
+            <a class="add-post-btn" href="../html/NuevaPublicacion.html"><span class="material-icons">arrow_back_ios</span>
                 Nueva Publicación
             </a>
         </header>
 
         <div class="image-container">
-            <img src="imagenesAnimalesT/leopardo.jpg" alt="Animales Terrestres">
+            <img src="../imagenesAnimalesT/leopardo.jpg" alt="Animales Terrestres">
             <div class="transparent-box"></div>
         </div>
 
@@ -39,7 +38,7 @@
                     </div>
                     <div class="card-inner">
                         <div class="card-front">
-                            <img src="imagenesAnimalesT/elefante.jpg" alt="Elefante africano">
+                            <img src="../imagenesAnimalesT/elefante.jpg" alt="Elefante africano">
                             <div class="card-title">Elefante Africano</div>
                             <div class="card-controls">
                                 <button class="comment-btn" id="showCommentsBtn"><i class="fas fa-comment"></i> Comentarios</button>
@@ -60,15 +59,15 @@
                             <p class="info-title">Hábitat</p>
                             <p class="info-text">Sabana africana y algunas zonas de bosques tropicales.</p>
                         </div>
-
-                                            <!-- Modal de Comentarios -->
+                     </div>
+                                <!-- Modal de Comentarios -->
                         <div id="commentModal" class="modal">
                             <div class="modal-content">
                                 <span class="close">&times;</span>
                                 <h2>Agregar Comentario</h2>
                                 <textarea id="commentText" placeholder="Escribe tu comentario aquí..."></textarea>
                                 <button id="submitComment">Enviar Comentario</button>
-                            </div>
+                           
                         </div>        
                     </div>
                 </div>
@@ -85,10 +84,10 @@
                     </div>
                     <div class="card-inner">
                         <div class="card-front">
-                            <img src="imagenesAnimalesT/tigre.jpg" alt="Tigre de bengala">
+                            <img src="../imagenesAnimalesT/tigre.jpg" alt="Tigre de bengala">
                             <div class="card-title">Tigre de Bengala</div>
                             <div class="card-controls">
-                                <button class="comment-btn"><i class="fas fa-comment"></i> Comentarios</button>
+                                <button class="comment-btn" id="showCommentsBtn"><i class="fas fa-comment"></i> Comentarios</button>
                                 <span class="comment-count">0 comentarios</span>
                             </div>
                             <div class="comments-section">
@@ -128,7 +127,7 @@
                     </div>
                     <div class="card-inner">
                         <div class="card-front">
-                            <img src="imagenesAnimalesT/oso.jpg" alt="Oso Pardo">
+                            <img src="../imagenesAnimalesT/oso.jpg" alt="Oso Pardo">
                             <div class="card-title">Oso Pardo</div>
                             <div class="card-controls">
                                 <button class="comment-btn"><i class="fas fa-comment"></i> Comentarios</button>
@@ -168,7 +167,7 @@
                     </div>
                     <div class="card-inner">
                         <div class="card-front">
-                            <img src="imagenesAnimalesT/canguro.jpg" alt="Canguro Rojo">
+                            <img src="../imagenesAnimalesT/canguro.jpg" alt="Canguro Rojo">
                             <div class="card-title">Canguro Rojo</div>
                             <div class="card-controls">
                                 <button class="comment-btn"><i class="fas fa-comment"></i> Comentarios</button>
@@ -204,7 +203,7 @@
                     </div>
                     <div class="card-inner">
                         <div class="card-front">
-                            <img src="imagenesAnimalesT/panda.jpg" alt="Panda Gigante">
+                            <img src="../imagenesAnimalesT/panda.jpg" alt="Panda Gigante">
                             <div class="card-title">Panda Gigante</div>
                             <div class="card-controls">
                                 <button class="comment-btn"><i class="fas fa-comment"></i> Comentarios</button>
@@ -240,7 +239,7 @@
                     </div>
                     <div class="card-inner">
                         <div class="card-front">
-                            <img src="imagenesAnimalesT/vaca.jpg" alt="Vaca Angus">
+                            <img src="../imagenesAnimalesT/vaca.jpg" alt="Vaca Angus">
                             <div class="card-title">Vaca Angus</div>
                             <div class="card-controls">
                                 <button class="comment-btn"><i class="fas fa-comment"></i> Comentarios</button>
@@ -272,6 +271,6 @@
                 </div>   
             </section>
         </div>
-        <script src="registrarComentarios.js"></script>
+        <script src="../js/registrarComentarios.js"></script>
     </body>
 </html>
