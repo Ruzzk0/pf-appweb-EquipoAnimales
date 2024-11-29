@@ -21,8 +21,7 @@ public class Usuario {
     private String fechaNacimiento;
     private String genero;
     private String bando;
-    private String administrador;
-    private String visitante;
+    private boolean administrador;
 
     
     /**
@@ -40,21 +39,20 @@ public class Usuario {
      * @param administrador
      * @param visitante
      */
-    public Usuario(int id, String nombre, String correo, String contrasena, String administrador, String visitante) {
+
+    public Usuario(int id, String nombre, String correo, String contrasena, boolean administrador) {
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;
         this.contrasena = contrasena;
         this.administrador = administrador;
-        this.visitante = visitante;
     }
-    
-    public Usuario(String nombre, String correo, String contrasena, String administrador, String visitante) {
+
+    public Usuario(String nombre, String correo, String contrasena, boolean administrador) {
         this.nombre = nombre;
         this.correo = correo;
         this.contrasena = contrasena;
         this.administrador = administrador;
-        this.visitante = visitante;
     }
     
     public Usuario(String correo, String contrasena) {
@@ -62,7 +60,7 @@ public class Usuario {
         this.contrasena = contrasena;
     }
 
-    public Usuario(int id, String nombre, String correo, String contrasena, String pais, String estado, String ciudad, String telefono, String fechaNacimiento, String genero, String bando, String administrador, String visitante) {
+    public Usuario(int id, String nombre, String correo, String contrasena, String pais, String estado, String ciudad, String telefono, String fechaNacimiento, String genero, String bando, boolean administrador) {
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;
@@ -75,10 +73,9 @@ public class Usuario {
         this.genero = genero;
         this.bando = bando;
         this.administrador = administrador;
-        this.visitante = visitante;
     }
 
-    public Usuario(String nombre, String correo, String contrasena, String pais, String estado, String ciudad, String telefono, String fechaNacimiento, String genero, String bando, String administrador, String visitante) {
+    public Usuario(String nombre, String correo, String contrasena, String pais, String estado, String ciudad, String telefono, String fechaNacimiento, String genero, String bando, boolean administrador) {
         this.nombre = nombre;
         this.correo = correo;
         this.contrasena = contrasena;
@@ -90,8 +87,8 @@ public class Usuario {
         this.genero = genero;
         this.bando = bando;
         this.administrador = administrador;
-        this.visitante = visitante;
     }
+
     
     public int getId() {
         return id;
@@ -123,22 +120,6 @@ public class Usuario {
 
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
-    }
-
-    public String getAdministrador(){
-     return administrador;
-    }
-    
-    public void setAdministrador(String administrador){
-       this.administrador = administrador;
-    }
-    
-    public String getVisitante(){
-     return administrador;
-    }
-    
-    public void setVisitante(String visitante){
-       this.visitante = visitante;
     }
 
     public String getPais() {
@@ -196,18 +177,32 @@ public class Usuario {
     public void setBando(String bando) {
         this.bando = bando;
     }
-    
-    
-   /**
-     * Método toString.
-     * Retorna una representación en texto de los atributos del usuario.
-     * @return 
-     */
+
+    public boolean isAdministrador() {
+        return administrador;
+    }
+
+    public void setAdministrador(boolean administrador) {
+        this.administrador = administrador;
+    }
+
     @Override
     public String toString() {
-        return "Usuario{" + "id=" + id + ", nombre=" + nombre + ", correo=" + correo + ", contrasena=" + contrasena + ", administrador=" + administrador + ", visitante=" + visitante + '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append("Usuario{");
+        sb.append("id=").append(id);
+        sb.append(", nombre=").append(nombre);
+        sb.append(", correo=").append(correo);
+        sb.append(", contrasena=").append(contrasena);
+        sb.append(", pais=").append(pais);
+        sb.append(", estado=").append(estado);
+        sb.append(", ciudad=").append(ciudad);
+        sb.append(", telefono=").append(telefono);
+        sb.append(", fechaNacimiento=").append(fechaNacimiento);
+        sb.append(", genero=").append(genero);
+        sb.append(", bando=").append(bando);
+        sb.append(", administrador=").append(administrador);
+        sb.append('}');
+        return sb.toString();
     }
-   
-    
-
 }

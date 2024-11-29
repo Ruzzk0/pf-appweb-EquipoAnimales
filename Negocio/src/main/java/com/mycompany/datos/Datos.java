@@ -34,7 +34,7 @@ public class Datos {
             usuario.setId(1);
             usuario.setNombre("Juan Pérez");
             usuario.setCorreo("juan.perez@example.com");
-            usuario.setVisitante("visitante");
+//            usuario.setVisitante("visitante");
             usuarioDAO.agregar(usuario);
             System.out.println("Usuario agregado: " + usuario);
 

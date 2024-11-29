@@ -1,0 +1,573 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 27 nov 2024, 21:23:09
+    Author     : Ruzzky
+*/
+
+/* Estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos del header y body */
+header {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+  }
+
+  .modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Posición fija para que cubra la pantalla */
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+    overflow: auto; /* Desplazamiento si el contenido excede la altura */
+    transition: none; /* Sin transición para evitar efectos de deslizamiento */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    position: fixed;
+    margin: 15% auto; /* Margen automático para centrar */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Ancho del modal */
+    max-width: 500px; /* Ancho máximo del modal */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para profundidad */
+}
+
+.close {
+    color: #aaa;
+    float: right; /* Alinear a la derecha */
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black; /* Cambia color al pasar el mouse */
+    text-decoration: none;
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+}
+
+/* Estilo del textarea */
+#commentText {
+    width: 100%; /* Ancho completo */
+    height: 80px; /* Altura */
+    padding: 10px; /* Espacio interno */
+    border: 1px solid #ccc; /* Borde gris */
+    border-radius: 5px; /* Bordes redondeados */
+    font-family: 'Montserrat', sans-serif; /* Fuente Montserrat */
+    font-size: 14px; /* Tamaño de fuente */
+    margin-bottom: 15px; /* Espacio inferior */
+}
+
+
+/* Estilos para la expansión de la tarjeta */
+.card.expanded {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.card.expanded .comments-section {
+    display: block;
+    padding: 20px;
+}
+
+.card .comments-section {
+    display: none; /* Oculta comentarios cuando la tarjeta está pequeña */
+}
+
+.card.expanded .card-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal {
+    display: none; /* Oculta el modal inicialmente */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1001;
+    justify-content: center;
+    align-items: center;
+}
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+}
+.modal .close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+/* Estilo del botón de enviar comentario */
+#submitComment {
+    padding: 10px 20px; /* Espacio interno */
+    background-color: #673232; /* Color de fondo */
+    color: white; /* Color de texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor tipo puntero */
+    font-size: 16px; /* Tamaño de fuente */
+    transition: background-color 0.3s; /* Transición suave */
+}
+
+#submitComment:hover {
+    background-color: #472727; /* Color de fondo al pasar el mouse */
+}
+
+
+.comments-section {
+    padding: 10px; /* Espaciado interior */
+    background-color: #f9f9f9; /* Color de fondo */
+    border-top: 1px solid #ccc; /* Línea superior */
+    max-height: 150px; /* Altura máxima para el scroll */
+    overflow-y: auto; /* Habilita scroll vertical */
+}
+
+.comments-list {
+    max-height: 100px; /* Altura máxima de la lista de comentarios */
+    overflow-y: auto; /* Habilita scroll vertical para la lista */
+}
+
+.comment-item {
+    margin-bottom: 5px; /* Espaciado entre comentarios */
+    padding: 5px; /* Espaciado interior de los comentarios */
+    background-color: #e6e6e6; /* Color de fondo de comentarios */
+    border-radius: 4px; /* Bordes redondeados de comentarios */
+}
+
+#commentText {
+    width: 100%; /* Ancho completo */
+    margin-top: 5px; /* Margen superior */
+    padding: 5px; /* Espaciado interior */
+    border-radius: 4px; /* Bordes redondeados */
+    border: 1px solid #ccc; /* Borde */
+}
+
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FFFFFF;
+    overflow-x: hidden;
+}
+
+h1 {
+    background-color: #673232;
+    color: white;
+    padding: 30px;
+    text-align: center;
+    font-size: 2.5em;
+    width: 100%;  
+    margin: 0;
+    position: relative;
+    z-index: 2;
+}
+
+/* Estilos del contenedor de imagen */
+.image-container {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.transparent-box {
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 85%;
+    height: 90vh;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    z-index: 0;
+}
+
+/* Estilos del botón de retroceso */
+.back-button {
+    position: fixed;
+    top: 40px;
+    left: 40px;
+    padding: 10px 20px;
+    background-color: #673232;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    z-index: 9999;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+}
+
+.back-button:hover {
+    background-color: #4e2828;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+/* Estilos de la sección de publicaciones */
+.postAnimales {
+    position: relative;
+    padding: 150px 20px 50px;
+    z-index: 1;
+}
+
+#postAnimales {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* Estilos de las tarjetas */
+.card {
+    perspective: 1000px;
+    height: 450px;
+    background: transparent;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.card-front {
+    background-color: #673232;
+    color: white;
+}
+
+.card-back {
+    background-color: #673232;
+    color: white;
+    transform: rotateY(180deg);
+    padding: 20px;
+}
+
+.card img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+}
+
+.card-title {
+    padding: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.info-title {
+    color: #DEB887;
+    font-weight: bold;
+    margin-top: 15px;
+    font-size: 1.1em;
+}
+
+.info-text {
+    margin: 5px 0 15px;
+    line-height: 1.4;
+}
+/* Header fijo */
+.sticky-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #673232;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.add-post-btn {
+    background-color: #673232;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Estilos para los botones de acción en las cards */
+.card-actions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+    display: flex;
+    gap: 10px;
+}
+
+.edit-btn, .delete-btn, .add-comment-btn {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.edit-btn:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+.add-comment-btn:hover {
+    background-color: #e7d84b;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #f44336;
+    color: white;
+}
+
+/* Estilos para la sección de comentarios */
+.card-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.comment-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.comments-section {
+    background-color: white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 0 0 15px 15px;
+}
+
+.comments-section.hidden {
+    display: none;
+}
+
+.comments-list {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.comments-section {
+    margin-top: 20px; /* Espacio superior */
+    padding: 15px; /* Espacio interno */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 10px; /* Bordes redondeados */
+    background-color: #f9f9f9; /* Fondo claro */
+}
+
+.comments-list {
+    max-height: 150px; /* Altura máxima para la lista */
+    overflow-y: auto; /* Habilitar scroll si hay muchos comentarios */
+    margin-bottom: 15px; /* Espacio inferior */
+}
+
+.add-comment {
+    display: flex;
+    flex-direction: column; /* Organiza los elementos en columna */
+    align-items: center; /* Centrar elementos horizontalmente */
+}
+
+.add-comment textarea {
+    width: 100%; /* Ancho completo */
+    height: 80px; /* Altura del textarea */
+    padding: 10px; /* Espacio interno */
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    font-family: 'Montserrat', sans-serif; /* Fuente Montserrat */
+    font-size: 14px; /* Tamaño de fuente */
+    margin-bottom: 10px; /* Espacio inferior */
+}
+
+.submit-comment-btn {
+    padding: 10px 20px; /* Espacio interno del botón */
+    background-color: #673ab7; /* Color de fondo del botón */
+    color: white; /* Color de texto */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambiar cursor al pasar el mouse */
+    font-size: 16px; /* Tamaño de fuente */
+    transition: background-color 0.3s; /* Transición suave para el fondo */
+}
+
+.submit-comment-btn:hover {
+    background-color: #5e35b1; /* Color de fondo al pasar el mouse */
+}
+
+.comment {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-comment {
+    margin-top: 15px;
+}
+
+.add-comment textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    resize: vertical;
+}
+
+.submit-comment-btn {
+    background-color: #673232;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Modal para nueva publicación */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    margin: 50px auto;
+    border-radius: 10px;
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+#newPostForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#newPostForm input,
+#newPostForm textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#newPostForm button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Ajuste del contenido principal para el header fijo */
+.postAnimales {
+    margin-top: 100px; 
+}
