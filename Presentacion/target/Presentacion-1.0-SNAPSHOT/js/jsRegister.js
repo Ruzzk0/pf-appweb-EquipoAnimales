@@ -5,6 +5,7 @@ document.getElementById('registroForm').addEventListener('submit', async functio
 
     // Definir los campos
     const campos = {
+        id:0,
         nombre: document.getElementById('nombre'),
         email: document.getElementById('email'),
         password: document.getElementById('password'),

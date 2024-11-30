@@ -48,8 +48,13 @@ public class UsuarioDAO implements IUsuarioDAO {
     public void agregar(Usuario usuario) throws DAOException {
         try {
             List<Usuario> list = this.listarTodos();
-            int id = list.getLast().getId();
-            usuario.setId(id+1);
+            int id =0;
+            if(list != null){
+                id = list.getLast().getId();
+                id ++;
+            }
+            
+            usuario.setId(id);
             usuarioCollection.insertOne(usuario);
         } catch (Exception e) {
             throw new DAOException("Error al agregar el usuario: " + e.getMessage(), e);
