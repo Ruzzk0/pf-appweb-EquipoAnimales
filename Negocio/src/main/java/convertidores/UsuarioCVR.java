@@ -53,13 +53,13 @@ import entidades.Usuario;
                 dto.getNombre(),
                 dto.getCorreo(),
                 dto.getContrasena(),
-                dto.getBando(),
-                dto.getCiudad(),
+                dto.getPais(),
                 dto.getEstado(),
+                dto.getCiudad(),
+                dto.getTelefono(),
                 dto.getFechaNacimiento(),
                 dto.getGenero(),
-                dto.getTelefono(),
-                dto.getPais(),
+                dto.getBando(),
                 dto.isAdministrador());
 
         return usuario;

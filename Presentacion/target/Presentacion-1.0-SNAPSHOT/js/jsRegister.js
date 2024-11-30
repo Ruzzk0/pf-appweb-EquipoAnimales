@@ -46,8 +46,7 @@ document.getElementById('registroForm').addEventListener('submit', async functio
             fechaNacimiento: campos.fechaNacimiento.value,
             genero: campos.genero ? campos.genero.value : '',
             bando: campos.bando.value,
-            rol: 'visitante', // Agregar el rol aquí
-            id:0
+            rol: 'visitante' // Agregar el rol aquí
         };
 
         try {
