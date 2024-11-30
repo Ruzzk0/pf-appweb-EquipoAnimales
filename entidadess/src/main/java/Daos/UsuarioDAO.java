@@ -29,7 +29,7 @@ import org.bson.conversions.Bson;
  */
 public class UsuarioDAO implements IUsuarioDAO {
     private final MongoCollection<Usuario> usuarioCollection;
-
+    
     /**
      * Constructor por defecto.
      * Inicializa la conexión a la colección "Usuarios" en la base de datos.

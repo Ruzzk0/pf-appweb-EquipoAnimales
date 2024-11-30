@@ -4,6 +4,9 @@
  */
 package org.itson.webapps.index.mvc;
 
+import BO.UsuarioBO;
+import com.google.gson.Gson;
+import dto.UsuarioDTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -11,6 +14,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.io.InputStreamReader;
 
 /**
  *
@@ -18,6 +22,8 @@ import jakarta.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "indexController", urlPatterns = {"/indexController"})
 public class indexController extends HttpServlet {
+
+    UsuarioBO usuarioBO = new UsuarioBO();
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -71,18 +77,47 @@ public class indexController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String email = request.getParameter("loginEmail");
-        String password = request.getParameter("loginPassword");
+        // Configurar la respuesta para que sea JSON
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
 
-        indexModel user = new indexModel(email, password);
+        UsuarioDTO usuarioNuevo;
+        try {
+            // Leer el cuerpo de la solicitud y convertir a UsuarioDTO
+            InputStreamReader reader = new InputStreamReader(request.getInputStream());
+            Gson gson = new Gson();
+            usuarioNuevo = gson.fromJson(reader, UsuarioDTO.class);
+        } catch (Exception e) {
+            String jsonResponse = "{\"success\": false, \"message\": \"Entrada JSON mal formateada.\"}";
+            response.getWriter().write(jsonResponse);
+            return;
+        }
 
-        if (user.isValid()) {
-            // Redirigir a la página de dashboard o inicio
-            response.sendRedirect("errorView.jsp");
-        } else {
-            // Si las credenciales son incorrectas, redirigir de nuevo a index.jsp con un mensaje de error
-            request.setAttribute("errorMessage", "Credenciales incorrectas. Inténtalo de nuevo.");
-            request.getRequestDispatcher("/WEB-INF/views/indexView.jsp").forward(request, response);
+        // Validar que los campos no estén vacíos o sean nulos
+        if (usuarioNuevo.getCorreo() == null || usuarioNuevo.getCorreo().isBlank()
+                || usuarioNuevo.getContrasena() == null || usuarioNuevo.getContrasena().isBlank()) {
+            String jsonResponse = "{\"success\": false, \"message\": \"Todos los campos son obligatorios.\"}";
+            response.getWriter().write(jsonResponse);
+            return;
+        }
+
+        try {
+            // Buscar al usuario
+            UsuarioDTO us = usuarioBO.buscarPorCorreo(usuarioNuevo);
+
+            if (us != null) {
+                // Usuario encontrado
+                String jsonResponse = "{\"success\": true, \"message\": \"¡Inicio exitoso! Bienvenido a Animal Social.\"}";
+                response.getWriter().write(jsonResponse);
+            } else {
+                // Usuario no encontrado
+                String jsonResponse = "{\"success\": false, \"message\": \"Correo o contraseña incorrectos.\"}";
+                response.getWriter().write(jsonResponse);
+            }
+        } catch (Exception e) {
+            // Manejo de errores
+            String jsonResponse = "{\"success\": false, \"message\": \"Hubo un problema al iniciar sesión: " + e.getMessage() + "\"}";
+            response.getWriter().write(jsonResponse);
         }
     }
 

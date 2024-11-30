@@ -15,8 +15,10 @@ import excepciones.DAOException;
 public class NewClass {
     public static void main(String[] args) throws DAOException {
         UsuarioDAO d = new UsuarioDAO();
-//        Usuario us = new Usuario("1", "1", "1", "1", "1", 
-//                "1", "1", "1", "1", "1", "1", "1");
-//        d.agregar(us);
+        Usuario usuario = new Usuario("kk@gmail.com", "szbseCaWX7X3K41fMZR1eA==");
+        Usuario usuario2 = d.buscarPorCorreo(usuario);
+        System.out.println(usuario2);
+        usuario2.toString();
+        
     }
 }

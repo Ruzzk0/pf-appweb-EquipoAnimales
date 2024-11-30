@@ -21,11 +21,11 @@ import java.util.List;
  * @author diana
  */
 public class UsuarioBO implements IUsuarioBO {
-    
-    private final IUsuarioDAO usuarioDAO;    
-    private final UsuarioCVR usuarioCVR;    
+
+    private final UsuarioDAO usuarioDAO;
+    private final UsuarioCVR usuarioCVR;
     private Encriptador enc;
-    
+
     public UsuarioBO() {
         this.usuarioDAO = new UsuarioDAO();
         this.usuarioCVR = new UsuarioCVR();
@@ -42,14 +42,14 @@ public class UsuarioBO implements IUsuarioBO {
     @Override
     public void agregar(UsuarioDTO usuarioDTO) throws BusinessException {
         try {
-            if(usuarioDTO.getContrasena().isBlank()){
+            if (usuarioDTO.getContrasena().isBlank()) {
                 throw new DAOException("No ingreso contraseña");
             }
-            
-            if(usuarioDTO.getCorreo().isBlank() || usuarioDTO.getNombre().isBlank()){
+
+            if (usuarioDTO.getCorreo().isBlank() || usuarioDTO.getNombre().isBlank()) {
                 throw new DAOException("Faltan campos requeridos");
             }
-            
+
             String contra = enc.encriptar(usuarioDTO.getContrasena());
             usuarioDTO.setContrasena(contra);
             this.usuarioDAO.agregar(usuarioCVR.convertir_Usuario_Sin_Id(usuarioDTO));
@@ -74,43 +74,46 @@ public class UsuarioBO implements IUsuarioBO {
             throw new BusinessException(e.getMessage());
         }
     }
-    
+
     /**
      * Método que permite buscar un usuario por su correo y contraseña.
      *
      * @param dto Objeto UsuarioDTO con el correo y contraseña.
      * @return Objeto UsuarioDTO con los datos del usuario encontrado.
-     * @throws BusinessException Arroja una excepción si ocurre un error en la operación.
+     * @throws BusinessException Arroja una excepción si ocurre un error en la
+     * operación.
      */
     @Override
     public UsuarioDTO buscarPorCorreo(UsuarioDTO dto) throws BusinessException {
         try {
             UsuarioDTO clon = dto;
-            
+
             if (clon.getCorreo() == null || clon.getContrasena() == null
                     || clon.getCorreo().isBlank() || clon.getContrasena().isBlank()) {
                 throw new DAOException();
             }
             String contrasena = enc.encriptar(clon.getContrasena());
-            
             clon.setContrasena(contrasena);
             
             Usuario usuarioConvert = usuarioCVR.convertir_Usuario_Sin_Id(dto);
-            Usuario usuarioBuscado = usuarioDAO.buscarPorCorreo(usuarioConvert);
-            UsuarioDTO usuarioBuscadoDTO = usuarioCVR.convertir_DTO_Sin_Id(usuarioBuscado);            
-            return usuarioBuscadoDTO;
             
+            Usuario usuarioBuscado = usuarioDAO.buscarPorCorreo(usuarioConvert);
+            
+            UsuarioDTO usuarioBuscadoDTO = usuarioCVR.convertir_DTO(usuarioBuscado);
+            return usuarioBuscadoDTO;
+
         } catch (DAOException e) {
             throw new BusinessException();
         }
     }
-    
+
     /**
      * Método que permite actualizar un usuario existente.
      *
-     * @param id         ID del usuario a actualizar.
+     * @param id ID del usuario a actualizar.
      * @param usuarioDTO Datos actualizados del usuario.
-     * @throws BusinessException Arroja una excepción si ocurre un error en la operación.
+     * @throws BusinessException Arroja una excepción si ocurre un error en la
+     * operación.
      */
     @Override
     public void actualizar(int id, UsuarioDTO usuarioDTO) throws BusinessException {
@@ -133,7 +136,8 @@ public class UsuarioBO implements IUsuarioBO {
      * Método para eliminar un usuario por su ID.
      *
      * @param id ID del usuario a eliminar.
-     * @throws BusinessException Arroja una excepción si ocurre un error en la operación.
+     * @throws BusinessException Arroja una excepción si ocurre un error en la
+     * operación.
      */
     @Override
     public void eliminar(int id) throws BusinessException {
@@ -144,12 +148,12 @@ public class UsuarioBO implements IUsuarioBO {
         }
     }
 
-    
     /**
      * Método para listar todos los usuarios.
      *
      * @return Lista de objetos UsuarioDTO.
-     * @throws BusinessException Arroja una excepción si ocurre un error en la operación.
+     * @throws BusinessException Arroja una excepción si ocurre un error en la
+     * operación.
      */
     @Override
     public List<UsuarioDTO> listarTodos() throws BusinessException {
@@ -167,5 +171,3 @@ public class UsuarioBO implements IUsuarioBO {
         }
     }
 }
-    
-

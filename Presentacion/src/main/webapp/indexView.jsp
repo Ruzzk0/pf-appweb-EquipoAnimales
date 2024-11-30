@@ -13,7 +13,8 @@
         <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css">
-        <script src="${pageContext.request.contextPath}/js/login.js" defer></script>
+        
+        <script src="${pageContext.request.contextPath}/js/jsLogin.js" defer></script>
     </head>
     <body>
         <header>
@@ -25,16 +26,16 @@
         <section class="section" id="login-section">
             <h4>Inicio de Sesión</h4>
             
-            <form id="loginForm" action="${pageContext.request.contextPath}/indexController" method="post">
+            <form id="loginForm" action="${pageContext.request.contextPath}/indexController" method="POST">
                 <div class="form-group">
                     <i class="uil uil-at"></i>
-                    <input type="email" id="loginEmail" name="email" placeholder="Correo Electrónico" required>
+                    <input type="email" id="email" name="email" placeholder="Correo Electrónico" required>
                     <span class="error-message" id="loginEmailError"></span>
                 </div>
                 
                 <div class="form-group">
                     <i class="uil uil-lock-alt"></i>
-                    <input type="password" id="loginPassword" name="password" placeholder="Contraseña" required>
+                    <input type="password" id="password" name="password" placeholder="Contraseña" required>
                     <span class="error-message" id="loginPasswordError"></span>
                 </div>
 
