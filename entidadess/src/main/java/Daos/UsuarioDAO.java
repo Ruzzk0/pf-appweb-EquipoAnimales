@@ -22,38 +22,39 @@ import org.bson.conversions.Bson;
  *
  * @author diana
  */
-
 /**
  * Clase que implementa la interfaz IUsuarioDAO para gestionar las operaciones
  * CRUD relacionadas con los usuarios en una base de datos MongoDB.
  */
 public class UsuarioDAO implements IUsuarioDAO {
+
     private final MongoCollection<Usuario> usuarioCollection;
-    
+
     /**
-     * Constructor por defecto.
-     * Inicializa la conexión a la colección "Usuarios" en la base de datos.
+     * Constructor por defecto. Inicializa la conexión a la colección "Usuarios"
+     * en la base de datos.
      */
     public UsuarioDAO() {
         this.usuarioCollection = ConexionBD.getInstance().getDatabase()
-            .getCollection("Usuarios", Usuario.class);
+                .getCollection("Usuarios", Usuario.class);
     }
 
     /**
      * Agrega un nuevo usuario a la base de datos.
-     * 
-     * @throws DAOException Si ocurre un error durante la operación de inserción.
+     *
+     * @throws DAOException Si ocurre un error durante la operación de
+     * inserción.
      */
     @Override
     public void agregar(Usuario usuario) throws DAOException {
         try {
             List<Usuario> list = this.listarTodos();
-            int id =0;
-            if(list != null){
+            int id = 0;
+            if (list != null) {
                 id = list.getLast().getId();
-                id ++;
+                id++;
             }
-            
+
             usuario.setId(id);
             usuarioCollection.insertOne(usuario);
         } catch (Exception e) {
@@ -61,11 +62,9 @@ public class UsuarioDAO implements IUsuarioDAO {
         }
     }
 
-   
-    
     /**
      * Busca un usuario por su identificador único (ID).
-     * 
+     *
      * @param id El identificador único del usuario.
      * @return El usuario encontrado o null si no existe.
      * @throws DAOException Si ocurre un error durante la búsqueda.
@@ -79,9 +78,9 @@ public class UsuarioDAO implements IUsuarioDAO {
         }
     }
 
-     /**
+    /**
      * Busca un usuario por su dirección de correo electrónico.
-     * 
+     *
      * @param usuario
      * @return El usuario encontrado o null si no existe.
      * @throws DAOException Si ocurre un error durante la búsqueda.
@@ -91,7 +90,7 @@ public class UsuarioDAO implements IUsuarioDAO {
         try {
             String correo = usuario.getCorreo();
             String contrasena = usuario.getContrasena();
-            return usuarioCollection.find( Filters.and(
+            return usuarioCollection.find(Filters.and(
                     Filters.eq("correo", correo),
                     Filters.eq("contrasena", contrasena)
             )).first();
@@ -102,39 +101,50 @@ public class UsuarioDAO implements IUsuarioDAO {
 
     /**
      * Lista todos los usuarios almacenados en la base de datos.
-     * 
+     *
      * @return Una lista de todos los usuarios en la colección.
      * @throws DAOException Si ocurre un error durante la operación.
      */
     @Override
     public List<Usuario> listarTodos() throws DAOException {
         try {
+            // Inicializar la lista de usuarios
             List<Usuario> usuarios = new ArrayList<>();
+
+            // Obtener un cursor para iterar sobre los documentos
             MongoCursor<Usuario> cursor = usuarioCollection.find().iterator();
+
+            // Recorrer el cursor y agregar los usuarios a la lista
             while (cursor.hasNext()) {
                 usuarios.add(cursor.next());
             }
+
+            // Cerrar el cursor después de su uso
             cursor.close();
-            return usuarios;
+
+            // Si la lista tiene usuarios, devolverla. Si está vacía, devolver null.
+            return usuarios.isEmpty() ? null : usuarios;
         } catch (Exception e) {
-            return null;
+            // Si ocurre un error, lanzar una excepción personalizada
+            throw new DAOException("Error al listar usuarios: " + e.getMessage(), e);
         }
     }
 
-        /**
+    /**
      * Actualiza un usuario existente en la base de datos.
-     * 
+     *
      * @param id El identificador único del usuario a actualizar.
      * @param usuario Los datos actualizados del usuario.
-     * @throws DAOException Si ocurre un error durante la operación o si no se encuentra el usuario.
+     * @throws DAOException Si ocurre un error durante la operación o si no se
+     * encuentra el usuario.
      */
     @Override
     public void actualizar(int id, Usuario usuario) throws DAOException {
         try {
             Bson updates = Updates.combine(
-                Updates.set("nombre", usuario.getNombre()),
-                Updates.set("correo", usuario.getCorreo()),
-                Updates.set("contrasena", usuario.getContrasena())
+                    Updates.set("nombre", usuario.getNombre()),
+                    Updates.set("correo", usuario.getCorreo()),
+                    Updates.set("contrasena", usuario.getContrasena())
             );
 
             UpdateResult resultado = usuarioCollection.updateOne(Filters.eq("id", id), updates);
@@ -149,9 +159,10 @@ public class UsuarioDAO implements IUsuarioDAO {
 
     /**
      * Elimina un usuario por su identificador único (ID).
-     * 
+     *
      * @param id El identificador único del usuario a eliminar.
-     * @throws DAOException Si ocurre un error durante la operación o si no se encuentra el usuario.
+     * @throws DAOException Si ocurre un error durante la operación o si no se
+     * encuentra el usuario.
      */
     @Override
     public void eliminar(int id) throws DAOException {
@@ -165,4 +176,3 @@ public class UsuarioDAO implements IUsuarioDAO {
         }
     }
 }
-
