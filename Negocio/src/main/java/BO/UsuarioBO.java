@@ -45,9 +45,17 @@ public class UsuarioBO implements IUsuarioBO {
             if (usuarioDTO.getContrasena().isBlank()) {
                 throw new DAOException("No ingreso contraseña");
             }
+            
+            if (usuarioDTO.getTelefono().length() != 10) {
+                throw new DAOException("El tenefono tiene que ser de 10 números solamente");
+            }
 
             if (usuarioDTO.getCorreo().isBlank() || usuarioDTO.getNombre().isBlank()) {
                 throw new DAOException("Faltan campos requeridos");
+            }
+            
+            if (this.valida_Exixtencia_Correo(usuarioDTO)) {
+                throw new DAOException("El correo ya esta registrado");
             }
 
             String contra = enc.encriptar(usuarioDTO.getContrasena());
@@ -92,13 +100,14 @@ public class UsuarioBO implements IUsuarioBO {
                     || clon.getCorreo().isBlank() || clon.getContrasena().isBlank()) {
                 throw new DAOException();
             }
+            
             String contrasena = enc.encriptar(clon.getContrasena());
             clon.setContrasena(contrasena);
-            
+
             Usuario usuarioConvert = usuarioCVR.convertir_Usuario_Sin_Id(dto);
-            
+
             Usuario usuarioBuscado = usuarioDAO.buscarPorCorreo(usuarioConvert);
-            
+
             UsuarioDTO usuarioBuscadoDTO = usuarioCVR.convertir_DTO(usuarioBuscado);
             return usuarioBuscadoDTO;
 
@@ -169,5 +178,17 @@ public class UsuarioBO implements IUsuarioBO {
         } catch (DAOException e) {
             throw new BusinessException(e.getMessage());
         }
+    }
+
+    private boolean valida_Exixtencia_Correo(UsuarioDTO usuarioDTO) throws BusinessException {
+        try {
+            Usuario usuario = usuarioCVR.convertir_Usuario(usuarioDTO);
+            boolean encotrado = usuarioDAO.busca_Correo_BD(usuario);
+            return encotrado;
+        }
+        catch (DAOException e){
+            throw new BusinessException(e.getMessage());
+        }
+
     }
 }

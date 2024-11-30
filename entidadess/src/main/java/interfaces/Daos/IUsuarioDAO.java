@@ -56,5 +56,7 @@ public interface IUsuarioDAO  {
      * @throws DAOException Si ocurre un error durante la operación o si no se encuentra el usuario.
      */
     public void eliminar(int id) throws DAOException;
+    
+    public boolean busca_Correo_BD(Usuario usuario) throws DAOException;
 }
 

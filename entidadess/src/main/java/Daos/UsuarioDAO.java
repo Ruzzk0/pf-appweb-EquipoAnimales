@@ -175,4 +175,19 @@ public class UsuarioDAO implements IUsuarioDAO {
             throw new DAOException("Error al eliminar el usuario: " + e.getMessage(), e);
         }
     }
+    
+    public boolean busca_Correo_BD(Usuario usuario) throws DAOException{
+        try {
+            String correo = usuario.getCorreo();
+            boolean encontrado = false; 
+            Usuario us = usuarioCollection.find(Filters.eq("correo", correo)).first();
+            if(us !=null){
+                encontrado = true;
+            }
+            return encontrado;
+                    
+        } catch (Exception e) {
+            throw new DAOException("Error al buscar el usuario por correo: " + e.getMessage(), e);
+        }
+    }
 }
