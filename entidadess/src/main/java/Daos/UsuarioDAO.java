@@ -47,6 +47,9 @@ public class UsuarioDAO implements IUsuarioDAO {
     @Override
     public void agregar(Usuario usuario) throws DAOException {
         try {
+            List<Usuario> list = this.listarTodos();
+            int id = list.getLast().getId();
+            usuario.setId(id+1);
             usuarioCollection.insertOne(usuario);
         } catch (Exception e) {
             throw new DAOException("Error al agregar el usuario: " + e.getMessage(), e);
