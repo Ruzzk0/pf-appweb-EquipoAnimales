@@ -117,7 +117,7 @@ public class UsuarioDAO implements IUsuarioDAO {
             cursor.close();
             return usuarios;
         } catch (Exception e) {
-            throw new DAOException("Error al listar todos los usuarios: " + e.getMessage(), e);
+            return null;
         }
     }
 

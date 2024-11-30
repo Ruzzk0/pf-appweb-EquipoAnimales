@@ -93,7 +93,7 @@ public class registerController extends HttpServlet {
             response.getWriter().write(jsonResponse);
         } catch (Exception e) {
             // Manejo de errores
-            String jsonResponse = "{\"success\": false, \"message\": \"Hubo un problema al registrar al usuario: " + e.getMessage() + "\"}";
+            String jsonResponse = "{\"success\": false, \"message\": \"Hubox2 un problema al registrar al usuario: " + e.getMessage() + "\"}";
             response.getWriter().write(jsonResponse);
         }
     }
