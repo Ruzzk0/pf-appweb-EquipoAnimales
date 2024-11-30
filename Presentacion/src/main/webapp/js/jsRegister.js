@@ -5,7 +5,6 @@ document.getElementById('registroForm').addEventListener('submit', async functio
 
     // Definir los campos
     const campos = {
-        id:0,
         nombre: document.getElementById('nombre'),
         email: document.getElementById('email'),
         password: document.getElementById('password'),
@@ -47,7 +46,8 @@ document.getElementById('registroForm').addEventListener('submit', async functio
             fechaNacimiento: campos.fechaNacimiento.value,
             genero: campos.genero ? campos.genero.value : '',
             bando: campos.bando.value,
-            rol: 'visitante' // Agregar el rol aquí
+            rol: 'visitante', // Agregar el rol aquí
+            id:0
         };
 
         try {
