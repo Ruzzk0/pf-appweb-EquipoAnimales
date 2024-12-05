@@ -6,13 +6,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page session="true" %>
 <%
-    // Verificar si el usuario está logueado
+    // Verificar si el usuario está logueado mediante la sesión del servidor
     String isLoggedIn = (String) session.getAttribute("isLoggedIn");
     if (isLoggedIn == null || !isLoggedIn.equals("true")) {
         response.sendRedirect("indexView.jsp");
         return;
     }
 
+    // Obtener el correo del usuario desde la sesión
     String userEmail = (String) session.getAttribute("userEmail");
 %>
 <!DOCTYPE html>
