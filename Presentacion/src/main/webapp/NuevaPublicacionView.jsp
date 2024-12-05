@@ -5,6 +5,7 @@
 --%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,7 +18,7 @@
 </head>
 <body>
     <header class="sticky-header">
-        <a href="animalesMarinos.jsp" class="back-button">
+        <a href="principal.jsp" class="back-button">
             <span class="material-icons">arrow_back_ios</span>
         </a>
         <h1>ANIMAL SOCIAL</h1>
@@ -86,7 +87,7 @@
                 const reader = new FileReader();
                 reader.onload = function(e) {
                     previewContainer.innerHTML = `<img src="${e.target.result}" alt="Vista previa de imagen" class="preview-image">`;
-                }
+                };
                 reader.readAsDataURL(file);
             }
         });
