@@ -144,9 +144,10 @@ h1 {
     box-shadow: -52px -52px 0 -17px rgba(0,0,0,.15) inset,
                 -105px -35px 0 0 rgba(0,0,0,.1) inset,
                 8px 8px 0 0 rgba(255,255,255,.2) inset;
-    background: url(img/mapa.png);
+    background: url('../imgs/mapa.png');
     background-size: cover;
     -webkit-animation: tierra-girando 18s infinite linear;
+    
 }
 
 @-webkit-keyframes tierra-girando {
