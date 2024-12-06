@@ -41,7 +41,7 @@
 
                 <p><a href="recuperarContraseña.html" class="link">¿Olvidaste tu contraseña?</a></p>
 
-                <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+                <button type="submit" class="btn btn-primary" id="btnInicio">Iniciar Sesión</button>
 
                 <p class="text-center mt-3">
                     ¿Aún no tienes cuenta? <a href="registerView.jsp" class="link">Regístrate aquí</a>

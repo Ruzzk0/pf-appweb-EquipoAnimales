@@ -14,6 +14,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import java.io.InputStreamReader;
 
 /**
@@ -107,6 +108,10 @@ public class indexController extends HttpServlet {
 
             if (us != null) {
                 // Usuario encontrado
+                HttpSession session = request.getSession();
+                session.setAttribute("isLoggedIn", true);  // Establecer que el usuario está logueado
+                session.setAttribute("userEmail", us.getCorreo());
+
                 String jsonResponse = "{\"success\": true, \"message\": \"¡Inicio exitoso! Bienvenido a Animal Social.\"}";
                 response.getWriter().write(jsonResponse);
             } else {
