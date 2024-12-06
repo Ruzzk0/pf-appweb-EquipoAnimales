@@ -31,6 +31,7 @@
         <link rel="stylesheet" href="stylesPrincipal.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=arrow_back_ios" />
         <script src="${pageContext.request.contextPath}/js/principal.js" defer></script>
+        <script src="${pageContext.request.contextPath}/js/deslogueo.js" defer></script>
         
     </head>
 
