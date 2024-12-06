@@ -3,9 +3,10 @@
     Created on : 27 nov 2024, 19:10:42
     Author     : Ruzzky
 --%>
-
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ page language="java" %>
+<%@ page import="java.util.List, java.util.ArrayList" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,7 +35,6 @@
 
     <div class="postAnimales">
         <section id="postAnimales">
-            <%-- Ejemplo dinámico para mostrar datos de animales --%>
             <%
                 class Animal {
                     String nombre, imagen, tamaño, caracteristicas, dieta, habitat;
@@ -48,7 +48,6 @@
                         this.habitat = habitat;
                     }
                 }
-                
 
                 List<Animal> animales = new ArrayList<>();
                 animales.add(new Animal("Aguila Real", "${pageContext.request.contextPath}/imagenesAnimalesA/aguila.jpg",
@@ -61,6 +60,26 @@
                         "Aletean entre 50 y 80 veces por segundo, lo que les permite mantenerse suspendidos en el aire. Su corazón puede latir más de 1,200 veces por minuto.",
                         "Se alimentan de néctar y pequeños insectos como mosquitos y arañas para obtener proteínas.",
                         "Bosques tropicales, zonas subtropicales y jardines; presentes principalmente en América."));
+                animales.add(new Animal("Guacamayo azul y amarillo", "${pageContext.request.contextPath}/imagenesAnimalesA/guacamayo.jpg",
+                        "76-86 cm de longitud; envergadura de 100-110 cm, peso alrededor de 1.3 kg.",
+                        "Plumaje de colores intensos: cuerpo amarillo, alas y espalda azules, y una franja verde en la frente. Son aves inteligentes y sociales, capaces de imitar sonidos y palabras humanas.",
+                        "Frutas, semillas, frutos secos y flores. Complementan su dieta con arcilla para neutralizar toxinas de algunos alimentos.",
+                        "Selvas tropicales, manglares y zonas húmedas de América del Sur, especialmente en la cuenca del Amazonas."));
+                animales.add(new Animal("Flamenco", "${pageContext.request.contextPath}/imagenesAnimalesA/flamenco.jpg",
+                        "80-145 cm de altura; envergadura de hasta 165 cm, peso entre 2 y 4 kg.",
+                        "Plumaje rosado, producto de los carotenoides presentes en su dieta. Pico curvado para filtrar alimentos del agua.",
+                        "Omnívora, consume algas, camarones y pequeños crustáceos.",
+                        "Lagunas salinas, humedales y lagos alcalinos."));
+                animales.add(new Animal("Búho real", "${pageContext.request.contextPath}/imagenesAnimalesA/buho.jpg",
+                        "60-75 cm de longitud; envergadura de hasta 190 cm, peso entre 2 y 4.5 kg.",
+                        "Grandes ojos anaranjados y \"orejas\" formadas por mechones de plumas. Su vuelo es completamente silencioso gracias a la estructura especial de sus plumas.",
+                        "Carnívora, se alimenta de roedores, conejos y aves pequeñas.",
+                        "Bosques, montañas y zonas rurales de Europa y Asia."));
+                animales.add(new Animal("Tucán toco", "${pageContext.request.contextPath}/imagenesAnimalesA/tucan.jpg",
+                        "55-65 cm de longitud; pico de hasta 20 cm, su peso es alrededor de 500 gramos.",
+                        "Pico grande de color naranja, ligero por su estructura hueca. Aves sociales que viven en grupos.",
+                        "Omnívora; consumen frutas, insectos, pequeños reptiles y huevos.",
+                        "Selvas tropicales de América del Sur."));
 
                 for (Animal animal : animales) {
             %>

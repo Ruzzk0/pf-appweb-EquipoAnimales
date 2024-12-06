@@ -77,7 +77,7 @@
         </div>
     </div>
 
-    <script src="nuevaPublicacion.js"></script>
+    <script src="nuevaPublicacionView.js"></script>
     <script>
         document.getElementById('imagenPost').addEventListener('change', function(event) {
             const file = event.target.files[0];
