@@ -82,7 +82,7 @@
                 arrow_back_ios
             </span>
         </a>
-        <a href="perfil.jsp" class="profile-button">👤</a>
+        <a href="perfilView.jsp" class="profile-button">👤</a>
         <h1>AnimalSocial</h1>
     <div class="estrella impar primera"></div>
     <div class="estrella par segunda"></div>
@@ -94,9 +94,9 @@
     <div class="estrella par octava"></div>
 
     <div class="nubes">
-            <a href="AnimalesTerrestres.jsp" class="punto-interes punto-verde"></a>
-            <a href="AnimalesMar.jsp" class="punto-interes punto-azul"></a>
-            <a href="AnimalesAereos.jsp" class="punto-interes punto-gris"></a>
+            <a href="AnimalesTerrestresView.jsp" class="punto-interes punto-verde"></a>
+            <a href="AnimalesMarView.jsp" class="punto-interes punto-azul"></a>
+            <a href="AnimalesAereosView.jsp" class="punto-interes punto-gris"></a>
             <img src="${pageContext.request.contextPath}/imgs/nubes.png" alt="nubes">
             <div class="tierra"></div>
     </div>

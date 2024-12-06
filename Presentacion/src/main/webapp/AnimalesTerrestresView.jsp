@@ -12,7 +12,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>ANIMALES TERRESTRES</title>
-        <link rel="stylesheet" href="stylesTerrestres.css">
+        <link rel="stylesheet" href="${pageContext.request.contextPath}/css/stylesTerrestres.css">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
@@ -23,13 +23,13 @@
                 <span class="material-icons">arrow_back_ios</span>
             </a>
             <h1>ANIMALES TERRESTRES</h1>
-            <a class="add-post-btn" href="NuevaPublicacion.jsp">
+            <a class="add-post-btn" href="NuevaPublicacionView.jsp">
                 <span class="material-icons">add</span> Nueva Publicación
             </a>
         </header>
 
         <div class="image-container">
-            <img src="imagenesAnimalesT/leopardo.jpg" alt="Animales Terrestres">
+            <img src="${pageContext.request.contextPath}/imagenesAnimalesT/leopardo.jpg" alt="Animales Terrestres">
             <div class="transparent-box"></div>
         </div>
 

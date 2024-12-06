@@ -14,24 +14,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Animales Marinos</title>
-    <link rel="stylesheet" href="stylesMarinos.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/stylesMarinos.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
     <header class="sticky-header">
-        <a href="principal.jsp" class="back-button">
+        <a href="principalView.jsp" class="back-button">
             <span class="material-icons">arrow_back_ios</span>
         </a>
         <h1>ANIMALES MARINOS</h1>
-        <a class="add-post-btn" href="NuevaPublicacion.jsp"><span class="material-icons">add</span>
+        <a class="add-post-btn" href="NuevaPublicacionView.jsp"><span class="material-icons">add</span>
             Nueva Publicación
         </a>
     </header>
 
     <div class="image-container">
-        <img src="imagenesAnimalesM/mar.jpg" alt="Animales Marinos">
+        <img src="${pageContext.request.contextPath}/imagenesAnimalesM/mar.jpg" alt="Animales Marinos">
         <div class="transparent-box"></div>
     </div>
 
