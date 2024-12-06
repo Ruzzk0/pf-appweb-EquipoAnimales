@@ -15,7 +15,7 @@ public class Publicacion {
     private int id;
     private String contenido;
     private LocalDateTime fechaPublicacion;
-    private Usuario autor;
+    private long autor;
 
     /**
      * Constructor vacío.
@@ -31,7 +31,7 @@ public class Publicacion {
      * @param fechaPublicacion Fecha y hora en que se realizó la publicación.
      * @param autor Usuario que creó la publicación.
      */
-    public Publicacion(int id, String contenido, LocalDateTime fechaPublicacion, Usuario autor) {
+    public Publicacion(int id, String contenido, LocalDateTime fechaPublicacion, long autor) {
         this.id = id;
         this.contenido = contenido;
         this.fechaPublicacion = fechaPublicacion;
@@ -62,11 +62,11 @@ public class Publicacion {
         this.fechaPublicacion = fechaPublicacion;
     }
 
-    public Usuario getAutor() {
+    public long getAutor() {
         return autor;
     }
 
-    public void setAutor(Usuario autor) {
+    public void setAutor(long autor) {
         this.autor = autor;
     }
 

@@ -28,7 +28,7 @@ public interface IUsuarioDAO  {
      * @return El usuario encontrado o null si no existe.
      * @throws DAOException Si ocurre un error al buscar el usuario.
      */
-    public Usuario buscarPorId(int id) throws DAOException;
+    public Usuario buscarPorId(long id) throws DAOException;
     
     public Usuario buscarPorCorreo(Usuario usuario) throws DAOException;
 

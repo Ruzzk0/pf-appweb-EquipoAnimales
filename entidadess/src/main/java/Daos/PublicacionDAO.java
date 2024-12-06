@@ -53,12 +53,12 @@ public class PublicacionDAO implements IPublicacionDAO {
     @Override
     public void agregar(Publicacion publicacion) throws DAOException {
         try {
-            Usuario autor = usuarioDAO.buscarPorId(publicacion.getAutor().getId());
+            Usuario autor = usuarioDAO.buscarPorId(publicacion.getAutor());
             if (autor == null) {
                 throw new DAOException("No se encontró el autor de la publicación.");
             }
 
-            publicacion.setAutor(autor);
+            publicacion.setAutor(autor.getId());
             publicacionCollection.insertOne(publicacion);
         } catch (Exception e) {
             throw new DAOException("Error al agregar la publicación: " + e.getMessage(), e);
@@ -116,7 +116,7 @@ public class PublicacionDAO implements IPublicacionDAO {
             throw new DAOException("No se encontró ninguna publicación con el ID especificado.");
         }
 
-        Usuario autor = usuarioDAO.buscarPorId(publicacion.getAutor().getId());
+        Usuario autor = usuarioDAO.buscarPorId(publicacion.getAutor());
         if (autor == null) {
             throw new DAOException("No se encontró el autor de la publicación.");
         }

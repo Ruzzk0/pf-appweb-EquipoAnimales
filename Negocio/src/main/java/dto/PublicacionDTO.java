@@ -14,12 +14,12 @@ public class PublicacionDTO {
     private int id;
     private String contenido;
     private LocalDateTime fechaPublicacion;
-    private UsuarioDTO autor;   
+    private long autor;   
 
     public PublicacionDTO() {
     }
 
-    public PublicacionDTO(int id, String contenido, LocalDateTime fechaPublicacion, UsuarioDTO autor) {
+    public PublicacionDTO(int id, String contenido, LocalDateTime fechaPublicacion, long autor) {
         this.id = id;
         this.contenido = contenido;
         this.fechaPublicacion = fechaPublicacion;
@@ -52,11 +52,11 @@ public class PublicacionDTO {
         this.fechaPublicacion = fechaPublicacion;
     }
 
-    public UsuarioDTO getAutor() {
+    public long getAutor() {
         return autor;
     }
 
-    public void setAutor(UsuarioDTO autor) {
+    public void setAutor(long autor) {
         this.autor = autor;
     }
 

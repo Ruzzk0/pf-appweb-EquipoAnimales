@@ -70,7 +70,7 @@ public class UsuarioDAO implements IUsuarioDAO {
      * @throws DAOException Si ocurre un error durante la búsqueda.
      */
     @Override
-    public Usuario buscarPorId(int id) throws DAOException {
+    public Usuario buscarPorId(long id) throws DAOException {
         try {
             return usuarioCollection.find(Filters.eq("id", id)).first();
         } catch (Exception e) {

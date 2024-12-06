@@ -32,13 +32,11 @@ public class PublicacionCVR {
             return null;
         }
 
-        Usuario autor = usuarioCVR.convertir_Usuario(dto.getAutor());
-
         return new Publicacion(
             dto.getId(),
             dto.getContenido(),
             dto.getFechaPublicacion(),
-            autor
+            dto.getAutor()
         );
     }
 
@@ -53,13 +51,11 @@ public class PublicacionCVR {
             return null;
         }
 
-        UsuarioDTO autorDTO = usuarioCVR.convertir_DTO(entidad.getAutor());
-
         return new PublicacionDTO(
             entidad.getId(),
             entidad.getContenido(),
             entidad.getFechaPublicacion(),
-            autorDTO
+            entidad.getAutor()
         );
     }
 }
