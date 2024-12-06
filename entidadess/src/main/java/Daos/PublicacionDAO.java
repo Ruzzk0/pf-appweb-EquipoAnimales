@@ -7,6 +7,7 @@ package Daos;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
 import com.mongodb.client.model.Filters;
+import com.mongodb.client.model.Sorts;
 import com.mongodb.client.model.Updates;
 import com.mongodb.client.result.DeleteResult;
 import com.mongodb.client.result.UpdateResult;
@@ -15,6 +16,7 @@ import entidades.Publicacion;
 import entidades.Usuario;
 import excepciones.DAOException;
 import interfaces.Daos.IPublicacionDAO;
+import java.util.List;
 import org.bson.conversions.Bson;
 
 
@@ -53,17 +55,30 @@ public class PublicacionDAO implements IPublicacionDAO {
     @Override
     public void agregar(Publicacion publicacion) throws DAOException {
         try {
-            Usuario autor = usuarioDAO.buscarPorId(publicacion.getAutor());
-            if (autor == null) {
-                throw new DAOException("No se encontró el autor de la publicación.");
+            Publicacion ultima = this.buscarUltima();
+            long id = 0;
+            if (ultima != null) {
+                id = ultima.getId();
+                id++;
             }
 
-            publicacion.setAutor(autor.getId());
+            publicacion.setId(id);
             publicacionCollection.insertOne(publicacion);
         } catch (Exception e) {
-            throw new DAOException("Error al agregar la publicación: " + e.getMessage(), e);
+            throw new DAOException("Error al agregar el usuario: " + e.getMessage(), e);
         }
     }
+    
+    private Publicacion buscarUltima() throws DAOException {
+    try {
+        // Ordenar por el campo de fecha o ID en orden descendente y obtener el primer resultado
+        Publicacion ultima = publicacionCollection.find().sort(Sorts.descending("id")).first();
+        
+        return ultima;
+    } catch (Exception e) {
+        throw new DAOException("Error al buscar la última publicación: " + e.getMessage(), e);
+    }
+}
     
     /**
      * Busca una publicación por su identificador único (ID).
@@ -73,9 +88,27 @@ public class PublicacionDAO implements IPublicacionDAO {
      * @throws DAOException Si ocurre un error durante la operación.
      */
     @Override
-    public Publicacion buscarPorId(int id) throws DAOException {
+    public Publicacion buscarPorId(long id) throws DAOException {
         try {
             return publicacionCollection.find(Filters.eq("id", id)).first();
+        } catch (Exception e) {
+            throw new DAOException("Error al buscar la publicación por ID: " + e.getMessage(), e);
+        }
+    }
+    
+    @Override
+    public Publicacion buscar_Publicacion_Sin_Id(Publicacion publicacion) throws DAOException {
+        try {
+            Publicacion publi = publicacionCollection.find(Filters.and(
+            Filters.eq("nombreAnimal", publicacion.getNombreAnimal()),
+            Filters.eq("tamañoAnimal", publicacion.getTamanoAnimal()),
+            Filters.eq("caracteristicas", publicacion.getCaracteristicas()),
+            Filters.eq("dieta", publicacion.getDieta()),
+            Filters.eq("habitat", publicacion.getHabitat()),
+            Filters.eq("autor", publicacion.getAutor())
+            )).first();
+            
+            return publi;
         } catch (Exception e) {
             throw new DAOException("Error al buscar la publicación por ID: " + e.getMessage(), e);
         }
@@ -89,7 +122,7 @@ public class PublicacionDAO implements IPublicacionDAO {
      * @throws DAOException Si ocurre un error durante la operación o si la publicación no existe.
      */
     @Override
-    public void eliminar(int id) throws DAOException {
+    public void eliminar(long id) throws DAOException {
     try {
         DeleteResult resultado = publicacionCollection.deleteOne(Filters.eq("id", id));
         if (resultado.getDeletedCount() == 0) {
@@ -108,7 +141,7 @@ public class PublicacionDAO implements IPublicacionDAO {
      * @throws DAOException Si ocurre un error durante la operación o si la publicación no existe.
      */
     @Override
-    public void actualizar(int id, Publicacion publicacion) throws DAOException {
+    public void actualizar(long id, Publicacion publicacion) throws DAOException {
     try {
         
         Publicacion publicacionExistente = buscarPorId(id);
@@ -122,8 +155,13 @@ public class PublicacionDAO implements IPublicacionDAO {
         }
 
         Bson updates = Updates.combine(
-            Updates.set("contenido", publicacion.getContenido()),
-            Updates.set("autor", autor)
+            Updates.set("nombreAnimal", publicacion.getNombreAnimal()),
+            Updates.set("tamañoAnimal", publicacion.getTamanoAnimal()),
+            Updates.set("caracteristicas", publicacion.getCaracteristicas()),
+            Updates.set("dieta", publicacion.getDieta()),
+            Updates.set("habitat", publicacion.getHabitat()),
+            Updates.set("imagen", publicacion.getImagen()),
+            Updates.set("formatoImagen", publicacion.getFormatoImagen())
         );
 
         UpdateResult resultado = publicacionCollection.updateOne(Filters.eq("id", id), updates);

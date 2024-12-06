@@ -139,7 +139,7 @@ public class UsuarioDAO implements IUsuarioDAO {
      * encuentra el usuario.
      */
     @Override
-    public void actualizar(int id, Usuario usuario) throws DAOException {
+    public void actualizar(long id, Usuario usuario) throws DAOException {
         try {
             Bson updates = Updates.combine(
                     Updates.set("nombre", usuario.getNombre()),
@@ -165,7 +165,7 @@ public class UsuarioDAO implements IUsuarioDAO {
      * encuentra el usuario.
      */
     @Override
-    public void eliminar(int id) throws DAOException {
+    public void eliminar(long id) throws DAOException {
         try {
             DeleteResult resultado = usuarioCollection.deleteOne(Filters.eq("id", id));
             if (resultado.getDeletedCount() == 0) {
@@ -176,6 +176,7 @@ public class UsuarioDAO implements IUsuarioDAO {
         }
     }
     
+    @Override
     public boolean busca_Correo_BD(Usuario usuario) throws DAOException{
         try {
             String correo = usuario.getCorreo();

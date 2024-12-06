@@ -5,13 +5,19 @@
 package BO;
 
 import Daos.PublicacionDAO;
+import Daos.UsuarioDAO;
 import Interfaces.IPublicacionBO;
 import convertidores.PublicacionCVR;
 import dto.PublicacionDTO;
 import entidades.Publicacion;
+import entidades.Usuario;
 import excepciones.BusinessException;
 import excepciones.DAOException;
 import interfaces.Daos.IPublicacionDAO;
+import interfaces.Daos.IUsuarioDAO;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -22,10 +28,12 @@ import interfaces.Daos.IPublicacionDAO;
 
   
     private final IPublicacionDAO publicacionDAO; 
+    private final IUsuarioDAO usuarioDAO; 
     private final PublicacionCVR publicacionCVR; 
 
     public PublicacionBO() {
         this.publicacionDAO = new PublicacionDAO();
+        this.usuarioDAO = new UsuarioDAO();
         this.publicacionCVR = new PublicacionCVR();
     }
 
@@ -39,10 +47,12 @@ import interfaces.Daos.IPublicacionDAO;
     @Override
     public void agregar(PublicacionDTO publicacionDTO) throws BusinessException {
         try {
-            
-            this.publicacionDAO.agregar(publicacionCVR.convertir_Publicacion(publicacionDTO));
+            Publicacion publi = publicacionCVR.convertir_Publicacion(publicacionDTO);
+            publicacionDAO.agregar(publi);
         } catch (DAOException e) {
             throw new BusinessException(e.getMessage());
+        } catch (IOException ex) {
+            Logger.getLogger(PublicacionBO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -55,7 +65,7 @@ import interfaces.Daos.IPublicacionDAO;
      * operación.
      */
     @Override
-    public PublicacionDTO buscarPorId(int id) throws BusinessException {
+    public PublicacionDTO buscarPorId(long id) throws BusinessException {
         try {
             return publicacionCVR.convertir_DTO(this.publicacionDAO.buscarPorId(id));
         } catch (DAOException e) {
@@ -70,7 +80,7 @@ import interfaces.Daos.IPublicacionDAO;
      * @throws BusinessException Arroja una excepción si ocurre un error en la operación.
      */
     @Override
-    public void eliminar(int id) throws BusinessException {
+    public void eliminar(long id) throws BusinessException {
         try {
             this.publicacionDAO.eliminar(id);
         } catch (DAOException e) {
@@ -86,12 +96,22 @@ import interfaces.Daos.IPublicacionDAO;
      * @throws BusinessException Arroja una excepción si ocurre un error en la operación.
      */
     @Override
-    public void actualizar(int id, PublicacionDTO publicacionDTO) throws BusinessException {
+    public void actualizar(long id, PublicacionDTO publicacionDTO) throws BusinessException {
         try {
+            Usuario usuario = usuarioDAO.buscarPorId(publicacionDTO.getAutor());
             Publicacion publicacion = publicacionCVR.convertir_Publicacion(publicacionDTO);
-            this.publicacionDAO.actualizar(id, publicacion);
+            Publicacion existente = publicacionDAO.buscarPorId(id);
+            if(existente != null && usuario !=null){
+                if(usuario.getId() == existente.getAutor() || usuario.isAdministrador()){
+                    this.publicacionDAO.actualizar(id, publicacion);
+                }
+                
+            }
+            
         } catch (DAOException e) {
             throw new BusinessException(e.getMessage());
+        } catch (IOException ex) {
+            Logger.getLogger(PublicacionBO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

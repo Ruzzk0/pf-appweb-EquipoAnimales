@@ -75,7 +75,7 @@ public class UsuarioBO implements IUsuarioBO {
      * operación.
      */
     @Override
-    public UsuarioDTO buscarPorId(int id) throws BusinessException {
+    public UsuarioDTO buscarPorId(long id) throws BusinessException {
         try {
             return usuarioCVR.convertir_DTO(this.usuarioDAO.buscarPorId(id));
         } catch (DAOException e) {
@@ -125,7 +125,7 @@ public class UsuarioBO implements IUsuarioBO {
      * operación.
      */
     @Override
-    public void actualizar(int id, UsuarioDTO usuarioDTO) throws BusinessException {
+    public void actualizar(long id, UsuarioDTO usuarioDTO) throws BusinessException {
         try {
             if (usuarioDTO.getCorreo().isBlank() || usuarioDTO.getNombre().isBlank()) {
                 throw new BusinessException("Faltan campos requeridos.");
@@ -149,7 +149,7 @@ public class UsuarioBO implements IUsuarioBO {
      * operación.
      */
     @Override
-    public void eliminar(int id) throws BusinessException {
+    public void eliminar(long id) throws BusinessException {
         try {
             this.usuarioDAO.eliminar(id);
         } catch (DAOException e) {

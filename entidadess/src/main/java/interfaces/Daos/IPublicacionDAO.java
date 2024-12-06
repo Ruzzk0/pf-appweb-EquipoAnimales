@@ -27,7 +27,9 @@ public interface IPublicacionDAO {
      * @return La publicación encontrada o null si no existe.
      * @throws DAOException Si ocurre un error al buscar la publicación.
      */
-    public Publicacion buscarPorId(int id) throws DAOException;
+    public Publicacion buscarPorId(long id) throws DAOException;
+    
+    public Publicacion buscar_Publicacion_Sin_Id(Publicacion publicacion) throws DAOException;
     
     /**
      * Elimina una publicación por su identificador único (ID).
@@ -35,7 +37,7 @@ public interface IPublicacionDAO {
      * @param id El identificador único de la publicación a eliminar.
      * @throws DAOException Si ocurre un error durante la operación o si la publicación no existe.
      */
-    public void eliminar(int id) throws DAOException;
+    public void eliminar(long id) throws DAOException;
     
     /**
      * Actualiza una publicación existente en la base de datos.
@@ -45,7 +47,7 @@ public interface IPublicacionDAO {
      * @throws DAOException Si ocurre un error durante la operación o si la publicación no existe.
      */
    
-    public void actualizar(int id, Publicacion publicacion) throws DAOException;
+    public void actualizar(long id, Publicacion publicacion) throws DAOException;
     
 
 }

@@ -29,7 +29,7 @@ public interface IPublicacionBO {
      * @return El objeto PublicacionDTO encontrado o null si no existe.
      * @throws BusinessException Si ocurre un error al buscar la publicación.
      */
-    public PublicacionDTO buscarPorId(int id) throws BusinessException;
+    public PublicacionDTO buscarPorId(long id) throws BusinessException;
 
    
      /**
@@ -38,7 +38,7 @@ public interface IPublicacionBO {
      * @param id Id de la publicación a eliminar.
      * @throws BusinessException Arroja una excepción si ocurre un error en la operación.
      */
-    public void eliminar(int id) throws BusinessException;
+    public void eliminar(long id) throws BusinessException;
     
     /**
      * Método para actualizar una publicación existente.
@@ -47,6 +47,6 @@ public interface IPublicacionBO {
      * @param publicacionDTO Los nuevos datos para la publicación.
      * @throws BusinessException Arroja una excepción si ocurre un error en la operación.
 //     */
-    public void actualizar(int id, PublicacionDTO publicacionDTO) throws BusinessException;
+    public void actualizar(long id, PublicacionDTO publicacionDTO) throws BusinessException;
 }
 

@@ -47,7 +47,7 @@ public interface IUsuarioDAO  {
      * @param usuario Los datos actualizados del usuario.
      * @throws DAOException Si ocurre un error durante la operación o si no se encuentra el usuario.
      */
-    public void actualizar(int id, Usuario usuario) throws DAOException;
+    public void actualizar(long id, Usuario usuario) throws DAOException;
     
     /**
      * Elimina un usuario por su identificador único (ID).
@@ -55,7 +55,7 @@ public interface IUsuarioDAO  {
      * @param id El identificador único del usuario a eliminar.
      * @throws DAOException Si ocurre un error durante la operación o si no se encuentra el usuario.
      */
-    public void eliminar(int id) throws DAOException;
+    public void eliminar(long id) throws DAOException;
     
     public boolean busca_Correo_BD(Usuario usuario) throws DAOException;
 }

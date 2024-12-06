@@ -30,7 +30,7 @@ public interface IComentarioBO {
      * @return El objeto ComentarioDTO encontrado o null si no existe.
      * @throws BusinessException Arroja una excepción si ocurre un error en la operación.
      */
-    public ComentarioDTO buscarPorId(int id) throws BusinessException;
+    public ComentarioDTO buscarPorId(long id) throws BusinessException;
    
     /**
      * Método que lista todos los comentarios asociados a una publicación.
@@ -39,7 +39,7 @@ public interface IComentarioBO {
      * @return Una lista de objetos ComentarioDTO relacionados con la publicación.
      * @throws BusinessException Arroja una excepción si ocurre un error en la operación.
      */
-    public List<ComentarioDTO> listarPorPublicacion(int publicacionId) throws BusinessException;
+    public List<ComentarioDTO> listarPorPublicacion(long publicacionId) throws BusinessException;
     
      /**
      * Método que elimina un comentario por su ID.
@@ -47,7 +47,7 @@ public interface IComentarioBO {
      * @param id ID del comentario a eliminar.
      * @throws BusinessException Arroja una excepción si ocurre un error en la operación.
      */
-    public void eliminar(int id) throws BusinessException;
+    public void eliminar(long id) throws BusinessException;
     
 }
 

@@ -8,6 +8,7 @@ import dto.ComentarioDTO;
 import entidades.Comentario;
 import entidades.Publicacion;
 import entidades.Usuario;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -15,12 +16,7 @@ import entidades.Usuario;
  */
 public class ComentarioCVR {
 
-    private UsuarioCVR usuarioCVR;
-    private PublicacionCVR publicacionCVR;
-
     public ComentarioCVR() {
-        this.usuarioCVR = new UsuarioCVR();
-        this.publicacionCVR = new PublicacionCVR();
     }
 
     public Comentario convertir_Comentario(ComentarioDTO dto) {
@@ -28,22 +24,12 @@ public class ComentarioCVR {
             return null;
         }
 
-        Usuario autor = null;
-        if (dto.getAutor() != null) {
-            autor = usuarioCVR.convertir_Usuario(dto.getAutor());
-        }
-
-        Publicacion publicacion = null;
-        if (dto.getPublicacion() != null) {
-            publicacion = publicacionCVR.convertir_Publicacion(dto.getPublicacion());
-        }
-
         return new Comentario(
             dto.getId(),
             dto.getContenido(),
             dto.getFechaComentario(),
-            autor,
-            publicacion
+            dto.getAutor(),
+            dto.getPublicacion()
         );
     }
 
@@ -52,18 +38,11 @@ public class ComentarioCVR {
             return null;
         }
 
-        ComentarioDTO dto = new ComentarioDTO();
-        dto.setId(entidad.getId());
-        dto.setContenido(entidad.getContenido());
-        dto.setFechaComentario(entidad.getFechaComentario());
-
-        if (entidad.getAutor() != null) {
-            dto.setAutor(usuarioCVR.convertir_DTO(entidad.getAutor()));
-        }
-
-        if (entidad.getPublicacion() != null) {
-            dto.setPublicacion(publicacionCVR.convertir_DTO(entidad.getPublicacion()));
-        }
+        ComentarioDTO dto = new ComentarioDTO(
+                entidad.getContenido(), 
+                entidad.getFechaComentario(), 
+                entidad.getAutor(), 
+                entidad.getPublicacion());
 
         return dto;
     }

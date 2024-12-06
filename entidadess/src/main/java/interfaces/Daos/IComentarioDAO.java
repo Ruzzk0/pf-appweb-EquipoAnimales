@@ -28,7 +28,7 @@ public interface IComentarioDAO {
      * @return El comentario encontrado o null si no existe.
      * @throws DAOException Si ocurre un error al buscar el comentario.
      */
-    public Comentario buscarPorId(int id) throws DAOException;
+    public Comentario buscarPorId(long id) throws DAOException;
 
     /**
      * Lista todos los comentarios asociados a una publicación específica.
@@ -37,7 +37,7 @@ public interface IComentarioDAO {
      * @return Una lista de comentarios relacionados con la publicación.
      * @throws DAOException Si ocurre un error al listar los comentarios.
      */
-    public List<Comentario> listarPorPublicacion(int publicacionId) throws DAOException;
+    public List<Comentario> listarPorPublicacion(long publicacionId) throws DAOException;
     
     /**
     * Elimina un comentario de la base de datos según su identificador único (ID).
@@ -46,6 +46,6 @@ public interface IComentarioDAO {
     * @throws DAOException Si ocurre un error durante la operación.
     */
 
-   public void eliminar(int id) throws DAOException;
+   public void eliminar(long id) throws DAOException;
 }
 

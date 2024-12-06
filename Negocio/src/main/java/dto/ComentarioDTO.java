@@ -12,16 +12,16 @@ import java.time.LocalDateTime;
  */
 public class ComentarioDTO {
        
-    private int id;
+    private long id;
     private String contenido;
     private LocalDateTime fechaComentario;
-    private UsuarioDTO autor;
-    private PublicacionDTO publicacion;
+    private long autor;
+    private long publicacion;
 
     public ComentarioDTO() {
     }
 
-    public ComentarioDTO(int id, String contenido, LocalDateTime fechaComentario, UsuarioDTO autor, PublicacionDTO publicacion) {
+    public ComentarioDTO(long id, String contenido, LocalDateTime fechaComentario, long autor, long publicacion) {
         this.id = id;
         this.contenido = contenido;
         this.fechaComentario = fechaComentario;
@@ -29,7 +29,15 @@ public class ComentarioDTO {
         this.publicacion = publicacion;
     }
 
-    public int getId() {
+    public ComentarioDTO(String contenido, LocalDateTime fechaComentario, long autor, long publicacion) {
+        this.contenido = contenido;
+        this.fechaComentario = fechaComentario;
+        this.autor = autor;
+        this.publicacion = publicacion;
+    }
+    
+
+    public long getId() {
         return id;
     }
 
@@ -53,19 +61,19 @@ public class ComentarioDTO {
         this.fechaComentario = fechaComentario;
     }
 
-    public UsuarioDTO getAutor() {
+    public long getAutor() {
         return autor;
     }
 
-    public void setAutor(UsuarioDTO autor) {
+    public void setAutor(long autor) {
         this.autor = autor;
     }
 
-    public PublicacionDTO getPublicacion() {
+    public long getPublicacion() {
         return publicacion;
     }
 
-    public void setPublicacion(PublicacionDTO publicacion) {
+    public void setPublicacion(long publicacion) {
         this.publicacion = publicacion;
     }
 

@@ -55,7 +55,7 @@ import java.util.List;
      * operación.
      */
     @Override
-    public ComentarioDTO buscarPorId(int id) throws BusinessException {
+    public ComentarioDTO buscarPorId(long id) throws BusinessException {
         try {
             return comentarioCVR.convertir_DTO(this.comentarioDAO.buscarPorId(id));
         } catch (DAOException e) {
@@ -70,7 +70,7 @@ import java.util.List;
      * @throws BusinessException Arroja una excepción si ocurre un error en la operación.
      */
  @Override
-    public List<ComentarioDTO> listarPorPublicacion(int publicacionId) throws BusinessException {
+    public List<ComentarioDTO> listarPorPublicacion(long publicacionId) throws BusinessException {
         try {
             List<Comentario> comentarios = comentarioDAO.listarPorPublicacion(publicacionId);
             return comentarios.stream()
@@ -88,7 +88,7 @@ import java.util.List;
      * @throws BusinessException Arroja una excepción si ocurre un error en la operación.
      */
     @Override
-    public void eliminar(int id) throws BusinessException {
+    public void eliminar(long id) throws BusinessException {
         try {
             comentarioDAO.eliminar(id);
         } catch (DAOException e) {

@@ -29,7 +29,7 @@ public interface IUsuarioBO {
      * @return El objeto UsuarioDTO encontrado o null si no existe.
      * @throws BusinessException Si ocurre un error al buscar el usuario.
      */
-    public UsuarioDTO buscarPorId(int id) throws BusinessException;
+    public UsuarioDTO buscarPorId(long id) throws BusinessException;
     
     public UsuarioDTO buscarPorCorreo(UsuarioDTO usuarioDTO) throws BusinessException;
     
@@ -40,7 +40,7 @@ public interface IUsuarioBO {
      * @param usuarioDTO Datos actualizados del usuario.
      * @throws BusinessException Arroja una excepción si ocurre un error en la operación.
      */
-    public void actualizar(int id, UsuarioDTO usuarioDTO) throws BusinessException;
+    public void actualizar(long id, UsuarioDTO usuarioDTO) throws BusinessException;
     
     /**
      * Método para eliminar un usuario por su ID.
@@ -48,7 +48,7 @@ public interface IUsuarioBO {
      * @param id ID del usuario a eliminar.
      * @throws BusinessException Arroja una excepción si ocurre un error en la operación.
      */
-    public void eliminar(int id) throws BusinessException;
+    public void eliminar(long id) throws BusinessException;
 
      /**
      * Método para listar todos los usuarios.

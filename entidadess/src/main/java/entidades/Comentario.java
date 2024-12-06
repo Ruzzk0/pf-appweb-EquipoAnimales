@@ -13,11 +13,11 @@ import java.time.LocalDateTime;
  */
 public class Comentario {
     
-    private int id;
+    private long id;
     private String contenido;
     private LocalDateTime fechaComentario;
-    private Usuario autor;
-    private Publicacion publicacion;
+    private long autor;
+    private long publicacion;
 
     
     /**
@@ -35,7 +35,7 @@ public class Comentario {
      * @param autor Usuario que realizó el comentario.
      * @param publicacion Publicación asociada al comentario.
      */
-    public Comentario(int id, String contenido, LocalDateTime fechaComentario, Usuario autor, Publicacion publicacion) {
+    public Comentario(long id, String contenido, LocalDateTime fechaComentario, long autor, long publicacion) {
         this.id = id;
         this.contenido = contenido;
         this.fechaComentario = fechaComentario;
@@ -43,11 +43,24 @@ public class Comentario {
         this.publicacion = publicacion;
     }
 
-    public int getId() {
+    public Comentario(String contenido, long autor, long publicacion) {
+        this.contenido = contenido;
+        this.autor = autor;
+        this.publicacion = publicacion;
+    }
+
+    public Comentario(String contenido, LocalDateTime fechaComentario, long autor, long publicacion) {
+        this.contenido = contenido;
+        this.fechaComentario = fechaComentario;
+        this.autor = autor;
+        this.publicacion = publicacion;
+    }
+
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -67,19 +80,19 @@ public class Comentario {
         this.fechaComentario = fechaComentario;
     }
 
-    public Usuario getAutor() {
+    public long getAutor() {
         return autor;
     }
 
-    public void setAutor(Usuario autor) {
+    public void setAutor(long autor) {
         this.autor = autor;
     }
 
-    public Publicacion getPublicacion() {
+    public long getPublicacion() {
         return publicacion;
     }
 
-    public void setPublicacion(Publicacion publicacion) {
+    public void setPublicacion(long publicacion) {
         this.publicacion = publicacion;
     }
 
