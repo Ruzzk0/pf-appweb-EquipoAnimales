@@ -1,35 +1,40 @@
-/* 
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
- */
+document.getElementById('formPublicar').addEventListener('submit', async function (event) {
+    event.preventDefault(); // Evita el envío normal del formulario
 
-document.getElementById('btnPublicar').addEventListener("click", function(event) {
-    event.preventDefault(); // Evita el envío del formulario para procesarlo en el frontend
+    const formData = new FormData();
 
-    // Captura los valores de cada campo
-    const nombre = document.getElementById("nombreAnimalPost").value;
-    const tamaño = document.getElementById("tamañoAnimalPost").value;
-    const caracteristicas = document.getElementById("caracteristicasAnimalPost").value;
-    const dieta = document.getElementById("dietaAnimalPost").value;
-    const habitad = document.getElementById("habitadAnimalPost").value;
-    const imagen = document.getElementById("imagenPost").files[0]; // Captura el archivo de imagen
+    // Agregar los datos al FormData
+    formData.append('nombreAnimal', document.getElementById('nombreAnimalPost').value);
+    formData.append('tamanoAnimal', document.getElementById('tamanioAnimalPost').value);
+    formData.append('caracteristicas', document.getElementById('caracteristicasAnimalPost').value);
+    formData.append('dieta', document.getElementById('dietaAnimalPost').value);
+    formData.append('habitat', document.getElementById('habitadAnimalPost').value);
+    formData.append('imagen', document.getElementById('imagenPost').files[0]); // Archivo de imagen
 
-    if (!nombre || !tamaño || !caracteristicas || !dieta || !habitad) {
-        alert("Por favor, completa todos los campos requeridos.");
-        return; // Detiene el flujo si algún campo está vacío
+    try {
+        const response = await fetch(window.location.origin + '/Presentacion/NuevaPublicacionController', {
+            method: 'POST',
+            body: formData
+        });
+
+        if (response.ok) {
+            const jsonData = await response.json();
+            console.log(jsonData); // Depurar la respuesta
+            if (jsonData.success) {
+                alert(jsonData.message);
+                console.log(document.getElementById('imagenPost').files[0]); // Verificar si el archivo se agrega correctamente
+
+                // Opcional: Limpiar el formulario o hacer cualquier otra acción
+                document.getElementById('formPublicar').reset();
+            } else {
+                alert('Error: ' + jsonData.message);
+            }
+        } else {
+            console.error('Error en la respuesta del servidor:', response.status);
+            alert('Ocurrió un problema con el servidor.');
+        }
+    } catch (error) {
+        console.error('Error al enviar los datos:', error);
+        alert('Ocurrió un problema al enviar los datos.');
     }
-
-
-    // Guarda los datos en un objeto
-    const animalData = {
-        nombre: nombre,
-        tamaño: tamaño,
-        caracteristicas: caracteristicas,
-        dieta: dieta,
-        habitad: habitad,
-        imagen: imagen
-    };
-
-    window.location.href = 'principal.html';
-    // Aquí puedes hacer lo que necesites con los datos, como enviarlos a un servidor
 });

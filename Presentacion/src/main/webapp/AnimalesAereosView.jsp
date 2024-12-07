@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/stylesAereos.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="${pageContext.request.contextPath}/js/registrarComentarios.js" defer></script>
 </head>
 <body>
     <header class="sticky-header">
@@ -117,6 +118,5 @@
             <% } %>
         </section>
     </div>
-    <script src="registrarComentarios.js"></script>
 </body>
 </html>
