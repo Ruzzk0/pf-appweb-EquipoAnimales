@@ -1,40 +1,27 @@
 document.getElementById('formPublicar').addEventListener('submit', async function (event) {
-    event.preventDefault(); // Evita el envío normal del formulario
+    event.preventDefault();
 
-    const formData = new FormData();
-
-    // Agregar los datos al FormData
-    formData.append('nombreAnimal', document.getElementById('nombreAnimalPost').value);
-    formData.append('tamanoAnimal', document.getElementById('tamanioAnimalPost').value);
-    formData.append('caracteristicas', document.getElementById('caracteristicasAnimalPost').value);
-    formData.append('dieta', document.getElementById('dietaAnimalPost').value);
-    formData.append('habitat', document.getElementById('habitadAnimalPost').value);
-    formData.append('imagen', document.getElementById('imagenPost').files[0]); // Archivo de imagen
+    const formData = new FormData(this);
 
     try {
-        const response = await fetch(window.location.origin + '/Presentacion/NuevaPublicacionController', {
+        const response = await fetch(this.action, {
             method: 'POST',
             body: formData
         });
 
-        if (response.ok) {
-            const jsonData = await response.json();
-            console.log(jsonData); // Depurar la respuesta
-            if (jsonData.success) {
-                alert(jsonData.message);
-                console.log(document.getElementById('imagenPost').files[0]); // Verificar si el archivo se agrega correctamente
+        const responseText = await response.text(); // Leer como texto en lugar de JSON
+        console.log('Respuesta del servidor:', responseText);
 
-                // Opcional: Limpiar el formulario o hacer cualquier otra acción
-                document.getElementById('formPublicar').reset();
-            } else {
-                alert('Error: ' + jsonData.message);
-            }
-        } else {
-            console.error('Error en la respuesta del servidor:', response.status);
-            alert('Ocurrió un problema con el servidor.');
+        const jsonData = JSON.parse(responseText); // Intentar parsear a JSON
+        alert(jsonData.message);
+
+        if (jsonData.success) {
+            this.reset();                
+            window.location.href = 'principalView.jsp'; // Redirigir a la página de inicio
+            
         }
     } catch (error) {
         console.error('Error al enviar los datos:', error);
-        alert('Ocurrió un problema al enviar los datos.');
+        alert('Ocurrió un problema al procesar la publicación.');
     }
 });

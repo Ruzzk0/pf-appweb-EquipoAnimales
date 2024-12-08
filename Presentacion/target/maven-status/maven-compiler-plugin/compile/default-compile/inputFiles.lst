@@ -1,5 +1,7 @@
 /home/gamaliel/Documentos/pf-appweb-EquipoAnimales/Presentacion/src/main/java/flechaSiguiente/checkSessionServlet.java
 /home/gamaliel/Documentos/pf-appweb-EquipoAnimales/Presentacion/src/main/java/logout/logoutController.java
+/home/gamaliel/Documentos/pf-appweb-EquipoAnimales/Presentacion/src/main/java/org/itson/webapps/animalesAereos/mvc/AnimalesAereosController.java
+/home/gamaliel/Documentos/pf-appweb-EquipoAnimales/Presentacion/src/main/java/org/itson/webapps/comentarios/registrarComentariosController.java
 /home/gamaliel/Documentos/pf-appweb-EquipoAnimales/Presentacion/src/main/java/org/itson/webapps/index/mvc/indexController.java
 /home/gamaliel/Documentos/pf-appweb-EquipoAnimales/Presentacion/src/main/java/org/itson/webapps/index/mvc/indexModel.java
 /home/gamaliel/Documentos/pf-appweb-EquipoAnimales/Presentacion/src/main/java/org/itson/webapps/nuevaPublicacion/mvc/NuevaPublicacionController.java

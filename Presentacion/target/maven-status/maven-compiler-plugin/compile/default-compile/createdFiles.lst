@@ -1,3 +1,5 @@
+org/itson/webapps/comentarios/registrarComentariosController.class
+org/itson/webapps/animalesAereos/mvc/AnimalesAereosController.class
 org/itson/webapps/register/mvc/registerController.class
 org/itson/webapps/register/mvc/registerModel.class
 org/itson/webapps/index/mvc/indexModel.class

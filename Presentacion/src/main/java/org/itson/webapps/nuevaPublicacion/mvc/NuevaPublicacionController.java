@@ -10,7 +10,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import dto.PublicacionDTO;
 import java.io.IOException;
-import java.io.PrintWriter;
+import jakarta.servlet.annotation.MultipartConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -25,6 +25,7 @@ import java.time.LocalDateTime;
  * @author gamaliel
  */
 @WebServlet(name = "NuevaPublicacionController", urlPatterns = {"/NuevaPublicacionController"})
+@MultipartConfig
 public class NuevaPublicacionController extends HttpServlet {
 
         private final IPublicacionBO publicacionBO = new PublicacionBO();
@@ -39,27 +40,66 @@ public class NuevaPublicacionController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            // Crear el objeto JSON de respuesta
-            JsonObject jsonResponse = new JsonObject();
-            jsonResponse.addProperty("success", false);  // Default
-            jsonResponse.addProperty("message", "Ocurrió un error inesperado");
+        response.setContentType("application/json"); // Asegura que la respuesta sea JSON
+        response.setCharacterEncoding("UTF-8"); // Asegura que los caracteres sean válidos en UTF-8
 
-            // Aquí iría el código de procesamiento de la publicación (por ejemplo, cargar datos, guardar, etc.)
-            try {
-                // Simulamos el procesamiento y enviamos éxito
-                jsonResponse.addProperty("success", true);
-                jsonResponse.addProperty("message", "¡Registro exitoso!");
-            } catch (Exception e) {
-                jsonResponse.addProperty("message", "Error al procesar la publicación: " + e.getMessage());
+        JsonObject jsonResponse = new JsonObject();
+        Gson gson = new Gson(); // Instancia de Gson
+
+        try {
+            // Directorio para guardar imágenes
+            String uploadPath = getServletContext().getRealPath("") + File.separator + "uploads";
+            File uploadDir = new File(uploadPath);
+            if (!uploadDir.exists()) {
+                uploadDir.mkdir();
             }
 
-            // Escribir la respuesta JSON
-            Gson gson = new Gson();
-            out.print(gson.toJson(jsonResponse));
+            // Obtener imagen
+            Part imagenPart = request.getPart("imagen");
+            String fileName = imagenPart.getSubmittedFileName();
+            String filePath = uploadPath + File.separator + fileName;
+            imagenPart.write(filePath);
+
+            // Obtener otros parámetros
+            String nombreAnimal = request.getParameter("nombreAnimal");
+            String tamanoAnimal = request.getParameter("tamanoAnimal");
+            String caracteristicas = request.getParameter("caracteristicas");
+            String dieta = request.getParameter("dieta");
+            String habitat = request.getParameter("habitat");
+            long autor = 0L; // Simulación: obtén el ID del usuario logueado
+            LocalDateTime fechaPublicacion = LocalDateTime.now();
+
+            // Crear DTO
+            PublicacionDTO publicacion = new PublicacionDTO();
+            publicacion.setNombreAnimal(nombreAnimal);
+            publicacion.setTamanoAnimal(tamanoAnimal);
+            publicacion.setCaracteristicas(caracteristicas);
+            publicacion.setDieta(dieta);
+            publicacion.setHabitat(habitat);
+            publicacion.setAutor(autor);
+            publicacion.setFechaPublicacion(fechaPublicacion);
+            publicacion.setImagen(new File(filePath));
+
+            // Guardar usando la capa BO
+            publicacionBO.agregar(publicacion);
+
+            // Responder éxito
+            jsonResponse.addProperty("success", true);
+            jsonResponse.addProperty("message", "¡Publicación creada exitosamente!");
+        } catch (Exception e) {
+            // Manejo de errores
+            jsonResponse.addProperty("success", false);
+            jsonResponse.addProperty("message", "Error: " + e.getMessage());
+        }
+
+        // Escribir la respuesta como JSON usando Gson
+        try (var writer = response.getWriter()) {
+            writer.write(gson.toJson(jsonResponse));
         }
     }
+
+    
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

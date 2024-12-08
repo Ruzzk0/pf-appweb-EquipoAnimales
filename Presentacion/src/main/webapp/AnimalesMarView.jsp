@@ -4,8 +4,7 @@
     Author     : Ruzzky
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,11 +17,11 @@
 </head>
 <body>
     <header class="sticky-header">
-        <a href="principal.html" class="back-button">
+        <a href="principalView" class="back-button">
             <span class="material-icons">arrow_back_ios</span>
         </a>
         <h1>ANIMALES MARINOS</h1>
-        <a class="add-post-btn" href="NuevaPublicacion.html"><span class="material-icons">arrow_back_ios</span>
+        <a class="add-post-btn" href="NuevaPublicacionView.jsp"><span class="material-icons">arrow_back_ios</span>
             Nueva Publicación
         </a>
     </header>
